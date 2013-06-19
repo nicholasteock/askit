@@ -1,0 +1,31 @@
+<%for( var i=0; i<this.length; i++ ) {%>
+	<div id="<%=this[i].id%>" class="qnItem">
+		<div class="qnItemBody row-fluid">
+			<span class="span7 qnItemBodyContent">
+				<h5>Question:</h5>
+				<div class="qnText">
+					<%=this[i].content%>
+				</div>
+			</span>
+			<span class="span5 qnItemBodyDetails" >
+				<h5>Details:</h5>
+				Level: &nbsp;&nbsp;&nbsp;&nbsp;<%=this[i].level%>
+				<br>
+				Subject: &nbsp;<%=this[i].subject%>
+				<br>
+				Topic: &nbsp;&nbsp;&nbsp;&nbsp;<%=this[i].topic%>
+			</span>
+		</div>
+		<div class="qnItemFooter row-fluid">
+			<span id="qnItemFooterAnswer" class="span4 text-center qnFooterNav">
+				<i class="icon-lightbulb"></i> &nbsp; Answer
+			</span>
+			<span id="qnItemFooterPin" class="span3 text-center qnFooterNav">
+				<i class="icon-pushpin"></i> &nbsp; Pin Question
+			</span>
+			<span id="qnItemFooterReport" class="span5 text-center qnFooterNav">
+				<i class="icon-exclamation-sign"></i> &nbsp; Report Inappropriate
+			</span>
+		</div>
+	</div>
+<%}%>

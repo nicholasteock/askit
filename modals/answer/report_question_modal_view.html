@@ -1,0 +1,31 @@
+<div class="modal-header">
+	<h4>Report Question<span class="pull-right" data-dismiss="modal"><i class="icon-remove-sign"></i></span></h4>
+</div>
+<div class="modal-body">
+	<div class="modalQnContainer">
+		<h5>Question</h5>
+		<%=this.content%>
+	</div>
+	<div id="reportSubmitSuccess" class="hidden">
+		<h1>Thank You!</h1>
+		<br>
+		<h5>We appreciate your help in keeping this place a healthy learning community. We would get back to you soon.</h5>
+	</div>
+	<div id="reportSubmitFail" class="hidden">
+		<h1>Oops!</h1>
+		<br>
+		<h5>Unfortunately something went wrong along our submission channels. Please try again!</h5>
+	</div>
+	<hr>
+	<div id="<%= this.id %>" class="modalReportContainer row-fluid">
+		<h5>Why is the above question inappropriate?</h5>
+		<textarea rows="5" class="span12 reportContent"></textarea>
+		<h5>Your email:</h5>
+		<input type="email" class="span6" id="reportEmail">
+	</div>
+</div>
+<div class="modal-footer">
+	<button id="modalClose" type="button" data-dismiss="modal" class="btn hidden">Close</button>
+	<button id="modalCancel" type="button" data-dismiss="modal" class="btn">Cancel</button>
+	<button id="reportSubmit" type="button" class="btn btn-primary">Submit</button>
+</div>
