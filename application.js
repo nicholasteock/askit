@@ -19,13 +19,51 @@ $.Class("Askit.Application", {
 		//save references of global elements
 		this.routes			= {};
 		this.currentScreen 	= {};
+		this.currentUser	= {};
+		this.accessToken	= $.cookie("accessToken");
+
 		this._header		= $("#ai-header");
 		this._body			= $("#ai-body");
 		this._window		= $(window);
+
 		this._changeTemplateExtension("html");
+	},
+
+	authenticateUser: function() {
+		$.cookie("accessToken", null);
+
+		if( location.hash ) {
+			$.cookie( "returnUrl", location.hash );
+		}
+
+		window.top.location = "/";
+	},
+
+	// Clears user session info. Goes back to sign in page.
+	signout: function(el, ev) {
+		console.log("SIGNING OUT");
+		if( ev && ev.preventDefault ) {
+			ev.preventDefault();
+		}
+
+		// Inform the server and remove user.
+		if( this.currentUser.name ) {
+			//this.currentUser.logout();
+			this.currentUser = {};
+		}
+
+		$.cookie("accessToken", null);
+		delete app.accessToken;
+
+		// Redirect user back to the login screen.
+		this.authenticateUser();
 	},
 	
 	run: function() {
+		if( !this.currentUser.name ) {
+			this.authenticateUser();
+		}
+
 		this._aiApp = new Askitapplication( $("body") );
 
 		this._window.bind("hashchange", this.proxy(this.showScreen));
@@ -36,6 +74,47 @@ $.Class("Askit.Application", {
 				delete window.routes[route];
 			}
 		}
+
+		this.restoreLocationAndStateOnAppStart();
+	},
+
+	restoreLocationAndStateOnAppStart: function() {
+		var checkJustLoggedIn 	= $.cookie( "justLoggedIn" ),
+			checkReturnUrl		= $.cookie( "returnUrl" ),
+			newHash;
+
+		//TODO: restoreState functionality (if required)
+
+		if( location.hash.length > 0 ) {
+			newHash = location.hash;
+		}
+		else if( checkJustLoggedIn && checkReturnUrl ) {
+			newHash = checkReturnUrl;
+		}
+		else {
+			newHash = "/";
+		}
+
+		// Delete cookies
+		$.cookie( "returnUrl", null );
+		$.cookie( "justLoggedIn", null );
+
+		if( newHash === location.hash ) {
+			app.showScreen();
+		}
+		else {
+			app.setLocation( newHash );
+		}
+
+	},
+
+	setLocation: function(hash, params, replaceParams) {
+		location.hash = hash;
+	},
+
+	// Used to reload a screen if there is no hash change.
+	reloadLocation: function() {
+		app.showScreen();
 	},
 	
 	showScreen: function(){
@@ -80,10 +159,6 @@ $.Class("Askit.Application", {
 		return hash;
 	},
 	
-	setLocation: function(hash, params, replaceParams) {
-		location.hash = hash;
-	},
-	
 	createController: function( theScreen, options ) {
 		var wrapper = $('<div id="' + theScreen.shortName + '" ></div>');
 			ht = $(window).height()-150;
@@ -119,5 +194,13 @@ $.Class("Askit.Application", {
 				};
 			}
 		});
+	},
+
+	preventBackspaceNavigation: function(ev) {
+		if( ev.target.tagName == "BODY"
+			&& ev.which == 8
+			&& !((ev.ctrlKey || ev.metaKey) && ev.shiftKey )) {
+			return false;
+		}
 	},
 });

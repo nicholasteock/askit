@@ -2,7 +2,7 @@
 	$id 		= $_REQUEST["id"];
 	$content 	= $_REQUEST["content"];
 	$author 	= $_REQUEST["author"];
-	$con		= mysql_connect( "127.0.0.1", "root", "");
+	$con = mysql_connect('askitdbinstance.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'liverpool', 'askitdb', '3306');
 	mysql_select_db( "askitdb" );
 	
 	$queryResult = mysql_query( "INSERT INTO answer (`id`, `qnId`, `content`, `author`, `timestamp`) VALUES ( NULL, '" . $id . "', '" . $content . "', '" . $author . "', CURRENT_TIMESTAMP);" );

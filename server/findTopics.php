@@ -1,7 +1,8 @@
 <?php
 	$level 		= $_REQUEST["level"];
 	$subject 	= $_REQUEST["subject"];
-	$con		= mysql_connect( "127.0.0.1", "root", "");
+	$con = mysql_connect('askitdbinstance.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'liverpool', 'askitdb', '3306');
+	// $con		= mysql_connect( "ec2-54-213-3-190.us-west-2.compute.amazonaws.com", "root", "1234");
 	mysql_select_db( "askitdb" );
 	
 	$queryResult = mysql_query( "SELECT topic FROM topics WHERE level='" . $level . "' AND subject='" . $subject . "'" );
