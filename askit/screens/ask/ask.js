@@ -97,7 +97,8 @@ Screen.extend("Ask",
 		var level	= $("#qnLevel").text(),
 			subject	= $("#qnSubject").text(),
 			topic 	= $("#qnTopic").text(),
-			content = $("#qnContent").val();
+			content = $("#qnContent").val(),
+			authorId= app.currentUser.id;
 		
 		if( !level ) {
 			$("#noLevelErrorMsg").removeClass("hidden");
@@ -120,12 +121,12 @@ Screen.extend("Ask",
 			$("#qnSubmit").addClass("disabled");
 			$("#qnSubmit").attr("disabled", "disabled");
 		
-			var params	= { 
-							level: level,
-							subject: subject,
-							topic: topic,
-							content: content,
-							
+			var params= {
+							level 		: level,
+							subject 	: subject,
+							topic 		: topic,
+							content 	: content,
+							author 		: app.currentUser.firstLastName()
 						};
 						
 			$.when(

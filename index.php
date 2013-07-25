@@ -58,12 +58,11 @@ function createToken( $email ) {
 //Failure: Empty string
 function whoAmI( $accessToken ) {
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
-	$queryResult = $mysqli->query( "SELECT id, name, email FROM user WHERE accessToken='" . $accessToken . "'");
+	$queryResult = $mysqli->query( "SELECT id, firstName, lastName, email FROM user WHERE accessToken='" . $accessToken . "'");
 	if( $queryResult ) {
 		for ($rowIndex = $queryResult->num_rows - 1; $rowIndex >=0; $rowIndex--) {
 			$queryResult->data_seek($rowIndex);
 			$row = $queryResult->fetch_assoc();
-			
 			return json_encode($row);
 		}
 	}

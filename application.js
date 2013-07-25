@@ -60,7 +60,7 @@ $.Class("Askit.Application", {
 	},
 	
 	run: function() {
-		if( !this.currentUser.name ) {
+		if( !this.currentUser.email ) {
 			this.authenticateUser();
 		}
 

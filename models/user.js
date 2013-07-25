@@ -7,6 +7,18 @@ $.Model("User",
 	// 		error: error
 	// 	}).call();
 	// },
+
+	// logout: function() {
+	// 	new ASKITAPI({
+	// 		url: "logout"
+	// 	}).fireAndForget();
+	// },
+},
+{
+	init: function() {
+		return;
+	},
+
 	lastFirstName: function() {
 		return this.lastName + ", " + this.firstName;
 	},
@@ -23,16 +35,5 @@ $.Model("User",
 			name = name.substring( 0, pos );
 		}
 		return name;
-	},
-
-	// logout: function() {
-	// 	new ASKITAPI({
-	// 		url: "logout"
-	// 	}).fireAndForget();
-	// },
-},
-{
-	init: function() {
-		return this;
 	},
 });

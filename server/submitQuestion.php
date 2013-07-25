@@ -3,7 +3,7 @@
 	$subject 	= $_REQUEST["subject"];
 	$topic		= $_REQUEST["topic"];
 	$content	= $_REQUEST["content"];
-	$author		= "Nicholas Teo";
+	$author		= $_REQUEST["author"];
 	
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
 	$queryResult = $mysqli->query( "INSERT INTO question (`id`, `level`, `subject`, `topic`, `content`, `author`, `timestamp`) VALUES ( NULL, '" . $level . "', '" . $subject . "', '" . $topic . "', '" . $content . "', '" . $author . "', CURRENT_TIMESTAMP);" );
