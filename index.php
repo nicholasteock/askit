@@ -1,6 +1,6 @@
 <?php
 
-require_once( "Globals.php" );
+// require_once( "Globals.php" );
 // require_once( "ASKITAPI.php" );
 
 
