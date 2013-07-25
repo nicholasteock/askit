@@ -1,4 +1,6 @@
 <?php
+// Iknow putting all these connections stuff out here is bad practice and stuff
+// Will be removed and moved to a backend api after first pass
 
 // require_once( "Globals.php" );
 // require_once( "ASKITAPI.php" );
@@ -12,29 +14,26 @@ $hasAccessToken		= isset( $_COOKIE['accessToken']);
 $accessToken 		= $hasAccessToken ? $_COOKIE['accessToken'] : "";
 $hasLoginFormValue 	= isset( $_POST["email"] ) && isset( $_POST["password"] );
 
-// Iknow putting all these connections stuff out here is bad practice and stuff
-// Will be removed and moved to a backend api after first pass
 
-$con = mysql_connect('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo');
-mysql_select_db( "askitdb" );
 
 //Checks login credentials with DB.
 //Success: accessToken
 //Failure: "failure"
 function doLogin( $email, $password ) {
-	$queryResult = mysql_query( "SELECT accessToken, token_created FROM user WHERE email = '" . $email . "' AND password = '" . $password . "'" );
+	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
+	$queryResult = $mysqli->query( "SELECT accessToken, token_created FROM user WHERE email = '" . $email . "' AND password = '" . $password . "'" );
+	
 	// If user/pass match found, check accessToken if empty string.
 	// If so, generate some string for now and call an insert.
 	// TODO: If accessToken not empty, compared with timestamp for expiry.
-
 	if( $queryResult ) {
-		while( $row = mysql_fetch_array($queryResult)) {
-			$resultAccessToken = $row["accessToken"];
-
-			if( $resultAccessToken == "-1" ) {
+		for ($rowIndex = $queryResult->num_rows - 1; $rowIndex >=0; $rowIndex--) {
+			$queryResult->data_seek($rowIndex);
+			$row = $queryResult->fetch_assoc();
+			if( $row["accessToken"] == "-1" ) {
 				return createToken($email);
 			}
-			return $resultAccessToken;
+			return $row["accessToken"];
 		}
 	}
 	else {
@@ -44,8 +43,9 @@ function doLogin( $email, $password ) {
 
 function createToken( $email ) {
 	$newToken = "3214234jddjsdfl";
-	$insertToken = mysql_query( "UPDATE user SET accessToken='" . $newToken . "', token_created=CURRENT_TIMESTAMP WHERE email='" . $email . "'" );
-	if( $insertToken ) {
+	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
+	
+	if($mysqli->query( "UPDATE user SET accessToken='" . $newToken . "', token_created=CURRENT_TIMESTAMP WHERE email='" . $email . "'" )) {
 		return $newToken;
 	}
 	else {
@@ -57,10 +57,13 @@ function createToken( $email ) {
 //Success: Object with user details
 //Failure: Empty string
 function whoAmI( $accessToken ) {
-	$queryUser = mysql_query( "SELECT id, name, email FROM user WHERE accessToken='" . $accessToken . "'");
-	
-	if( $queryUser ) {
-		while( $row = mysql_fetch_object($queryUser) ) {
+	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
+	$queryResult = $mysqli->query( "SELECT id, name, email FROM user WHERE accessToken='" . $accessToken . "'");
+	if( $queryResult ) {
+		for ($rowIndex = $queryResult->num_rows - 1; $rowIndex >=0; $rowIndex--) {
+			$queryResult->data_seek($rowIndex);
+			$row = $queryResult->fetch_assoc();
+			
 			return json_encode($row);
 		}
 	}
@@ -68,7 +71,6 @@ function whoAmI( $accessToken ) {
 		return "";
 	}
 }
-
 
 if( $is_httppost && $hasLoginFormValue ) {
 	$accessToken = doLogin( $_POST["email"], $_POST["password"] );

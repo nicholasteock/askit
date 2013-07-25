@@ -124,7 +124,8 @@ Screen.extend("Ask",
 							level: level,
 							subject: subject,
 							topic: topic,
-							content: content 
+							content: content,
+							
 						};
 						
 			$.when(
