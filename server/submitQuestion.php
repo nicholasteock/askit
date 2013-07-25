@@ -4,7 +4,7 @@
 	$topic		= $_REQUEST["topic"];
 	$content	= $_REQUEST["content"];
 	$author		= "Nicholas Teo";
-	$con = mysql_connect('askitdbinstance.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'liverpool', 'askitdb', '3306');
+	$con = mysql_connect('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb', '3306');
 	mysql_select_db( "askitdb" );
 	
 	$queryResult = mysql_query( "INSERT INTO question (`id`, `level`, `subject`, `topic`, `content`, `author`, `timestamp`) VALUES ( NULL, '" . $level . "', '" . $subject . "', '" . $topic . "', '" . $content . "', '" . $author . "', CURRENT_TIMESTAMP);" );

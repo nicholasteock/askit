@@ -1,7 +1,7 @@
 <?php
 	$level 	= $_REQUEST["level"];
 	// $con	= mysql_connect( '127.0.0.1', 'root', '');
-	$con = mysql_connect('askitdbinstance.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'liverpool', 'askitdb', '3306');
+	$con = mysql_connect('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb', '3306');
 	mysql_select_db( "askitdb" );
 	
 	$queryResult = mysql_query( "SELECT DISTINCT subject FROM topics WHERE level='" . $level . "'" );

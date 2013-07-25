@@ -14,9 +14,8 @@ $hasLoginFormValue 	= isset( $_POST["email"] ) && isset( $_POST["password"] );
 
 // Iknow putting all these connections stuff out here is bad practice and stuff
 // Will be removed and moved to a backend api after first pass
-// $con = mysql_connect( "172.31.46.45", "root", "1234");
 
-$con = mysql_connect('askitdbinstance.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'liverpool', 'askitdb', '3306');
+$con = mysql_connect('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb', '3306');
 mysql_select_db( "askitdb" );
 
 //Checks login credentials with DB.
