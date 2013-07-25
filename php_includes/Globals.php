@@ -4,3 +4,4 @@
 		public static $ASKITAPI_DBPWD	=	"";
 		public static $ASKITAPI_DBNAME	=	"askitdb";
 	}
+?>
