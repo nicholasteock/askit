@@ -42,7 +42,7 @@ function doLogin( $email, $password ) {
 }
 
 function createToken( $email ) {
-	$newToken = "3214234jddjsdfl";
+	$newToken = strval(rand(123456, 999999999999999999999));
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
 	
 	if($mysqli->query( "UPDATE user SET accessToken='" . $newToken . "', token_created=CURRENT_TIMESTAMP WHERE email='" . $email . "'" )) {

@@ -17,6 +17,7 @@ $aiCss = array(
 	
 	'css/index.css',
 	'css/answer.css',
+	'css/dashboard.css',
 );
 
 echo formatCss("ai", $aiCss)."\n";
@@ -27,7 +28,7 @@ echo formatCss("ai", $aiCss)."\n";
 	<div class="navbar navbar-inverse navbar-static-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a id="logo" class="brand" href="#/home"><img src="img/askit.png"></a>
+				<a id="logo" class="brand" href="#/dashboard"><img src="img/askit.png"></a>
 				<ul id="menu-main-nav" class="nav navbar-static-top ai-main-nav">
 					<li class="divider-vertical"></li>
 					<li>
@@ -78,7 +79,7 @@ echo formatCss("ai", $aiCss)."\n";
 							<li><i class="icon-user"> </i> Your Answers</li>
 							<li><i class="icon-user"> </i> Statistics</li>
 							<li class="divider"></li>
-							<li><a href="javascript:" onclick="app.signout();"><i class="icon-user"> </i> Sign Out</li></a>
+							<li><a href="javascript:" onclick="app.signout();"><i class="icon-user"> </i> Sign Out</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -105,6 +106,7 @@ $libJs = array(
 	'components/jquery-1.7.2.min.js',
 	'components/bootstrap/js/bootstrap.js',
 	'components/jmvc3.2.4/jquerymx-3.2.custom.js',
+	'components/lodash/lodash.min.js',
 );
 
 $appJs = array(
@@ -148,6 +150,8 @@ $aiHTML = array(
 	
 	//Dashboard views
 	'askit/screens/dashboard/dashboard_view.html',
+	'askit/screens/dashboard/dashboard_question_item_view.html',
+	'askit/screens/dashboard/dashboard_answer_item_view.html',
 	
 	//Ask views
 	'askit/screens/ask/ask_view.html',
@@ -156,7 +160,7 @@ $aiHTML = array(
 	
 	//Answer views
 	'askit/screens/answer/answer_qn_item_view.html',
-	'askit/screens/answer/askit_screens_answer_no_qn_view.html',
+	'askit/screens/answer/no_qn_view.html',
 	
 	//Practice views
 	'askit/screens/practice/practice_view.html',

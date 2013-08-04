@@ -14,7 +14,7 @@ Modal.extend("AnswerQuestionModal",
 			params = {
 						id		: refAnswerContainer.attr("id"),
 						content	: refAnswerContainer.find(".answerContent").val(),
-						author	: "Nicholas Teo"
+						author	: app.currentUser.id
 					};
 		$.when(
 			AnswerModel.create( params )

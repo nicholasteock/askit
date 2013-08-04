@@ -13,6 +13,7 @@
 	<style type="text/css"></style>
 </head>
 <body>
+<div style="height: 100%; position: relative;">
 	<div id="login-header">
 		<div class="navbar navbar-inverse navbar-static-top">
 			<div class="navbar-inner">
@@ -27,20 +28,53 @@
 						</label>
 					</form>
 				</div>
-			</div> 
+			</div>
 		</div>
 	</div>
 	
 	<div id="login-body">
 		<div class="container">
-			<!-- <img style="margin-top: 30px;" src="img/temp.jpg"/> -->
+			<div id="welcomeMsg" class="span12">
+				Get Your Questions Answered. Fast.
+			</div>
+			<div id="welcomeImg" class="span6">
+				<img src="img/teacher.jpg">
+			</div>
+			<!-- <div id="newUserFormContainer" class="span6"> -->
+				<form id="newUserForm" onSubmit="newUser()" method="POST" class="span5">
+					<fieldset>
+						<legend>
+							Help or Be Helped. Join The Community Now.
+						</legend>
+						<label>
+							First Name
+						</label>
+						<input type="text" id="newUserFirstName">
+						<label>
+							Last Name
+						</label>
+						<input type="text" id="newUserLastName">
+						<label>
+							Email
+						</label>
+						<input type="text" id="newUserEmail">
+						<label>
+							Password
+						</label>
+						<input type="password" id="newUserPassword">
+						<div>
+							<button type="submit" id="newUserSubmit" class="btn btn-warning btn-large">Sign Up</button>
+						</div>
+					</fieldset>
+				</form>
+			<!-- </div> -->
 		</div>
 	</div>
 	
-	<div id="login-footer" class="">
-	<span>AskIt! Copyright &copy; 2013 - Nicholas Teo</span>
+	<div id="login-footer">
+		<span>AskIt! Copyright &copy; 2013 - Nicholas Teo</span>
+	</div>
 </div>
-
 <script src="components/modernizr/jquery-1.9.1.min.js"></script>
 <script src="components/modernizr/bootstrap.min.js"></script>
 <script src="components/base64/base64.js"></script>
@@ -66,6 +100,40 @@ var doLogin = function() {
 	var params = "params=" + encodeURIComponent(JSON.stringify( { username: $("#email").val(), password: Base64.encode($("#password").val()) } ));
 	console.log("params", params);
 	return true;
+};
+
+var newUser = function() {
+	var newEmail 	= $("#newUserEmail").val(),
+		newFirstName= $("#newUserFirstName").val(),
+		newLastName = $("#newUserLastName").val(),
+		newPassword = $("#newUserPassword").val(),
+		params 		= {};
+
+	if( newEmail == "" || newFirstName == "" || newLastName == "" || newPassword == "" ) {
+		console.error("TODO: Blank input error");
+		return false;
+	}
+	else {
+		params = 	{
+						email: newEmail,
+						firstName: newFirstName,
+						lastName: newLastName,
+						password: newPassword
+					};
+
+		$.ajax({
+			url 	: "server/newUser.php",
+			type 	: "POST",
+			data 	: params,
+			dataType: "json",
+			success : function(response) {
+				console.log("success in creating new newUser", response);
+			},
+			error 	: function(xhr, status, error) {
+				alert(xhr, status, error);
+			}
+		});
+	}
 };
 
 $(function() {

@@ -47,7 +47,7 @@ $.Class("Askit.Application", {
 		}
 
 		// Inform the server and remove user.
-		if( this.currentUser.name ) {
+		if( this.currentUser.firstName ) {
 			//this.currentUser.logout();
 			this.currentUser = {};
 		}
