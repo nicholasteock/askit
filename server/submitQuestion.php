@@ -14,5 +14,6 @@
 	else {
 		$result = array( "result" => "failure", "err" => $queryResult );
 	}
+	$mysqli->close();
 	echo json_encode( $result );
 ?>

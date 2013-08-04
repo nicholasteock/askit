@@ -83,6 +83,7 @@ body {
 
 #login-footer {
 	width						: 100%;
+	height 						: 23px;
 	position					: absolute;
 	bottom						: 0px;
 	border-top					: 1px solid #4D4D4D;
@@ -92,5 +93,48 @@ body {
 	span {
 		color					: @navFontColor;
 		padding					: 3px 0px 0px 30px;
+	}
+}
+
+#login-body {
+	padding-bottom: 23px;
+	#welcomeMsg {
+		font-size: 50px;
+		text-align: center;
+		padding: 53px 0px;
+	}
+
+	#welcomeImg {
+		img {
+			width: 500px;
+			height: 490px;
+		}
+	}
+
+	#newUserForm {
+		margin-top: 30px;
+
+		legend {
+			font-weight: bold;
+			font-size: 20px;
+		}
+
+		label {
+			font-weight: bold;
+			font-size: 15px;
+		}
+
+		input {
+			width: 90%;
+			height: 23px;
+			border-radius: 0px;
+		}
+
+		button {
+			font-size: 20px;
+			color: #000;
+			margin-top: 10px;
+			border-radius:2px;
+		}
 	}
 }

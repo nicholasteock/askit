@@ -32,26 +32,29 @@ Screen.extend("Answer",
 			this.onLoadQuestionFail( response );
 			return;
 		}
-		
-		if( response.data.count === 0 ) {
+
+		// Filters out the user's own questions.
+		var questions = _.reject( response.data.questions, { author: app.currentUser.id } );
+
+		if( questions.length === 0 ) {
 			this.qnListContainer.html( "askit_screens_answer_no_qn_view", {} );
 		}
 		else {
 			//render list of questions view here
-			this.qnListContainer.html( "askit_screens_answer_answer_qn_item_view", response.data.questions );
-			$("#qnItemFooterAnswer").tooltip({
+			this.qnListContainer.html( "askit_screens_answer_answer_qn_item_view", questions );
+			$(".qnItemFooterAnswer").tooltip({
 												animation	: true,
 												placement	: "bottom",
 												title		: "Click to answer the question",
 												trigger		: "hover"
 											});
-			$("#qnItemFooterPin").tooltip({
+			$(".qnItemFooterPin").tooltip({
 												animation	: true,
 												placement	: "bottom",
 												title		: "If this is similar to a question you have, click here to pin it.",
 												trigger		: "hover"
 											});
-			$("#qnItemFooterReport").tooltip({
+			$(".qnItemFooterReport").tooltip({
 												animation	: true,
 												placement	: "bottom",
 												title		: "Click here to report abusive/inappropriate content",
@@ -65,7 +68,7 @@ Screen.extend("Answer",
 		return;
 	},
 	
-	"#qnItemFooterAnswer click": function( el, ev ) {
+	".qnItemFooterAnswer click": function( el, ev ) {
 		var refContainer = el.closest(".qnItem"),
 			qnIndex = refContainer.attr("id");
 			qnText	= refContainer.find(".qnText").text();
@@ -74,12 +77,12 @@ Screen.extend("Answer",
 		return;
 	},
 	
-	"#qnItemFooterPin click": function() {
+	".qnItemFooterPin click": function() {
 		console.log("TODO: Pin Question function");
 		return;
 	},
 	
-	"#qnItemFooterReport click": function( el, ev ) {
+	".qnItemFooterReport click": function( el, ev ) {
 		var refContainer = el.closest(".qnItem"),
 			qnIndex = refContainer.attr("id");
 			qnText	= refContainer.find(".qnText").text();

@@ -25,5 +25,6 @@
 	$data = array( "count" => $count, "questions" => $questions );
 
 	$result = array( "result" => "success", "data" => $data );
+	$mysqli->close();
 	echo json_encode( $result );
 ?>

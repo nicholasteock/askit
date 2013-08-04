@@ -10,7 +10,9 @@
 		$result = array( "result" => "success" );
 	}
 	else {
-		$result = array( "result" => "failure", "err" => $queryResult );
+		$result = array( "result" => "failure", "err" => $mysqli->error() );
 	}
+
+	$mysqli->close();
 	echo json_encode( $result );
 ?>

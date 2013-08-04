@@ -1,0 +1,40 @@
+<%
+	var idCountMap = {},
+		idCount = 0;
+
+	// TODO: Move view helper functions to a model for reuse.
+	var transformToDashboardQnView = function(data) {
+		for( var i=0, iLen=data.length; i<iLen; i++ ) {
+			qnId = data[i].qnId;
+			if( idCountMap[qnId] ) {
+				idCountMap[qnId]++;
+			}
+			else {
+				idCountMap[qnId] = 1;
+				idCount++;
+			}
+		}
+	}
+
+	transformToDashboardQnView(this);
+%>
+
+<% for(var i=0, iLen=this.length; i<iLen; i++) { %>
+	<tr id="<%=this[i].qnId%>">
+		<td class="dbAnsCount">
+			<%=idCountMap[this[i].qnId]%>
+			<br>
+			Answers
+		</td>
+		<td class="dbQnContent">
+			<%= this[i].qnContent %>
+		</td>
+	</tr>
+<%
+	if( idCount == 1 ) {
+		i=iLen;
+	}
+	else {
+		idCount--;
+	}
+}%>

@@ -14,20 +14,35 @@ Screen.extend("Ask",
 	
 	"#qnLevel click": function( el, ev ) {
 		ev.stopPropagation();
-		$(".btn-group").removeClass("open");
-		el.closest(".btn-group").addClass("open");
+		if(el.closest(".btn-group").hasClass("open")){
+			$(".btn-group").removeClass("open");
+		}
+		else {
+			$(".btn-group").removeClass("open");
+			el.closest(".btn-group").addClass("open")
+		}
 	},
 	
 	"#qnSubject click": function( el, ev ) {
 		ev.stopPropagation();
-		$(".btn-group").removeClass("open");
-		el.closest(".btn-group").addClass("open");
+		if(el.closest(".btn-group").hasClass("open")){
+			$(".btn-group").removeClass("open");
+		}
+		else {
+			$(".btn-group").removeClass("open");
+			el.closest(".btn-group").addClass("open")
+		}
 	},
 	
 	"#qnTopic click": function( el, ev ) {
 		ev.stopPropagation();
-		$(".btn-group").removeClass("open");
-		el.closest(".btn-group").addClass("open");
+		if(el.closest(".btn-group").hasClass("open")){
+			$(".btn-group").removeClass("open");
+		}
+		else {
+			$(".btn-group").removeClass("open");
+			el.closest(".btn-group").addClass("open")
+		}
 	},
 	
 	"#qnLevelDropdown a click": function( el, ev ) {
@@ -126,7 +141,7 @@ Screen.extend("Ask",
 							subject 	: subject,
 							topic 		: topic,
 							content 	: content,
-							author 		: app.currentUser.firstLastName()
+							author 		: app.currentUser.id
 						};
 						
 			$.when(

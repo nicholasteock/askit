@@ -28,6 +28,31 @@ $.Model("AnswerModel",
 		
 		return dfdResult;
 	},
+
+	findAllByUserId: function(params) {
+		console.log("findAnswersByUser. Params is ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			return dfdResult.resolve(response);
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject(response);
+		};
+
+		$.ajax({
+				url 		: "server/findAnswersByUser.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
 	
 	/*
 	 * params = { 	

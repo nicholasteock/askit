@@ -16,5 +16,6 @@
 	}
 	
 	$result = array( "result" => "success", "data" => $data );
+	$mysqli->close();
 	echo json_encode( $result );
 ?>

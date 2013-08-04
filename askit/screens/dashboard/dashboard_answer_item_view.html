@@ -1,0 +1,12 @@
+<% for(var i=0, iLen=this.length; i<iLen; i++) { %>
+	<tr id="<%=this[i].id%>">
+		<td class="dbAnsApproval">
+			<i class="icon-thumbs-up icon-2x"></i>
+		</td>
+		<td>
+			<div class="dbAnsContent">
+				<%= this[i].content %>
+			</div>
+		</td>
+	</tr>
+<%}%>
