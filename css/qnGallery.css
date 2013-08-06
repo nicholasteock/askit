@@ -1,0 +1,6 @@
+#qgQnContainer{border:1px solid #999;border-radius:5px;font-size:20px;}#qgQnContainer #qgQnContainerHeader{height:20px;padding:10px;font-weight:bold;background-color:#4099FF;}
+#qgQnContainer table{margin-bottom:0px;cursor:pointer;}#qgQnContainer table tr{line-height:1.2;}#qgQnContainer table tr .qgAnsCount{text-align:center;}
+#qgQnContainer table tr .qgQnContent{max-height:50px;overflow:hidden;}
+.qgLoadingContainer{margin-left:48%;margin-top:5%;margin-bottom:5%;}.qgLoadingContainer img{width:35px;margin-left:15px;}
+.qgLoadingContainer div{text-align:left;margin-top:5px;color:#999;}
+.qgEmptyContainer{text-align:center;padding:50px 20px;}
