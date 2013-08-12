@@ -126,6 +126,7 @@ $appJs = array(
 	'askit/screens/practice/practice.js',
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/qnGallery.js',
+	'askit/screens/viewAnswer/viewAnswer.js',
 	
 	//Modals
 	'modals/modal.js',
@@ -173,6 +174,11 @@ $aiHTML = array(
 	
 	//Hire views
 	'askit/screens/hire/hire_view.html',
+
+	//View Answer views
+	'askit/screens/viewAnswer/viewAnswer_view.html',
+	'askit/screens/viewAnswer/viewAnswer_question_view.html',
+	'askit/screens/viewAnswer/viewAnswer_answer_view.html',
 	
 );
 
