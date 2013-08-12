@@ -1,6 +1,5 @@
 <%
-	var idCountMap = {},
-		idCount = 0;
+	var idCountMap = {};
 
 	// TODO: Move view helper functions to a model for reuse.
 	var transformToDashboardQnView = function(data) {
@@ -11,7 +10,6 @@
 			}
 			else {
 				idCountMap[qnId] = 1;
-				idCount++;
 			}
 		}
 	}
@@ -20,21 +18,17 @@
 %>
 
 <% for(var i=0, iLen=this.length; i<iLen; i++) { %>
-	<tr id="<%=this[i].qnId%>">
-		<td class="dbAnsCount">
-			<%=idCountMap[this[i].qnId]%>
-			<br>
-			Answers
-		</td>
-		<td class="dbQnContent">
-			<%= this[i].qnContent %>
-		</td>
-	</tr>
-<%
-	if( idCount == 1 ) {
-		i=iLen;
-	}
-	else {
-		idCount--;
-	}
-}%>
+	<%if( idCountMap[this[i].qnId] ) {%>
+		<tr id="<%=this[i].qnId%>">
+			<td class="dbAnsCount">
+				<%=idCountMap[this[i].qnId]%>
+				<br>
+				Answers
+			</td>
+			<td class="dbQnContent">
+				<%= this[i].qnContent %>
+			</td>
+		</tr>
+	<%delete idCountMap[this[i].qnId];
+	}%>
+<%}%>

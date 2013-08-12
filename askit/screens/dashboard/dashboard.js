@@ -9,7 +9,6 @@ Screen.extend("Dashboard",
 
 		this.loadUserQuestions();
 		this.loadUserAnswers();
-
 	},
 
 	loadUserQuestions: function() {
@@ -75,7 +74,8 @@ Screen.extend("Dashboard",
 	},
 
 	"#dbQnContainer tr click": function(el, ev) {
-		console.log("clicked", el.attr("id"));
+		var qnId = el.attr("id");
+		app.setLocation( "/viewAnswers?qnId=" + qnId );
 	},
 
 	"#dbAnsContainer tr click": function(el, ev) {
