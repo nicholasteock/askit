@@ -53,6 +53,31 @@ $.Model("AnswerModel",
 
 		return dfdResult;
 	},
+
+	findAllByQuestionId: function(params) {
+		console.log("findAllByQuestionId. Params is ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			return dfdResult.resolve(response);
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject(response);
+		};
+
+		$.ajax({
+				url 		: "server/findAnswersByQuestion.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
 	
 	/*
 	 * params = { 	

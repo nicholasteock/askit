@@ -105,6 +105,31 @@ $.Model("QuestionModel",
 
 		return dfdResult;
 	},
+
+	findQuestionById: function(params) {
+		console.log("findQuestionById. Params is ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			return dfdResult.resolve(response);
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject(response);
+		};
+
+		$.ajax({
+				url 		: "server/findQuestionById.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
 	
 	create: function( params ){
 		console.log("submitQuestion. Content is : ", params);

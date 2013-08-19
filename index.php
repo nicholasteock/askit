@@ -13,6 +13,7 @@ $is_httppost 		= $_SERVER["REQUEST_METHOD"] == 'POST';
 $hasAccessToken		= isset( $_COOKIE['accessToken']);
 $accessToken 		= $hasAccessToken ? $_COOKIE['accessToken'] : "";
 $hasLoginFormValue 	= isset( $_POST["email"] ) && isset( $_POST["password"] );
+$newUserLogin 		= isset( $_POST["newUserEmail"] ) && isset( $_POST["newUserPassword"]);
 
 
 
@@ -20,6 +21,7 @@ $hasLoginFormValue 	= isset( $_POST["email"] ) && isset( $_POST["password"] );
 //Success: accessToken
 //Failure: "failure"
 function doLogin( $email, $password ) {
+	$result = "";
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
 	$queryResult = $mysqli->query( "SELECT accessToken, token_created FROM user WHERE email = '" . $email . "' AND password = '" . $password . "'" );
 	
@@ -31,14 +33,13 @@ function doLogin( $email, $password ) {
 			$queryResult->data_seek($rowIndex);
 			$row = $queryResult->fetch_assoc();
 			if( $row["accessToken"] == "-1" ) {
-				return createToken($email);
+				$result = createToken($email);
 			}
-			return $row["accessToken"];
+			$result = $row["accessToken"];
 		}
 	}
-	else {
-		return "";
-	}
+	$mysqli->close();
+	return $result;
 }
 
 function createToken( $email ) {
@@ -46,9 +47,11 @@ function createToken( $email ) {
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
 	
 	if($mysqli->query( "UPDATE user SET accessToken='" . $newToken . "', token_created=CURRENT_TIMESTAMP WHERE email='" . $email . "'" )) {
+		$mysqli->close();
 		return $newToken;
 	}
 	else {
+		$mysqli->close();
 		return "";
 	}
 }
@@ -63,16 +66,21 @@ function whoAmI( $accessToken ) {
 		for ($rowIndex = $queryResult->num_rows - 1; $rowIndex >=0; $rowIndex--) {
 			$queryResult->data_seek($rowIndex);
 			$row = $queryResult->fetch_assoc();
+			$mysqli->close();
 			return json_encode($row);
 		}
 	}
 	else {
+		$mysqli->close();
 		return "";
 	}
 }
 
 if( $is_httppost && $hasLoginFormValue ) {
 	$accessToken = doLogin( $_POST["email"], $_POST["password"] );
+}
+else if( $is_httppost && $newUserLogin ) {
+	$accessToken = doLogin( $_POST["newUserEmail"], $_POST["newUserPassword"] );
 }
 
 if( gettype($accessToken) == 'string' && strlen($accessToken)>0 ) {

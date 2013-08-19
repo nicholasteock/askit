@@ -41,7 +41,7 @@
 				<img src="img/teacher.jpg">
 			</div>
 			<!-- <div id="newUserFormContainer" class="span6"> -->
-				<form id="newUserForm" onSubmit="newUser()" method="POST" class="span5">
+				<form id="newUserForm" onsubmit="newLogin();" method="post" class="span5">
 					<fieldset>
 						<legend>
 							Help or Be Helped. Join The Community Now.
@@ -57,13 +57,13 @@
 						<label>
 							Email
 						</label>
-						<input type="text" id="newUserEmail">
+						<input type="text" name="newUserEmail" id="newUserEmail">
 						<label>
 							Password
 						</label>
-						<input type="password" id="newUserPassword">
+						<input type="password" name="newUserPassword" id="newUserPassword">
 						<div>
-							<button type="submit" id="newUserSubmit" class="btn btn-warning btn-large">Sign Up</button>
+							<button type="button" id="newUserSubmit" class="btn btn-warning btn-large">Sign Up</button>
 						</div>
 					</fieldset>
 				</form>
@@ -98,7 +98,11 @@ var doLogin = function() {
 		$.cookie( "returnUrl", location.hash );
 	}
 	var params = "params=" + encodeURIComponent(JSON.stringify( { username: $("#email").val(), password: Base64.encode($("#password").val()) } ));
-	console.log("params", params);
+	return true;
+};
+
+var newLogin = function() {
+	var params = "params=" + encodeURIComponent(JSON.stringify( { username: $("#newUserEmail").val(), password: Base64.encode($("#newUserPassword").val()) } ));
 	return true;
 };
 
@@ -110,7 +114,7 @@ var newUser = function() {
 		params 		= {};
 
 	if( newEmail == "" || newFirstName == "" || newLastName == "" || newPassword == "" ) {
-		console.error("TODO: Blank input error");
+		console.error("TODO: Blank input error", newEmail, newFirstName, newLastName, newPassword);
 		return false;
 	}
 	else {
@@ -128,9 +132,12 @@ var newUser = function() {
 			dataType: "json",
 			success : function(response) {
 				console.log("success in creating new newUser", response);
+				$("#newUserForm").submit();
+				
 			},
 			error 	: function(xhr, status, error) {
-				alert(xhr, status, error);
+				console.log("Error in creating new newUser", xhr);
+				alert("Error in creating new user. Response : ", xhr, status, error);
 			}
 		});
 	}
@@ -138,6 +145,7 @@ var newUser = function() {
 
 $(function() {
 	$("#email").focus();
+	$("#newUserSubmit").click(function() {return newUser(); });
 });
 
 </script>

@@ -127,6 +127,7 @@ $appJs = array(
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/qnGallery.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
+	'askit/screens/lfkeong/lfkeong.js',
 	
 	//Modals
 	'modals/modal.js',
@@ -180,6 +181,8 @@ $aiHTML = array(
 	'askit/screens/viewAnswer/viewAnswer_question_view.html',
 	'askit/screens/viewAnswer/viewAnswer_answer_view.html',
 	
+	//LFKEONG PRACTICE VIEWS
+	'askit/screens/lfkeong/lfkeong_view.html',
 );
 
 echo formatJs("lib", $libJs)."\n";
