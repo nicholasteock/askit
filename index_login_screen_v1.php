@@ -133,7 +133,6 @@ var newUser = function() {
 			success : function(response) {
 				console.log("success in creating new newUser", response);
 				$("#newUserForm").submit();
-				
 			},
 			error 	: function(xhr, status, error) {
 				console.log("Error in creating new newUser", xhr);

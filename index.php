@@ -7,7 +7,7 @@
 
 
 
-$loginFile 			= "index_login_screen.php";
+$loginFile 			= "index_login_screen_v2.php";
 $postloginFile 		= "index_askit_screen.php";
 $is_httppost 		= $_SERVER["REQUEST_METHOD"] == 'POST';
 $hasAccessToken		= isset( $_COOKIE['accessToken']);

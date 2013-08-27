@@ -35,7 +35,7 @@
 		echo json_encode( $result );
 	}
 	else {
-		$result = array( "result" => "failure", "error" => "Not unique" );
+		$result = array( "result" => "failure", "error" => "*Email has already been registered" );
 		echo json_encode( $result );
 	}
 ?>
