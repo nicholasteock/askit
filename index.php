@@ -6,7 +6,7 @@
 // require_once( "ASKITAPI.php" );
 
 
-
+$tokenExpiryTime 	= 24;
 $loginFile 			= "index_login_screen_v2.php";
 $postloginFile 		= "index_askit_screen.php";
 $is_httppost 		= $_SERVER["REQUEST_METHOD"] == 'POST';
@@ -33,9 +33,11 @@ function doLogin( $email, $password ) {
 			$queryResult->data_seek($rowIndex);
 			$row = $queryResult->fetch_assoc();
 			if( $row["accessToken"] == "-1" ) {
-				$result = createToken($email);
+				$result = createToken( $email );
 			}
-			$result = $row["accessToken"];
+			else {
+				$result = $row["accessToken"];
+			}
 		}
 	}
 	$mysqli->close();
@@ -45,8 +47,9 @@ function doLogin( $email, $password ) {
 function createToken( $email ) {
 	$newToken = strval(rand(123456, 999999999999999999999));
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
-	
-	if($mysqli->query( "UPDATE user SET accessToken='" . $newToken . "', token_created=CURRENT_TIMESTAMP WHERE email='" . $email . "'" )) {
+	$queryResult = 	$mysqli->query( "UPDATE user SET accessToken='" . $newToken . "', token_created=CURRENT_TIMESTAMP WHERE email='" . $email . "'");
+
+	if( $queryResult ) {
 		$mysqli->close();
 		return $newToken;
 	}
@@ -61,7 +64,7 @@ function createToken( $email ) {
 //Failure: Empty string
 function whoAmI( $accessToken ) {
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
-	$queryResult = $mysqli->query( "SELECT id, firstName, lastName, email FROM user WHERE accessToken='" . $accessToken . "'");
+	$queryResult = $mysqli->query( "SELECT id, firstName, lastName, email FROM user WHERE accessToken=" . $accessToken);
 	if( $queryResult ) {
 		for ($rowIndex = $queryResult->num_rows - 1; $rowIndex >=0; $rowIndex--) {
 			$queryResult->data_seek($rowIndex);
@@ -81,6 +84,7 @@ if( $is_httppost && $hasLoginFormValue ) {
 }
 else if( $is_httppost && $newUserLogin ) {
 	$accessToken = doLogin( $_POST["newUserEmail"], $_POST["newUserPassword"] );
+	//echo '<script type="text/javascript">alert("Access token is :' . $accessToken . '");</script>';
 }
 
 if( gettype($accessToken) == 'string' && strlen($accessToken)>0 ) {

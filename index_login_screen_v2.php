@@ -51,7 +51,7 @@
 								ASK
 							</div>
 						</div>
-						<button type="button" class="joinBtn" data-toggle="modal" data-target="#newUserModal">Join Now</button>
+						<button type="button" class="joinBtn">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -72,7 +72,7 @@
 								ANSWER
 							</div>
 						</div>
-						<button type="button" class="joinBtn" data-toggle="modal" data-target="#newUserModal">Join Now</button>
+						<button type="button" class="joinBtn">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -93,7 +93,7 @@
 								CREDIBILITY
 							</div>
 						</div>
-						<button type="button" class="joinBtn" data-toggle="modal" data-target="#newUserModal">Join Now</button>
+						<button type="button" class="joinBtn">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -114,7 +114,7 @@
 								RESULTS
 							</div>
 						</div>
-						<button type="button" class="joinBtn" data-toggle="modal" data-target="#newUserModal">Join Now</button>
+						<button type="button" class="joinBtn">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -142,7 +142,7 @@
 					<button type="button">button2</button>
 				</span>
 				<span class="col-lg-6">
-					<form id="newUserForm" onsubmit="newLogin();" method="post" class="form-horizontal" role="form">
+					<form id="newUserForm" role="form" method="post" onsubmit="newLogin();" class="form-horizontal" action="/">
 						<div class="form-group">
 							<label for="newUserFirstName" class="col-lg-4 control-label">First Name : </label>
 							<div class="col-lg-8">
@@ -209,7 +209,7 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 			placement 	: "bottom",
 			trigger 	: "click",
 			title 		: '<h4>Sign In</h4>',
-			content 	: '<form class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/"><div class="form-group"><label for="email" class="col-lg-4 control-label">Email : </label><div class="col-lg-8"><input type="email" class="form-control" id="email" name="email"></div></div><div class="form-group"><label for="password" class="col-lg-4 control-label">Password : </label><div class="col-lg-8"><input type="password" class="form-control" id="password" name="password"></div></div><div class="form-group"><div class="col-lg-offset-4 col-lg-8"><button type="submit" class="btn btn-default">Submit</button></div></div></form>'
+			content 	: '<form id="loginForm" class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/"><div class="form-group"><label for="email" class="col-lg-4 control-label">Email : </label><div class="col-lg-8"><input type="email" class="form-control" id="email" name="email"></div></div><div class="form-group"><label for="password" class="col-lg-4 control-label">Password : </label><div class="col-lg-8"><input type="password" class="form-control" id="password" name="password"></div></div><div class="form-group"><div class="col-lg-offset-4 col-lg-8"><button type="submit" class="btn btn-default">Submit</button></div></div></form>'
 		});
 	});
 
@@ -222,6 +222,7 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 	};
 
 	var newLogin = function() {
+		console.log("In newLogin function.", $("#newUserEmail").val() );
 		var params = "params=" + encodeURIComponent(JSON.stringify( { username: $("#newUserEmail").val(), password: Base64.encode($("#newUserPassword").val()) } ));
 		return true;
 	};
@@ -260,7 +261,6 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 
 					if( response.result == "failure" ) {
 						$("#newUserErrorMsg").html( response.error ).removeClass("hidden");
-						return;
 					}
 					else {
 						$("#newUserForm").submit();
@@ -314,6 +314,10 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 	$("#newUserSubmit").click( function() {
 		$("#newUserSpinner").removeClass("hidden");
 		return newUser();
+	});
+
+	$(".joinBtn").click( function() {
+		$("#newUserModal").modal();
 	});
 </script>
 </body>

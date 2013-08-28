@@ -30,8 +30,6 @@ $.Class("Askit.Application", {
 	},
 
 	authenticateUser: function() {
-		$.cookie("accessToken", null);
-
 		if( location.hash ) {
 			$.cookie( "returnUrl", location.hash );
 		}
