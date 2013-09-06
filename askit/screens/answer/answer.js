@@ -28,19 +28,15 @@ Screen.extend("Answer",
 	
 	onLoadQuestionDone: function( response ) {
 		console.log("onLoadQuestionDone ", response);
-		if( response.result === "failure" ) {
-			this.onLoadQuestionFail( response );
-			return;
-		}
 
 		// Filters out the user's own questions.
-		var questions = _.reject( response.data.questions, { author: app.currentUser.id } );
+		var questions = _.reject( response.questions, { author: app.currentUser.id } );
 
 		if( questions.length === 0 ) {
 			this.qnListContainer.html( "askit_screens_answer_no_qn_view", {} );
 		}
 		else {
-			//render list of questions view here
+			// Render list of questions view here
 			this.qnListContainer.html( "askit_screens_answer_answer_qn_item_view", questions );
 			$(".qnItemFooterAnswer").tooltip({
 												animation	: true,

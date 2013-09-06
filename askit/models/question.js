@@ -11,7 +11,12 @@ $.Model("QuestionModel",
 		var	dfdResult = $.Deferred();
 		
 		var onSuccess = function( response ) {
-			return dfdResult.resolve( response );
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
 		};
 		
 		var onError = function( response ) {
@@ -28,15 +33,51 @@ $.Model("QuestionModel",
 		
 		return dfdResult;
 	},
+
+	// returns JSON of levels. Currently all levels are retrieved
+	findLevels: function( params ) {
+		console.log("findLevels. No params");
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve(response.data);
+			}
+			else {
+				return onError(response);
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject(response);
+		};
+
+		$.ajax({
+				url 		: "server/findLevels.php",
+				type 		: "POST",
+				// data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
 	
 	//returns JSON of subjects relevant to that level.
-	findSubjects: function( params, success, error ) {
+	findSubjects: function( params ) {
 		console.log("findSubjectsByLevel. Level is : ", params);
 		
 		var	dfdResult = $.Deferred();
 		
 		var onSuccess = function( response ) {
-			return dfdResult.resolve( response );
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
 		};
 		
 		var onError = function( response ) {
@@ -62,7 +103,12 @@ $.Model("QuestionModel",
 		var	dfdResult = $.Deferred();
 		
 		var onSuccess = function( response ) {
-			return dfdResult.resolve( response );
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
 		};
 		
 		var onError = function( response ) {
@@ -137,7 +183,12 @@ $.Model("QuestionModel",
 		var	dfdResult = $.Deferred();
 		
 		var onSuccess = function( response ) {
-			return dfdResult.resolve( response );
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response );
+			}
+			else {
+				return dfdResult.reject( response );
+			}
 		};
 		
 		var onError = function( response ) {

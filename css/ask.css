@@ -1,0 +1,7 @@
+#qnContentContainer{padding-left:15px;padding-right:15px;}
+#qnContent{padding:10px;margin-top:30px;min-width:200px;font-size:20px;}
+.askDropdown{margin-right:15px;font-size:18px;border:3px solid #ADADAD;padding-top:0px;padding-bottom:0px;}.askDropdown li a:hover{cursor:pointer;background-color:#EBEBEB;color:#000;}
+.askGroupBtn button{background-color:#E74C3C;border-radius:0px;border:3px solid #C0392B;color:#FFFFFF;font-size:19px;}.askGroupBtn button.disabled{background-color:#E74C3C;border-radius:0px;border:3px solid #C0392B;color:#FFFFFF;font-size:19px;opacity:0.7;}
+.askGroupBtn button.selectionMade{background-color:#1ABC9C;border:3px solid #16A085;}
+#qnSubmitContainer{margin-top:30px;padding-right:15px;}#qnSubmitContainer span{font-size:20px;font-weight:bold;}
+#qnSubmitContainer button{background-color:#F39C12;border:3px solid #e67e22;border-radius:0px;font-size:20px;font-weight:bold;color:#FFF;}#qnSubmitContainer button:hover{background-color:#EBEBEB;border:3px solid #ADADAD;color:#333;}

@@ -9,42 +9,40 @@ Modal.extend("AnswerQuestionModal",
 		this._super( "modal" + this.Class.shortName, options );
 	},
 
-	"#answerSubmit click":function( el, ev ) {
-		var refAnswerContainer = $(".modalAnsContainer"),
-			params = {
-						id		: refAnswerContainer.attr("id"),
-						content	: refAnswerContainer.find(".answerContent").val(),
-						author	: app.currentUser.id
-					};
-		$.when(
-			AnswerModel.create( params )
-		).then(
-			this.proxy( this.onSubmitAnswerDone ),
-			this.proxy( this.onSubmitAnswerFail )
-		);
-	},
-	
-	onSubmitAnswerDone: function( response ) {
-		if( response.result !== "success" ) {
-			this.onSubmitAnswerFail( response );
+	"#submitAnsBtn click": function( el, ev ) {
+		var ansContent 	= 	$("#modalAnsContent").val(),
+			qnId 		= 	$("#modalAnsContent").parent().attr("id"),
+			params 		= 	{
+								id 		: qnId,
+								content : ansContent,
+								author	: app.currentUser.id
+							};
+		if( ansContent == "" ) {
+			$("#ansSubmitErrMsg").html("Your answer is empty!");
 			return;
 		}
-		$(".modalQnContainer").addClass("hidden");
-		$(".modalAnsContainer").addClass("hidden");
-		$("#modalClose").removeClass("hidden");
-		$("#modalCancel").addClass("hidden");
-		$("#answerSubmit").addClass("hidden");
-		$("#answerSubmitSuccess").removeClass("hidden");
+		else {
+			$("#ansSubmitErrMsg").html("");
+			$.when(
+				AnswerModel.create( params )
+			).then(
+				this.proxy( this.onSubmitAnsDone ),
+				this.proxy( this.onSubmitAnsFail )
+			);
+		}
 	},
-	
-	onSubmitAnswerFail: function( response ) {
-		console.log("onSubmitAnswerFail", response);
-		$(".modalQnContainer").addClass("hidden");
-		$(".modalAnsContainer").addClass("hidden");
-		$("#answerSubmitFail").removeClass("hidden");
-		$("#modalClose").removeClass("hidden");
-		$("#modalCancel").addClass("hidden");
-		$("#answerSubmit").addClass("hidden");
+
+	onSubmitAnsDone: function( response ) {
+		$("#ansModal").find(".modal-title").html("Thank you!");
+		$("#ansModal").find(".modal-body").html("Your answer has been submitted!");
+		$("#submitAnsBtn").addClass("hidden");
+		return;
 	},
-	
+
+	onSubmitAnsFail: function( response ) {
+		$("#ansModal").find(".modal-title").html("Oops!");
+		$("#ansModal").find(".modal-body").html("Something went wrong during submission. Please try again later.");
+		$("#submitAnsBtn").addClass("hidden");
+		return;
+	},
 });

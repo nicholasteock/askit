@@ -9,30 +9,22 @@ Modal.extend("ReportQuestionModal",
 		this._super( "modal" + this.Class.shortName, options );
 	},
 
-	"#reportSubmit click": function( el, ev ) {
+	"#submitReportBtn click": function( el, ev ) {
 		console.log("TODO: Send email of report.");
 		this.onSendReportDone({result:"success"});
 	},
 	
 	onSendReportDone: function( response ) {
-		if( response.result !== "success" ) {
-			this.onSendReportFail( response );
-			return;
-		}
-		$(".modalQnContainer").addClass("hidden");
-		$(".modalReportContainer").addClass("hidden");
-		$("#reportSubmitSuccess").removeClass("hidden");
-		$("#modalClose").removeClass("hidden");
-		$("#modalCancel").addClass("hidden");
-		$("#reportSubmit").addClass("hidden");
+		$("#reportModal").find(".modal-title").html("Report Submitted!");
+		$("#reportModal").find(".modal-body").html("Thank you for helping to improve our community!");
+		$("#submitReportBtn").addClass("hidden");
+		return;
 	},
 	
 	onSendReportFail: function( response ) {
-		$(".modalQnContainer").addClass("hidden");
-		$(".modalReportContainer").addClass("hidden");
-		$("#reportSubmitFail").removeClass("hidden");
-		$("#modalClose").removeClass("hidden");
-		$("#modalCancel").addClass("hidden");
-		$("#reportSubmit").addClass("hidden");
+		$("#reportModal").find(".modal-title").html("Oops!");
+		$("#reportModal").find(".modal-body").html("Something went wrong during submission. Please try again later.");
+		$("#submitReportBtn").addClass("hidden");
+		return;
 	},
 });

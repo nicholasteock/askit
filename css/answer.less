@@ -1,45 +1,161 @@
 //***** Variable declarations *****************************************************************************************************************************
 
-@answerItemBorderColor : #999;
+@answerThemeColor 					: #4617B4;
 
 //*********************************************************************************************************************************************************
 .qnItem {
-	border					: 1px solid @answerItemBorderColor;
-	border-radius			: 5px;
-	margin-top				: 30px;
+	border							: 3px solid @answerThemeColor;
+	border-radius					: 0px;
+	margin-bottom					: 30px;
 	
 	.qnItemBody {
-		min-height			: 150px;
-		padding				: 10px;
-		
+		min-height					: 150px;
+		padding						: 10px;
+		background-color 			: #FFFFFF;
+
 		.qnItemBodyDetails {
-			padding: 0px 0px 0px 7px;
-			border-left: 1px solid #999;
+			padding 				: 0px 0px 0px 7px;
+			border-left 			: 1px solid #999999;
 		}
 	}
 	
 	.qnItemFooter {
-		height				: 30px;
-		background-color	: #4099FF;
-		border-top			: 1px solid @answerItemBorderColor;
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
-		opacity				: 0.7;
-		font-size			: 14px;
-		padding				: 5px 0px 0px 0px;
+		height						: 30px;
+		background-color			: @answerThemeColor;
+		border-top					: 3px solid @answerThemeColor;
+		color 						: #FFFFFF;
+		opacity						: 0.7;
+		font-size					: 14px;
+		padding						: 5px 0px 26px 0px;
 		.qnFooterNav {
 			&:hover {
-				cursor		: pointer;
-				font-weight	: bold;
+				cursor				: pointer;
+				font-weight			: bold;
 			}
 		}
 		
 		&:hover {
-			opacity			: 1;
+			opacity					: 1;
 		}
 	}
 }
 
-.modalQnContainer {
-	min-height: 130px;
+#modalAnswerQuestionModal {
+	.modal-dialog {
+		margin-top 					: 10%;
+	}
+
+	.modal-content {
+		border-radius 				: 0px;
+		border 						: 3px solid @answerThemeColor;
+		font-size 					: 20px;
+	}
+
+	.modal-header {
+		border-radius 				: 0px;
+		background-color 			: @answerThemeColor;
+		color 						: #FFFFFF;
+	}
+
+	.modal-footer {
+		span {
+			font-size 				: 20px;
+			font-weight 			: bold;
+			text-align 				: left;
+		}
+
+		.btn-success {
+			background-color 		: #F39C12;
+			border 					: 3px solid #E67E22;
+			border-radius 			: 0px;
+			font-size 				: 16px;
+			color 					: #FFFFFF;
+
+			&:hover {
+				background-color 	: #2ECC71;
+				border 				: 3px solid #27AE60;
+				color 				: #333333;
+			}
+		}
+
+		.btn-default {
+			background-color 		: #95A5A6;
+			border 					: 3px solid #7F8C8D;
+			border-radius 			: 0px;
+			font-size 				: 16px;
+			color 					: #FFFFFF;
+
+			&:hover {
+				background-color 	: #95A5A6;
+				border 				: 3px solid #7F8C8D;
+				color 				: #333333;
+			}
+		}
+	}
+
+	#modalAnsContent {
+		padding 					: 10px;
+		min-width 					: 200px;
+		font-size 					: 20px;
+	}
+}
+
+#modalReportQuestionModal {
+	.modal-dialog {
+		margin-top 					: 10%;
+	}
+
+	.modal-content {
+		border-radius 				: 0px;
+		border 						: 3px solid @answerThemeColor;
+		font-size 					: 20px;
+	}
+
+	.modal-header {
+		border-radius 				: 0px;
+		background-color 			: @answerThemeColor;
+		color 						: #FFFFFF;
+	}
+
+	.modal-footer {
+		span {
+			font-size 				: 20px;
+			font-weight 			: bold;
+			text-align 				: left;
+		}
+
+		.btn-success {
+			background-color 		: #F39C12;
+			border 					: 3px solid #E67E22;
+			border-radius 			: 0px;
+			font-size 				: 16px;
+			color 					: #FFFFFF;
+
+			&:hover {
+				background-color 	: #E74C3C;
+				border 				: 3px solid #C0392B;
+				color 				: #333333;
+			}
+		}
+
+		.btn-default {
+			background-color 		: #95A5A6;
+			border 					: 3px solid #7F8C8D;
+			border-radius 			: 0px;
+			font-size 				: 16px;
+			color 					: #FFFFFF;
+
+			&:hover {
+				background-color 	: #95A5A6;
+				border 				: 3px solid #7F8C8D;
+				color 				: #333;
+			}
+		}
+	}
+
+	#modalAnsContent {
+		padding 					: 10px;
+		min-width 					: 200px;
+		font-size 					: 20px;
+	}
 }

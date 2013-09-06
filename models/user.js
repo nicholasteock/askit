@@ -36,4 +36,70 @@ $.Model("User",
 		}
 		return name;
 	},
+
+	profile: function() {
+		return {
+			firstName 	: this.firstName,
+			lastName 	: this.lastName,
+			email 		: this.email
+		};
+	},
+
+	updateProfile: function( params ) {
+		console.log("User.updateProfile");
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response );
+			}
+			else {
+				return onError( response );	
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject( response );
+		};
+
+		$.ajax({
+			url 		: "server/updateProfile.php",
+			type 		: "POST",
+			dataType 	: "json",
+			success 	: onSuccess,
+			error 		: onError
+		});
+
+		return dfdResult;
+	},
+
+	updatePassword: function( params ) {
+		console.log("User.updatePassword");
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response );
+			}
+			else {
+				return onError( response );
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject( response );
+		};
+
+		$.ajax({
+			url 		: "server/updatePassword.php",
+			type 		: "POST",
+			dataType 	: "json",
+			success 	: onSuccess,
+			error 		: onError
+		});
+
+		return dfdResult;
+	},
 });

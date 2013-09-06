@@ -10,15 +10,21 @@
 require_once('php/config.php');
 
 $aiCss = array(
-	//bootstrap css
-	'components/bootstrap/css/bootstrap.css',
-	'components/bootstrap/css/bootstrap-responsive.css',
+	// Bootstrap 2.3.2 css
+	//'components/bootstrap/css/bootstrap.css',
+	//'components/bootstrap/css/bootstrap-responsive.css',
+
+	// Bootstrap 3 css
+	'components/bootstrap3/css/bootstrap.min.css',
 	'components/font-awesome/css/font-awesome.css',
+	'components/mathquill/mathquill.css',
 	
 	'css/index.css',
+	'css/ask.css',
 	'css/answer.css',
 	'css/dashboard.css',
 	'css/qnGallery.css',
+	'css/profile.css',
 );
 
 echo formatCss("ai", $aiCss)."\n";
@@ -26,71 +32,64 @@ echo formatCss("ai", $aiCss)."\n";
 </head>
 <body>
 <div id="ai-header">
-	<div class="navbar navbar-inverse navbar-static-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a id="logo" class="brand" href="#/dashboard"><img src="img/askit.png"></a>
-				<ul id="menu-main-nav" class="nav navbar-static-top ai-main-nav">
-					<li class="divider-vertical"></li>
-					<li>
-						<a id="menu-dashboard" href="#/dashboard">
-							<i class="icon-home icon-large"> </i>
-							<span> Dashboard</span>
-						</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a id="menu-ask" href="#/ask">
-							<i class="icon-bullhorn"> </i>
-							<span> Ask!</span>
-						</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a id="menu-answer" href="#/answer">
-							<i class="icon-star-empty"> </i>
-							<span> Answer</span>
-						</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a id="menu-practice" href="#/practice">
-							<i class="icon-edit"> </i>
-							<span> Practice</span>
-						</a>
-					</li>
-					<li class="divider-vertical"></li>
-					<li>
-						<a id="menu-hire" href="#/hire">
-							<i class="icon-group"> </i>
-							<span> Hire</span>
-						</a>
-					</li>
-					<li class="divider-vertical"></li>
-				</ul>
-				<ul class="nav pull-right" id="ai-user-info-nav">
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown">
-							Settings
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu pull-right">
-							<li><i class="icon-user"> </i> Profile</li>
-							<li><i class="icon-user"> </i> Your Questions</li>
-							<li><i class="icon-user"> </i> Your Answers</li>
-							<li><i class="icon-user"> </i> Statistics</li>
-							<li class="divider"></li>
-							<li><a href="javascript:" onclick="app.signout();"><i class="icon-user"> </i> Sign Out</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="navbar-header">
+			<a id="logo" class="navbar-brand" href="#/dashboard"><img src="img/askit.png"></a>
 		</div>
-	</div>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul id="menu-main-nav" class="nav navbar-nav">
+				<li>
+					<a id="menu-dashboard" class="selected" href="#/dashboard">
+						<i class="icon-home icon-large"> </i>
+						<span> Dashboard</span>
+					</a>
+				</li>
+				<li>
+					<a id="menu-ask" href="#/ask">
+						<i class="icon-bullhorn"> </i>
+						<span> Ask!</span>
+					</a>
+				</li>
+				<li>
+					<a id="menu-answer" href="#/answer">
+						<i class="icon-star-empty"> </i>
+						<span> Answer</span>
+					</a>
+				</li>
+				<li>
+					<a id="menu-practice" href="#/practice">
+						<i class="icon-edit"> </i>
+						<span> Practice</span>
+					</a>
+				</li>
+				<li>
+					<a id="menu-hire" href="#/hire">
+						<i class="icon-group"> </i>
+						<span> Hire</span>
+					</a>
+				</li>
+			</ul>
+			<ul id="ai-user-info-nav" class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown">
+						Settings <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu pull-right">
+						<li><a href="#/profile"><i class="icon-user"> </i> Profile</a></li>
+						<li><a ><i class="icon-user"> </i> Your Questions</a></li>
+						<li><a ><i class="icon-user"> </i> Your Answers</a></li>
+						<li><a ><i class="icon-user"> </i> Statistics</a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:" onclick="app.signout();"><i class="icon-user"> </i> Sign Out</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
 </div>
 	
-<div id="ai-body" class="container-fluid">
-	<div id="ai-stage" class="container">
+<div id="ai-body">
+	<div id="ai-stage" class="col-lg-offset-1 col-lg-10">
 	</div>
 </div>
 	
@@ -104,10 +103,22 @@ echo formatCss("ai", $aiCss)."\n";
 $libJs = array(
 	//Latest jQuery not compatible. Strange.
 	//'components/jquery-1.9.1.min.js',
+
+	// Bootstrap 2.3.2 js
+	//'components/bootstrap/js/bootstrap.js',
 	'components/jquery-1.7.2.min.js',
-	'components/bootstrap/js/bootstrap.js',
+
+	// Bootstrap 3 js
+	'components/bootstrap3/js/bootstrap.min.js',
+
+	// JMVC Framework
 	'components/jmvc3.2.4/jquerymx-3.2.custom.js',
+
+	// Lodash Utility
 	'components/lodash/lodash.min.js',
+
+	// Mathquill plugin
+	'components/mathquill/mathquill.min.js',
 );
 
 $appJs = array(
@@ -127,6 +138,7 @@ $appJs = array(
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/qnGallery.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
+	'askit/screens/profile/profile.js',
 	'askit/screens/lfkeong/lfkeong.js',
 	
 	//Modals
@@ -142,46 +154,50 @@ array_push( $appJs,
 );
 
 $aiHTML = array(
-	//Modal views
+	// Modal views
 	'modals/answer/answer_question_modal_view.html',
 	'modals/answer/report_question_modal_view.html',
 
-	//Common views
+	// Common views
 	'askit/screens/common/common_stage.html',
 
-	//Homepage views
+	// Homepage views
 	'askit/screens/homepage/homepage_view.html',
 	
-	//Dashboard views
+	// Dashboard views
 	'askit/screens/dashboard/dashboard_view.html',
 	'askit/screens/dashboard/dashboard_question_item_view.html',
 	'askit/screens/dashboard/dashboard_answer_item_view.html',
 	
-	//Question Gallery views
+	// Question Gallery views
 	'askit/screens/qnGallery/qnGallery_view.html',
 	'askit/screens/qnGallery/qnGallery_question_item_view.html',
 	
-	//Ask views
+	// Ask views
 	'askit/screens/ask/ask_view.html',
+	'askit/screens/ask/level_list_view.html',
 	'askit/screens/ask/subject_list_view.html',
 	'askit/screens/ask/topic_list_view.html',
 	
-	//Answer views
+	// Answer views
 	'askit/screens/answer/answer_qn_item_view.html',
 	'askit/screens/answer/no_qn_view.html',
 	
-	//Practice views
+	// Practice views
 	'askit/screens/practice/practice_view.html',
 	
-	//Hire views
+	// Hire views
 	'askit/screens/hire/hire_view.html',
 
-	//View Answer views
+	// View Answer views
 	'askit/screens/viewAnswer/viewAnswer_view.html',
 	'askit/screens/viewAnswer/viewAnswer_question_view.html',
 	'askit/screens/viewAnswer/viewAnswer_answer_view.html',
 	
-	//LFKEONG PRACTICE VIEWS
+	// Profile views
+	'askit/screens/profile/profile_view.html',
+
+	// LFKEONG PRACTICE VIEWS
 	'askit/screens/lfkeong/lfkeong_view.html',
 );
 

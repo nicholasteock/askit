@@ -1,29 +1,27 @@
 <%for( var i=0; i<this.length; i++ ) {%>
 	<div id="<%=this[i].id%>" class="qnItem">
-		<div class="qnItemBody row-fluid">
-			<span class="span7 qnItemBodyContent">
-				<h5>Question:</h5>
+		<div class="qnItemBody">
+			<span class="col-lg-7 qnItemBodyContent">
 				<div class="qnText">
 					<%=this[i].content%>
 				</div>
 			</span>
-			<span class="span5 qnItemBodyDetails" >
-				<h5>Details:</h5>
-				Level: &nbsp;&nbsp;&nbsp;&nbsp;<%=this[i].level%>
+			<span class="col-lg-5 qnItemBodyDetails" >
+				<span class="col-lg-3">Level:</span><span class="col-lg-9"><%=this[i].level%></span>
 				<br>
-				Subject: &nbsp;<%=this[i].subject%>
+				<span class="col-lg-3">Subject:</span><span class="col-lg-9"><%=this[i].subject%></span>
 				<br>
-				Topic: &nbsp;&nbsp;&nbsp;&nbsp;<%=this[i].topic%>
+				<span class="col-lg-3">Topic:</span><span class="col-lg-9"><%=this[i].topic%></span>
 			</span>
 		</div>
-		<div class="qnItemFooter row-fluid">
-			<span class="span4 text-center qnItemFooterAnswer qnFooterNav">
+		<div class="qnItemFooter">
+			<span class="col-lg-4 text-center qnItemFooterAnswer qnFooterNav">
 				<i class="icon-lightbulb"></i> &nbsp; Answer
 			</span>
-			<span class="span3 text-center qnItemFooterPin qnFooterNav">
+			<span class="col-lg-3 text-center qnItemFooterPin qnFooterNav">
 				<i class="icon-pushpin"></i> &nbsp; Pin Question
 			</span>
-			<span class="span5 text-center qnItemFooterReport qnFooterNav">
+			<span class="col-lg-5 text-center qnItemFooterReport qnFooterNav">
 				<i class="icon-exclamation-sign"></i> &nbsp; Report Inappropriate
 			</span>
 		</div>

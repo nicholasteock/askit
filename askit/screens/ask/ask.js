@@ -1,183 +1,177 @@
 Screen.extend("Ask",
 {
-	init: function( el, options ){
+	init: function( el, options ) {
 		this.classname = this.Class.fullName;
 		this.stageCssClass = "aiscreen-" + this.Class.shortName;
-		this.__base__setupDefaultStage();		//screens.js
+		this.__base__setupDefaultStage();
 		this.element.html( "askit_screens_common_common_stage", { title: "Ask Your Question!" } );
 		$(".stageContent").html( "askit_screens_ask_ask_view", {} );
-		this.levelDropdown = $("#qnLevelDropdown");
-		this.subjectDropdown = $("#qnSubjectDropdown");
-		this.topicDropdown = $("#qnTopicDropdown");
-		this.loadingSpinner = $("#loadingSpinner");
+		this.levelContainer 	= $("#levelSelectContainer");
+		this.subjectContainer 	= $("#subjectSelectContainer");
+		this.topicContainer 	= $("#topicSelectContainer");
+		this.qnContent 			= $("#qnContent");
+		this.submitQnBtn 		= $("#submitQnBtn");
+		this.qnSubmitErr 		= $("#qnSubmitErrMsg");
+		this.loadLevels();
 	},
-	
-	"#qnLevel click": function( el, ev ) {
-		ev.stopPropagation();
-		if(el.closest(".btn-group").hasClass("open")){
-			$(".btn-group").removeClass("open");
-		}
-		else {
-			$(".btn-group").removeClass("open");
-			el.closest(".btn-group").addClass("open")
-		}
+
+	loadLevels: function() {
+		$.when(
+			QuestionModel.findLevels()
+		).then(
+			this.proxy( this.onLoadLevelsDone ),
+			this.proxy( this.onLoadLevelsFail )
+		);
 	},
-	
-	"#qnSubject click": function( el, ev ) {
-		ev.stopPropagation();
-		if(el.closest(".btn-group").hasClass("open")){
-			$(".btn-group").removeClass("open");
-		}
-		else {
-			$(".btn-group").removeClass("open");
-			el.closest(".btn-group").addClass("open")
-		}
+
+	onLoadLevelsDone: function( response ) {
+		this.levelContainer.find("#levelDropdown").html( "askit_screens_ask_level_list_view", response );
+		return;
 	},
-	
-	"#qnTopic click": function( el, ev ) {
-		ev.stopPropagation();
-		if(el.closest(".btn-group").hasClass("open")){
-			$(".btn-group").removeClass("open");
-		}
-		else {
-			$(".btn-group").removeClass("open");
-			el.closest(".btn-group").addClass("open")
-		}
+
+	onLoadLevelsFail: function( response ) {
+		console.error( "In onLoadLevelsFail. Response is : ", response );
+		return;
 	},
-	
-	"#qnLevelDropdown a click": function( el, ev ) {
-		el.closest(".btn-group").addClass("open");
-		this.subjectDropdown.empty();
-		this.topicDropdown.empty();
-		var levelSelected = el.text(),
-			params = { level: levelSelected };
-		$("#qnLevel").text( levelSelected );
+
+	loadSubjects: function( level ) {
+		var params = { level: level };
+		
 		$.when(
 			QuestionModel.findSubjects( params )
 		).then(
-			this.proxy( this.onFindSubjectsDone ),
-			this.proxy( this.onFindSubjectsFail )
+			this.proxy( this.onLoadSubjectsDone ),
+			this.proxy( this.onLoadSubjectsFail )
 		);
 	},
-	
-	onFindSubjectsDone: function( response ) {
-		//~ console.log("onFindSubjectsDone. Response: ", response);
-		if( !response.result === "success" ) {
-			this.onFindSubjectsFail(response);
-			return;
-		}
-		this.subjectDropdown.html("askit_screens_ask_subject_list_view", response.data);
+
+	onLoadSubjectsDone: function( response ) {
+		this.subjectContainer.find("#subjectDropdown").html( "askit_screens_ask_subject_list_view", response );
+		return;
 	},
-	
-	onFindSubjectsFail: function( response ) {
-		console.log("onFindSubjectsFail. Response:  ", response);
+
+	onLoadSubjectsFail: function( response ) {
+		console.error( "In onLoadSubjectsFail. Response is : ", response );
+		return;
 	},
-	
-	"#qnSubjectDropdown a click": function( el, ev ) {
-		this.topicDropdown.empty();
-		var levelSelected	= $("#qnLevel").text(),
-			subjectSelected = el.text(),
-			params			= { level: levelSelected, subject: subjectSelected };
-		
-		$("#qnSubject").text( subjectSelected );
+
+	loadTopics: function( subject ) {
+		var level 	= 	this.levelContainer.find("button").text(),
+			params 	= 	{ 
+							level 	: level,
+							subject : subject
+						};
+
 		$.when(
 			QuestionModel.findTopics( params )
 		).then(
-			this.proxy( this.onFindTopicsDone ),
-			this.proxy( this.onFindTopicsFail )
+			this.proxy( this.onLoadTopicsDone ),
+			this.proxy( this.onLoadTopicsFail )
 		);
 	},
-	
-	onFindTopicsDone: function( response ) {
-		//~ console.log("onFindTopicsDone. Response: ", response);
-		if( !response.result === "success" ) {
-			this.onFindTopicsFail(response);
-			return;
-		}
-		this.topicDropdown.html("askit_screens_ask_topic_list_view", response.data);
+
+	onLoadTopicsDone: function( response ) {
+		this.topicContainer.find("#topicDropdown").html( "askit_screens_ask_topic_list_view", response );
+		return;
 	},
-	
-	onFindTopicsFail: function( response ) {
-		console.log("onFindTopicsFail. Response:  ", response);
+
+	onLoadTopicsFail: function( response ) {
+		console.error( "In onLoadTopicsFail. Response is : ", response );
+		return;
 	},
-	
-	"#qnTopicDropdown a click": function( el, ev ) {
-		//~ console.log("Topic clicked.", el.text());
-		$("#qnTopic").text(el.text());
+
+	submitQuestion: function( params ) {
+		$.when(
+			QuestionModel.create( params )
+		).then(
+			this.proxy( this.onSubmitQnDone ),
+			this.proxy( this.onSubmitQnFail )
+		);
 	},
-	
-	"#qnSubmit click": function(){
-		$(".qnMsg").addClass("hidden");
-		
-		var level	= $("#qnLevel").text(),
-			subject	= $("#qnSubject").text(),
-			topic 	= $("#qnTopic").text(),
-			content = $("#qnContent").val(),
-			authorId= app.currentUser.id;
-		
-		if( !level ) {
-			$("#noLevelErrorMsg").removeClass("hidden");
-			return;
+
+	onSubmitQnDone: function( response ) {
+		this.submitQnBtn.html( "Done!" );
+		this.resetInput();
+		return;
+	},
+
+	onSubmitQnFail: function( response ) {
+		console.error( "In onSubmitQnFail. Response is : ", response );
+		this.submitQnBtn.html("Ask!").removeClass("disabled");
+		this.qnSubmitErr.html( "Error in submission. Please try again." );
+		return;
+	},
+
+	resetInput: function() {
+		this.levelContainer.find("button").html("Select Level").removeClass("selectionMade");
+		this.subjectContainer.find("button").html("Select Subject").addClass("disabled").removeClass("selectionMade");
+		this.topicContainer.find("button").html("Select Topic").addClass("disabled").removeClass("selectionMade");
+		this.qnContent.val("");
+	},
+
+	verifyQn: function( params ) {
+		var validQn = false;
+
+		if( params.level === "Select Level" ) {
+			this.qnSubmitErr.html( "Oops! You forgot to select a level!" );
 		}
-		else if( !subject ) {
-			$("#noSubjectErrorMsg").removeClass("hidden");
-			return;
+		else if( params.subject === "Select Subject" ) {
+			this.qnSubmitErr.html( "Hmm, what is the subject?" );
 		}
-		else if( !topic ) {
-			$("#noTopicErrorMsg").removeClass("hidden");
-			return;
+		else if( params.topic === "Select Topic" ) {
+			this.qnSubmitErr.html( "Did you leave out the topic?" );
 		}
-		else if( !content ) {
-			$("#noContentErrorMsg").removeClass("hidden");
-			return;
+		else if( params.content === "" ) {
+			this.qnSubmitErr.html( "Seems like your question is empty!" );
 		}
 		else {
-			this.loadingSpinner.removeClass("hidden");
-			$("#qnSubmit").addClass("disabled");
-			$("#qnSubmit").attr("disabled", "disabled");
+			validQn = true;
+		}
+
+		return validQn;
+	},
+
+	".dropdown-menu li click": function( el, ev ) {
+		var ddElement 	= $(el).parent(),
+			ddContainer = ddElement.parent(),
+			ddName 		= ddElement.attr("id"),
+			ddOption	= el.text();
+
+		this.submitQnBtn.html("Ask!").removeClass("disabled");
+		ddContainer.find("button").html(ddOption).addClass("selectionMade");
 		
-			var params= {
-							level 		: level,
-							subject 	: subject,
-							topic 		: topic,
-							content 	: content,
-							author 		: app.currentUser.id
+		if( ddName === "levelDropdown" ) {
+			this.subjectContainer.find("button").html("Select Subject").removeClass("disabled").removeClass("selectionMade");
+			this.topicContainer.find("button").html("Select Topic").addClass("disabled").removeClass("selectionMade");
+			this.loadSubjects( ddOption );
+		}
+
+		if( ddName === "subjectDropdown" ) {
+			this.topicContainer.find("button").html("Select Topic").removeClass("disabled").removeClass("selectionMade");
+			this.loadTopics( ddOption );
+		}
+	},
+
+	"#submitQnBtn click": function() {
+		var	level 	= 	this.levelContainer.find("button").text(),
+			subject = 	this.subjectContainer.find("button").text(),
+			topic 	= 	this.topicContainer.find("button").text(),
+			content = 	$("#qnContent").val(),
+			author 	= 	app.currentUser.id,
+			params 	= 	{
+							level 	: level,
+							subject : subject,
+							topic 	: topic,
+							content : content,
+							author 	: author
 						};
-						
-			$.when(
-				QuestionModel.create( params )
-			).then(
-				this.proxy( this.onSubmitQnDone ),
-				this.proxy( this.onSubmitQnFail )
-			);
+
+		this.qnSubmitErr.html("");
+
+		if( this.verifyQn( params ) ) {
+			this.submitQnBtn.html("Submitting...").addClass("disabled");
+			this.submitQuestion( params );
 		}
-	},
-	
-	onSubmitQnDone: function( response ) {
-		//~ console.log("onSubmitQnDone. Response: ", response);
-		this.loadingSpinner.addClass("hidden");
-		$("#qnSubmit").removeClass("disabled");
-		$("#qnSubmit").attr("disabled", null);
-		if( !response.result === "success" ) {
-			this.onSubmitQnFail(response);
-			return;
-		}
-		
-		$("#qnLevel").text("");
-		$("#qnSubject").text("");
-		$("#qnTopic").text("");
-		$("#qnContent").val("");
-		$("#qnSubmitSuccessMsg").removeClass("hidden");
-		
-	},
-	
-	onSubmitQnFail: function( response ) {
-		this.loadingSpinner.addClass("hidden");
-		$("#qnSubmit").removeClass("disabled");
-		$("#qnSubmit").attr("disabled", null);
-		console.log("onSubmitQnFail. Response:  ", response);
-		$("#qnSubmitFailMsg").removeClass("hidden");
 	},
 });
 window.routes["/ask"] = Ask;
-

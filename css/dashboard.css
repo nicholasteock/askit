@@ -1,9 +1,7 @@
-#dbQnContainer{border:1px solid #999;border-radius:5px;font-size:20px;}#dbQnContainer #dbQnContainerHeader{height:20px;padding:10px;font-weight:bold;background-color:#4099FF;}
-#dbQnContainer table{margin-bottom:0px;cursor:pointer;}#dbQnContainer table tr{line-height:1.2;}#dbQnContainer table tr .dbAnsCount{text-align:center;}
-#dbQnContainer table tr .dbQnContent{max-height:50px;overflow:hidden;}
-#dbAnsContainer{border:1px solid #999;border-radius:5px;font-size:20px;margin-top:15px;}#dbAnsContainer #dbAnsContainerHeader{height:20px;padding:10px;font-weight:bold;background-color:#4099FF;}
-#dbAnsContainer table{margin-bottom:0px;}#dbAnsContainer table tr{line-height:1.2;cursor:pointer;}#dbAnsContainer table tr .dbAnsApproval{padding:10px 25px;}
-#dbAnsContainer table tr .dbAnsContent{max-height:40px;overflow:hidden;}
+#dbQnContainer{border:1px solid #999;border-radius:0px;font-size:17px;}#dbQnContainer #dbQnContainerHeader{height:40px;padding:10px;font-weight:bold;color:#FFF;background-color:#4617b4;}
+#dbQnContainer table{background-color:#FFF;margin-bottom:0px;}
+#dbAnsContainer{border:1px solid #999;border-radius:0px;font-size:17px;margin-top:15px;}#dbAnsContainer #dbAnsContainerHeader{height:40px;padding:10px;font-weight:bold;color:#FFF;background-color:#4617b4;}
+#dbAnsContainer table{background-color:#FFF;margin-bottom:0px;}#dbAnsContainer table .dbAnsContent{line-height:1.3;max-height:40px;overflow:hidden;}
 .dbLoadingContainer{margin-left:48%;margin-top:5%;margin-bottom:5%;}.dbLoadingContainer img{width:35px;margin-left:15px;}
 .dbLoadingContainer div{text-align:left;margin-top:5px;color:#999;}
 .dbEmptyContainer{text-align:center;padding:50px 20px;}

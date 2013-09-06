@@ -1,0 +1,65 @@
+<div id="profileContainer">
+	<div id="updateDetailsBlock">
+		<h4>Your Details</h4>
+		<form class="form-horizontal profileForm" role="form">
+			<div class="form-group">
+				<label for="profileEmail" class="col-lg-4 control-label">Email: </label>
+				<div class="col-lg-5">
+					<input type="email" class="form-control" id="profileEmail" value="<%= this.email %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="profileFirstName" class="col-lg-4 control-label">First Name: </label>
+				<div class="col-lg-5">
+					<input type="text" class="form-control" id="profileFirstName" value="<%= this.firstName %>">
+				</div>
+				<span id="firstNameErrMsg" class="profileErrMsg"></span>
+			</div>
+			<div class="form-group">
+				<label for="profileLastName" class="col-lg-4 control-label">Last Name: </label>
+				<div class="col-lg-5">
+					<input type="text" class="form-control" id="profileLastName" value="<%= this.lastName %>">
+				</div>
+				<span id="lastNameErrMsg" class="profileErrMsg"></span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-offset-6 col-lg-3">
+					<button type="button" id="updateProfileBtn" class="btn btn-block profileBtn">Update Profile</button>
+				</div>
+				<span id="updateProfileErrMsg" class="profileErrMsg"></span>
+			</div>
+		</form>
+	</div>
+	<div id="updatePasswordBlock">
+		<h4>Change Password</h4>
+		<form class="form-horizontal profileForm" role="form">
+			<div class="form-group">
+				<label for="passwordCurrent" class="col-lg-4 control-label">Current Password:</label>
+				<div class="col-lg-5">
+					<input type="password" class="form-control" id="passwordCurrent">
+				</div>
+				<span id="currPwdErrMsg" class="profileErrMsg"></span>
+			</div>
+			<div class="form-group">
+				<label for="passwordNew1" class="col-lg-4 control-label">New Password:</label>
+				<div class="col-lg-5">
+					<input type="password" class="form-control" id="passwordNew1">
+				</div>
+				<span id="newPwd1ErrMsg" class="profileErrMsg"></span>
+			</div>
+			<div class="form-group">
+				<label for="passwordNew2" class="col-lg-4 control-label">Repeat Password:</label>
+				<div class="col-lg-5">
+					<input type="password" class="form-control" id="passwordNew2">
+				</div>
+				<span id="newPwd2ErrMsg" class="profileErrMsg"></span>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-offset-6 col-lg-3">
+					<button type="button" id="updatePasswordBtn" class="btn btn-block profileBtn">Change Password</button>
+				</div>
+				<span id="updatePwdErrMsg" class="profileErrMsg"></span>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<?php
+	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
+	$queryResult = $mysqli->query( "SELECT DISTINCT level FROM topics WHERE 1" );
+
+	$data = array();
+	if( $queryResult ) {
+		for ($rowIndex = $queryResult->num_rows - 1; $rowIndex >=0; $rowIndex--) {
+			$queryResult->data_seek($rowIndex);
+			$row = $queryResult->fetch_assoc();
+			$tmp = $row["level"];
+			array_push( $data, $tmp );
+		}
+	}
+	
+	$result = array( "result" => "success", "data" => $data );
+	$mysqli->close();
+	echo json_encode( $result );
+?>

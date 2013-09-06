@@ -1,54 +1,35 @@
-<div id="levelSelectContainer">
-	<span>Select Level &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	<div class="input-append">
-		<div class="btn-group">
-			<span id="qnLevel" class="input-xlarge uneditable-input"></span>
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-down icon-large"></i></button>
-			<ul id="qnLevelDropdown" class="dropdown-menu pull-right">
-				<li><a tabindex="-1">Secondary 1</a></li>
-				<li><a tabindex="-1">Secondary 2</a></li>
-				<li><a tabindex="-1">Secondary 3</a></li>
-				<li><a tabindex="-1">Secondary 4</a></li>
-				<li><a tabindex="-1">Secondary 5</a></li>
+<div>
+	<span id="levelSelectContainer">
+		<div class="btn-group askGroupBtn col-lg-4">
+			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">Select Level</button>
+			<ul id="levelDropdown" class="dropdown-menu askDropdown pull-right" role="menu">
+				<li><a tabindex="-1">Loading Levels...</a></li>
 			</ul>
 		</div>
-	</div>
-</div>
-<div id="subjectSelectContainer">
-	<span>Select Subject &nbsp;&nbsp;&nbsp;&nbsp;</span>
-	<div class="input-append">
-		<div class="btn-group">
-			<span id="qnSubject" class="input-xlarge uneditable-input"></span>
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-down icon-large"></i></button>
-			<ul id="qnSubjectDropdown" class="dropdown-menu pull-right">
-				<li class="disabled"><a tabindex="-1">Select a Level First!</a></li>
+	</span>
+	<span id="subjectSelectContainer">
+		<div class="btn-group askGroupBtn col-lg-4">
+			<button type="button" class="btn btn-default btn-block dropdown-toggle disabled" data-toggle="dropdown">Select Subject</button>
+			<ul id="subjectDropdown" class="dropdown-menu askDropdown pull-right" role="menu">
+				<li><a tabindex="-1">Loading Subjects...</a></li>
 			</ul>
 		</div>
-	</div>
-</div>
-<div id="topicSelectContainer">
-	<span>Select Topic &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	<div class="input-append control-group warning">
-		<div class="btn-group">
-			<span id="qnTopic" class="input-xlarge uneditable-input controls"></span>
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="icon-chevron-down icon-large"></i></button>
-			<ul id="qnTopicDropdown" class="dropdown-menu pull-right">
-				<li class="disabled"><a tabindex="-1">Select a Subject First!</a></li>
+	</span>
+	<span id="topicSelectContainer">
+		<div class="btn-group askGroupBtn col-lg-4">
+			<button type="button" class="btn btn-default btn-block dropdown-toggle disabled" data-toggle="dropdown">Select Topic</button>
+			<ul id="topicDropdown" class="dropdown-menu askDropdown pull-right" role="menu">
+				<li><a tabindex="-1">Loading Topics...</a></li>
 			</ul>
 		</div>
+	</span>
+</div>
+<div>
+	<div id="qnContentContainer">
+		<textarea id="qnContent" class="col-lg-12" rows="5" placeholder="Your Question Here..."></textarea>
 	</div>
 </div>
-<hr>
-<div id="qnContentContainer">
-	<textarea id="qnContent" rows="11" class="span12" placeholder="Describe your problem here..."></textarea>
-</div>
-<div class="pull-right">
-	<span id="noLevelErrorMsg" class="qnMsg hidden">Have you selected a level?</span>
-	<span id="noSubjectErrorMsg" class="qnMsg hidden">Have you selected a subject?</span>
-	<span id="noTopicErrorMsg" class="qnMsg hidden">Have you selected a topic?</span>
-	<span id="noContentErrorMsg" class="qnMsg hidden">You did not enter a question!</span>
-	<span id="qnSubmitSuccessMsg" class="qnMsg hidden">Question Submitted!</span>
-	<span id="qnSubmitFailMsg" class="qnMsg hidden">Oops! Something went wrong. Please try again.</span>
-	<i id="loadingSpinner" style="position: relative; top:10px; margin-right: 20px;" class="icon-spinner icon-3x icon-spin hidden"></i>
-	<button type="button" class="btn-primary btn-large" id="qnSubmit">AskIt!</button>
+<div id="qnSubmitContainer">
+	<span id="qnSubmitErrMsg" class="col-lg-9"></span>
+	<button type="button" id="submitQnBtn" class="btn btn-default col-lg-3">Ask!</button>
 </div>

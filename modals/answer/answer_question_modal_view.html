@@ -1,27 +1,22 @@
-<div class="modal-header">
-	<h4>Answer Question<span class="pull-right" data-dismiss="modal"><i class="icon-remove-sign"></i></span></h4>
-</div>
-<div class="modal-body">
-	<div class="modalQnContainer">
-		<h5>Question</h5>
-		<%=this.content%>
+<div id="ansModal" class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+			<h4 class="modal-title">Answer Question</h4>
+		</div>
+		<div class="modal-body">
+			<div id="modalQnContent">
+				<%=this.content%>
+			</div>
+			<hr>
+			<div id="<%=this.id%>">
+				<textarea id="modalAnsContent" rows="5" class="col-lg-12" placeholder="Your Answer Here..."></textarea>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<span id="ansSubmitErrMsg" class="col-lg-6"></span>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" id="submitAnsBtn" class="btn btn-success">Answer!</button>
+		</div>
 	</div>
-	<div id="answerSubmitSuccess" class="hidden">
-		<h1>Success!</h1>
-		<h5>Thank you for submitting your answer!</h5>
-	</div>
-	<div id="answerSubmitFail" class="hidden">
-		<h1>Oops!</h1>
-		<h5>Unfortunately something went wrong along our submission channels. Please try again!</h5>
-	</div>
-	<hr>
-	<div id="<%= this.id %>" class="modalAnsContainer row-fluid">
-		<h5>Your Answer</h5>
-		<textarea rows="5" class="span12 answerContent"></textarea>
-	</div>
-</div>
-<div class="modal-footer">
-	<button id="modalClose" type="button" data-dismiss="modal" class="btn hidden">Close</button>
-	<button id="modalCancel" type="button" data-dismiss="modal" class="btn">Cancel</button>
-	<button id="answerSubmit" type="button" class="btn btn-primary">Submit</button>
 </div>
