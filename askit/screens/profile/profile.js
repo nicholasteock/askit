@@ -121,13 +121,6 @@ Screen.extend("Profile",
 			validInput = false;
 		}
 
-		// if( validInput && !verifyPwd( currPwd ) ) {
-		// 	$("#updatePasswordBtn").html("Change Password").removeClass("disabled updateSuccess updateError");
-		// 	$("#currPwdErrMsg").html("<i class='icon-remove-sign'> </i> Password Invalid")
-		// 	currPwdRef.addClass("invalidInput");
-		// 	validInput = false;
-		// }
-
 		if( validInput ) {
 			$.when(
 				app.currentUser.updatePassword( params )
@@ -143,9 +136,16 @@ Screen.extend("Profile",
 	},
 
 	onUpdatePasswordFail: function( response ) {
-		console.log( "In onUpdatePasswordFail. Response is : ", response );
-		$("#updatePasswordBtn").html("Error!").addClass("updateError");
-		$("#updatePwdErrMsg").html("Please try again");
+		if( response.error === "Password invalid" ) {
+			$("#updatePasswordBtn").html("Error!").addClass("updateError");
+			$("#currPwdErrMsg").html("<i class='icon-remove-sign'> </i> Password is invalid");
+		}
+		else {
+			console.log( "In onUpdatePasswordFail. Response is : ", response );
+			$("#updatePasswordBtn").html("Error!").addClass("updateError");
+			$("#updatePwdErrMsg").html("Please try again");
+		}
+
 		return;
 	},
 

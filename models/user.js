@@ -46,7 +46,7 @@ $.Model("User",
 	},
 
 	updateProfile: function( params ) {
-		console.log("User.updateProfile");
+		console.log("User.updateProfile", params);
 
 		var dfdResult = $.Deferred();
 
@@ -67,6 +67,7 @@ $.Model("User",
 			url 		: "server/updateProfile.php",
 			type 		: "POST",
 			dataType 	: "json",
+			data 		: params,
 			success 	: onSuccess,
 			error 		: onError
 		});
@@ -96,6 +97,7 @@ $.Model("User",
 			url 		: "server/updatePassword.php",
 			type 		: "POST",
 			dataType 	: "json",
+			data 		: params,
 			success 	: onSuccess,
 			error 		: onError
 		});

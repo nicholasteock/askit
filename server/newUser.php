@@ -17,7 +17,7 @@
 			$result = array( "result" => "success" );
 		}
 		else {
-			$result = array( "result" => "failure" );
+			$result = array( "result" => "failure", "error" => $mysqli->error() );
 		}
 		$mysqli->close();
 		return $result;

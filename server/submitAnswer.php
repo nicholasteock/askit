@@ -10,7 +10,7 @@
 		$result = array( "result" => "success" );
 	}
 	else {
-		$result = array( "result" => "failure", "err" => $mysqli->error() );
+		$result = array( "result" => "failure", "error" => $mysqli->error() );
 	}
 
 	$mysqli->close();
