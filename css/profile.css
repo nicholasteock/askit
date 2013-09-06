@@ -1,6 +1,7 @@
-.profileForm{margin-top:20px;font-size:18px;}.profileForm label{font-weight:normal;}
-.profileForm input{border-radius:0px;font-size:18px;}.profileForm input.invalidInput{box-shadow:none;border-color:#FF0000;}
+.profileForm{margin-top:20px;font-size:16px;}.profileForm label{font-weight:normal;}
+.profileForm input{border-radius:0px;font-size:16px;}.profileForm input.invalidInput{box-shadow:none;border-color:#FF0000;}
 .profileForm input:focus{box-shadow:none;border-color:#4617B4;}
+.profileForm #profileEmail{background-color:transparent;border:none;box-shadow:none;padding:6px 0px;}
 .profileErrMsg{color:#FF4C2E;font-size:16px;}
 .profileBtn{background-color:#4617B4;border:3px solid #34495E;border-radius:0px;font-size:14px;color:#FFFFFF;}.profileBtn:hover{background-color:#ECF0F1;border:3px solid #BDC3C7;color:#333333;}
 .updateSuccess{background-color:#2ECC71;border:3px solid #27AE60;color:#333333;}
