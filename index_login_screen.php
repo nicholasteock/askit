@@ -1,3 +1,12 @@
+<?php
+	if( !isset($_COOKIE["loginMsg"]) || $_COOKIE["loginMsg"] == "" ) {
+		$loginMsg = "";
+	}
+	else {
+		$loginMsg = $_COOKIE["loginMsg"];
+		setcookie("loginMsg", "", time()-3600);
+	}
+?>
 <!DOCTYPE html>
 <head>
 	<title>AskIt!</title>
@@ -14,9 +23,14 @@
 <body>
 <div style="height: 100%; position: relative;">
 
-	<div id="loginNav">
-		<span id="loginBtn" class="loginNavItem">Log In</span>
-	</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<p class="navbar-text navbar-right">
+				<span id="loginNavMsg"></span>
+				<span id="loginBtn">Log In</span>
+			</p>
+		</div>
+	</nav>
 
 	<div id="imgCarousel" class="carousel slide" data-interval="false">
 		<div class="carousel-inner">
@@ -123,8 +137,6 @@
 			</div>
 		</div>
 	</div>
-
-
 </div>
 
 <!-- New User Registration Modal -->
@@ -211,7 +223,18 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 			title 		: '<h4>Sign In</h4>',
 			content 	: '<form id="loginForm" class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/"><div class="form-group"><label for="email" class="col-lg-4 control-label">Email : </label><div class="col-lg-8"><input type="email" class="form-control" id="email" name="email"></div></div><div class="form-group"><label for="password" class="col-lg-4 control-label">Password : </label><div class="col-lg-8"><input type="password" class="form-control" id="password" name="password"></div></div><div class="form-group"><div class="col-lg-offset-4 col-lg-8"><button type="submit" class="btn btn-default">Submit</button></div></div></form>'
 		});
+
+		showLoginMsg();
 	});
+
+	var showLoginMsg = function() {
+		var loginMsg = "<?php echo $loginMsg ?>";
+
+		if( loginMsg != "" ) {
+			$("#loginNavMsg").html(loginMsg).fadeIn(1111);
+		}
+		return;
+	};
 
 	var doLogin = function() {
 		if( location.hash.length ) {

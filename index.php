@@ -7,7 +7,7 @@
 
 
 $tokenExpiryTime 	= 24;
-$loginFile 			= "index_login_screen_v2.php";
+$loginFile 			= "index_login_screen.php";
 $postloginFile 		= "index_askit_screen.php";
 $is_httppost 		= $_SERVER["REQUEST_METHOD"] == 'POST';
 $hasAccessToken		= isset( $_COOKIE['accessToken']);
@@ -17,9 +17,9 @@ $newUserLogin 		= isset( $_POST["newUserEmail"] ) && isset( $_POST["newUserPassw
 
 
 
-//Checks login credentials with DB.
-//Success: accessToken
-//Failure: "failure"
+// Checks login credentials with DB.
+// Success: accessToken
+// Failure: "failure"
 function doLogin( $email, $password ) {
 	$result = "";
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
@@ -40,6 +40,7 @@ function doLogin( $email, $password ) {
 			}
 		}
 	}
+
 	$mysqli->close();
 	return $result;
 }
@@ -59,9 +60,9 @@ function createToken( $email ) {
 	}
 }
 
-//Gets user details based on accessToken
-//Success: Object with user details
-//Failure: Empty string
+// Gets user details based on accessToken
+// Success: Object with user details
+// Failure: Empty string
 function whoAmI( $accessToken ) {
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
 	$queryResult = $mysqli->query( "SELECT id, firstName, lastName, email FROM user WHERE accessToken=" . $accessToken);
@@ -87,6 +88,7 @@ else if( $is_httppost && $newUserLogin ) {
 	//echo '<script type="text/javascript">alert("Access token is :' . $accessToken . '");</script>';
 }
 
+// Login success.
 if( gettype($accessToken) == 'string' && strlen($accessToken)>0 ) {
 	$userInfo = whoAmI($accessToken);
 	if($hasLoginFormValue) {
@@ -101,8 +103,12 @@ if( gettype($accessToken) == 'string' && strlen($accessToken)>0 ) {
 	return;
 }
 
+// Login failed. Set login failed message
 if( $hasLoginFormValue ) {
-	//can do some login failed stuff here
+	header("Location: /#");
+	setcookie("loginMsg", "Login failed. Please try again");
+	exit();
+	return;
 }
 
 include $loginFile;
