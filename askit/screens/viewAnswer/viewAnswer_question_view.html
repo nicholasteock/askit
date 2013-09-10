@@ -1,12 +1,14 @@
-<div>
-	Level: <%= this[0].level %>	
-</div>
-<div>
-	Subject: <%= this[0].subject %>
-</div>
-<div>
-	Topic: <%= this[0].topic %>
-</div>
-<div>
-	Question: <%= this[0].content %>
-</div>
+<table class="table">
+	<tbody>
+		<tr>
+			<td class="col-lg-8">
+				<%=this[0].content%>
+			</td>
+			<td class="col-lg-8">
+				<div><span class="col-lg-4">Level:</span><span class="col-lg-8"><%=this[0].level%></span></div>
+				<div><span class="col-lg-4">Subject:</span><span class="col-lg-8"><%=this[0].subject%></span></div>
+				<div><span class="col-lg-4">Topic:</span><span class="col-lg-8"><%=this[0].topic%></span></div>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -78,6 +78,19 @@ Screen.extend("Dashboard",
 		app.setLocation( "/viewAnswers?qnId=" + qnId );
 	},
 
+	"#dbAnsContainer tr hover": function( el, ev ) {
+		if( $(el).hasClass("positiveRating") ) {
+			$(el).addClass("positiveHover");
+		}
+		else {
+			$(el).addClass("negativeHover");
+		}
+	},
+
+	"#dbAnsContainer tr mouseleave": function( el, ev ) {
+		$("#dbAnsContainer tr").removeClass("positiveHover negativeHover");
+	},
+
 	"#dbAnsContainer tr click": function(el, ev) {
 		console.log("clicked", el.attr("id"));
 	},

@@ -25,6 +25,7 @@ $aiCss = array(
 	'css/dashboard.css',
 	'css/qnGallery.css',
 	'css/profile.css',
+	'css/viewAnswer.css',
 );
 
 echo formatCss("ai", $aiCss)."\n";

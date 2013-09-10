@@ -1,16 +1,37 @@
-<% 
-	var transformToViewAnswerView = function(data) {
-		for( var i=0, iLen=data.length; i<iLen; i++ ) {
-
-		}
-	}
-%>
-
-<% console.log( "answer view. ", this ) %>
-
-<%for( var i=0, iLen=this.length; i<iLen; i++ ) {%>
-	<%if(i === 0) {%>
-		<div class="active item"><%=this[i].content%></div>
-	<%} else {%>
-		<div class="item"><%=this[i].content%></div>
-<%}}%>
+<div id="vaAnsCarousel" class="carousel slide">
+	<div class="carousel-inner">
+		<div class="item active">
+			<div>
+				<%=this[0].content%>
+			</div>
+			<div id="<%=this[0].id%>" class="vaQnApprovalContainer">
+				<button class="btn btn-success vaQnApprove col-lg-6">
+					<i class="icon-thumbs-up"></i>
+				</button>
+				<button class="btn btn-success vaQnDisapprove col-lg-6">
+					<i class="icon-thumbs-down"></i>
+				</button>
+			</div>
+		</div>
+		<%for( var i=1, iLen=this.length; i<iLen; i++ ) {%>
+			<div class="item">
+				<div>
+					<%=this[i].content%>
+				</div>
+				<div id="<%=this[i].id%>" class="vaQnApprovalContainer">
+					<button class="btn vaQnApprove col-lg-6">
+						<i class="icon-thumbs-up"></i>
+					</button>
+					<button class="btn vaQnDisapprove col-lg-6">
+						<i class="icon-thumbs-down"></i>
+					</button>
+				</div>
+			</div>
+		<%}%>
+		<div class="item">
+			<div class="lastAnswer">
+				There are no more answers.
+			</div>
+		</div>
+	</div>
+</div>

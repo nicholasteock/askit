@@ -1,9 +1,25 @@
 <% for(var i=0, iLen=this.length; i<iLen; i++) { %>
-	<tr id="<%=this[i].id%>">
-		<td class="dbAnsApproval text-center col-lg-2">
-			<i class="icon-thumbs-up icon-2x"></i>
+	<% var	result = this[i].approval-this[i].disapproval,
+			ratingIndicator = result >= 0 ? "positiveRating" : "negativeRating"; %>
+
+	<tr id="<%=this[i].id%>" class="<%=ratingIndicator%>">
+		<td class="dbAnsApproval text-center col-lg-1">
+			<div>
+				<i class="icon-thumbs-up"></i>
+			</div>
+			<div>
+				<%=this[i].approval%>
+			</div>
 		</td>
-		<td>
+		<td class="dbAnsApproval text-center col-lg-1">
+			<div>
+				<i class="icon-thumbs-down"></i>
+			</div>
+			<div>
+				<%=this[i].disapproval%>
+			</div>
+		</td>
+		<td class="col-lg-10">
 			<div class="dbAnsContent">
 				<%= this[i].content %>
 			</div>

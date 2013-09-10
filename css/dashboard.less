@@ -20,7 +20,7 @@
 }
 
 #dbAnsContainer {
-	border 			: 1px solid #999;
+	border 			: 1px solid @backgroundColor;
 	border-radius 	: 0px;
 	font-size 		: 17px;
 	margin-top 		: 15px;
@@ -36,6 +36,18 @@
 	table {
 		background-color: #FFF;
 		margin-bottom: 0px;
+
+		tr {
+			&.positiveHover {
+				background-color: #2ECC71;
+				color: #FFFFFF;
+			}
+
+			&.negativeHover {
+				background-color: #E74C3C;
+				color: #FFFFFF;
+			}
+		}
 
 		.dbAnsContent {
 			line-height: 1.3;

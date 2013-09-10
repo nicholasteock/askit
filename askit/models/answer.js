@@ -115,8 +115,35 @@ $.Model("AnswerModel",
 		
 		return dfdResult;
 	},
+
+	rateAnswer: function( params ) {
+		console.log("in approve. Params is : ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response );
+			}
+			else {
+				return onError( response );
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject( response );
+		}
+
+		$.ajax({
+				url 		: "server/rateAnswer.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError 
+		});
+
+		return dfdResult;
+	},
 },{});
-
-
-
 })(window, $);
