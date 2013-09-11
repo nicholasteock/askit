@@ -56,7 +56,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-md-6">
+					<span class="captionContainer col-sm-6">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Get help quickly when you
@@ -77,7 +77,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-md-6">
+					<span class="captionContainer col-sm-6">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Earn rewards and learn when you
@@ -98,7 +98,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-md-6">
+					<span class="captionContainer col-sm-6">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Hire tutors based on
@@ -119,7 +119,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-md-6">
+					<span class="captionContainer col-sm-6">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Prove yourself through
@@ -148,41 +148,41 @@
 				<h4 class="modal-title">New User Registration</h4>
 			</div>
 			<div class="modal-body">
-				<span class="col-md-6">
-					<button type="button" id="newUserFbSignIn" class="btn col-md-10"><span class="col-md-offset-1 col-md-8">Sign In With Facebook</span><i class="icon-facebook-sign icon-2x"></i></button>
+				<span class="col-sm-6">
+					<button type="button" id="newUserFbSignIn" class="btn col-sm-10"><span class="col-sm-offset-1 col-sm-8">Sign In With Facebook</span><i class="icon-facebook-sign icon-2x"></i></button>
 					<br>
-					<button type="button" id="newUserGoogleSignIn" class="btn col-md-10"><span class="col-md-offset-1 col-md-8">Sign In With Google+</span><i class="icon-google-plus icon-2x"></i></button>
+					<button type="button" id="newUserGoogleSignIn" class="btn col-sm-10"><span class="col-sm-offset-1 col-sm-8">Sign In With Google+</span><i class="icon-google-plus icon-2x"></i></button>
 				</span>
-				<span class="col-md-6">
+				<span class="col-sm-6">
 					<form id="newUserForm" role="form" method="post" onsubmit="newLogin();" class="form-horizontal" action="/">
 						<div class="form-group">
-							<label for="newUserFirstName" class="col-md-4 control-label">First Name : </label>
-							<div class="col-md-8">
+							<label for="newUserFirstName" class="col-sm-4 control-label">First Name : </label>
+							<div class="col-sm-8">
 								<input type="text" class="form-control" id="newUserFirstName" name="newUserFirstName">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newUserLastName" class="col-md-4 control-label">Last Name : </label>
-							<div class="col-md-8">
+							<label for="newUserLastName" class="col-sm-4 control-label">Last Name : </label>
+							<div class="col-sm-8">
 								<input type="text" class="form-control" id="newUserLastName" name="newUserLastName">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newUserEmail" class="col-md-4 control-label">Email : </label>
-							<div class="col-md-8">
+							<label for="newUserEmail" class="col-sm-4 control-label">Email : </label>
+							<div class="col-sm-8">
 								<input type="email" class="form-control" id="newUserEmail" name="newUserEmail">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="newUserPassword" class="col-md-4 control-label">Password : </label>
-							<div class="col-md-8">
+							<label for="newUserPassword" class="col-sm-4 control-label">Password : </label>
+							<div class="col-sm-8">
 								<input type="password" class="form-control" id="newUserPassword" name="newUserPassword">
 							</div>
 						</div>
 						<div class="form-group">
-							<div class="col-md-8 col-md-offset-4">
+							<div class="col-sm-8 col-sm-offset-4">
 								<div>
-									<span><button type="button" id="newUserSubmit" class="btn col-md-offset-7 col-md-5">Register</button></span>
+									<span><button type="button" id="newUserSubmit" class="btn col-sm-offset-7 col-sm-5">Register</button></span>
 									<span><i id="newUserSpinner" class="icon-spinner icon-spin hidden"></i></span>
 								</div>
 								<div id="newUserErrorMsg" class="hidden">
@@ -221,7 +221,7 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 			placement 	: "bottom",
 			trigger 	: "click",
 			title 		: '<h4>Sign In</h4>',
-			content 	: '<form id="loginForm" class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/"><div class="form-group"><label for="email" class="col-md-4 control-label">Email : </label><div class="col-md-8"><input type="email" class="form-control" id="email" name="email"></div></div><div class="form-group"><label for="password" class="col-md-4 control-label">Password : </label><div class="col-md-8"><input type="password" class="form-control" id="password" name="password"></div></div><div class="form-group"><div class="col-md-offset-4 col-md-8"><button type="submit" class="btn btn-default">Submit</button></div></div></form>'
+			content 	: '<form id="loginForm" class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/"><div class="form-group"><label for="email" class="col-sm-4 control-label">Email : </label><div class="col-sm-8"><input type="email" class="form-control" id="email" name="email"></div></div><div class="form-group"><label for="password" class="col-sm-4 control-label">Password : </label><div class="col-sm-8"><input type="password" class="form-control" id="password" name="password"></div></div><div class="form-group"><div class="col-sm-offset-4 col-sm-8"><button type="submit" class="btn btn-default">Submit</button></div></div></form>'
 		});
 
 		showLoginMsg();
