@@ -30,6 +30,7 @@ Screen.extend("ViewAnswers",
 
 	onLoadQnFail: function(response) {
 		console.log("onLoadQnFail. Response is : ", response);
+		return;
 	},
 
 	loadAnswers: function( params ) {

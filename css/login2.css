@@ -10,9 +10,16 @@ body{font-size:14px;padding-top:50px;}
 .popover input{border-radius:0px;}.popover input:focus{box-shadow:none;border-color:#16a085;}
 .popover button{border-radius:0px;background-color:#1abc9c;border:1px solid #16a085;color:#FFFFFF;font-size:14px;}
 #newUserModal .modal-dialog{width:850px;}
-#newUserModal .modal-body{height:300px;font-size:17px;}
+#newUserModal .modal-content{border-radius:0px;}
+#newUserModal .modal-header{background-color:#16A085;color:#FFFFFF;}
+#newUserModal .modal-body{height:300px;font-size:17px;}#newUserModal .modal-body input{border-radius:0px;}#newUserModal .modal-body input:focus{box-shadow:none;border-color:#16A085;}
+#newUserModal #newUserSubmit{background-color:#1ABC9C;border-radius:0px;border:1px solid #16A085;color:#FFFFFF;font-size:18px;}#newUserModal #newUserSubmit:hover{background-color:#EBEBEB;border-color:#ADADAD;color:#333;}
 #newUserModal #newUserSpinner{margin-left:15px;font-size:20px;}
-#newUserModal #newUserErrorMsg{padding:10px 0px;color:#FF0000;font-style:italic;}
+#newUserModal #newUserErrorMsg{padding:50px 0px 0px 0px;color:#FF0000;font-style:italic;}
+#newUserModal #newUserFbSignIn{background-color:#3B5998;color:#2C3E50;font-size:17px;font-weight:bold;}#newUserModal #newUserFbSignIn span{padding-top:4px;}
+#newUserModal #newUserFbSignIn:hover{opacity:0.8;}
+#newUserModal #newUserGoogleSignIn{margin-top:15px;background-color:#FF0000;color:#FFFFFF;font-size:17px;font-weight:bold;}#newUserModal #newUserGoogleSignIn span{padding-top:4px;}
+#newUserModal #newUserGoogleSignIn:hover{opacity:0.8;}
 .carousel-control{padding-top:20%;color:#FFCC00;}.carousel-control:hover{color:#000;}
 #imgCarousel{position:static;max-height:90%;}#imgCarousel img{max-height:90%;width:100%;}
 #captionsCarousel{height:200px;width:100%;position:absolute;top:40%;}#captionsCarousel .carouselNav{font-size:30px;color:#FFF;margin-top:60px;}#captionsCarousel .carouselNav.carouselPrev{z-index:100;position:absolute;left:30px;margin-left:30px;}

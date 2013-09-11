@@ -92,7 +92,8 @@ Screen.extend("Dashboard",
 	},
 
 	"#dbAnsContainer tr click": function(el, ev) {
-		console.log("clicked", el.attr("id"));
+		var ansId = el.attr("id");
+		app.setLocation( "/yourAnswer?ansId=" + ansId );
 	},
 });
 window.routes["/"] = Dashboard;

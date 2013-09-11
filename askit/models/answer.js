@@ -78,6 +78,36 @@ $.Model("AnswerModel",
 
 		return dfdResult;
 	},
+
+	findAnswerById: function( params ) {
+		console.log("findAnswerById. Params is : ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject( response );
+		};
+
+		$.ajax({
+				url 		: "server/findAnswerById.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
 	
 	/*
 	 * params = { 	

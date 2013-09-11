@@ -26,6 +26,7 @@ $aiCss = array(
 	'css/qnGallery.css',
 	'css/profile.css',
 	'css/viewAnswer.css',
+	'css/yourAnswer.css',
 );
 
 echo formatCss("ai", $aiCss)."\n";
@@ -139,6 +140,7 @@ $appJs = array(
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/qnGallery.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
+	'askit/screens/yourAnswer/yourAnswer.js',
 	'askit/screens/profile/profile.js',
 	'askit/screens/lfkeong/lfkeong.js',
 	
@@ -195,6 +197,12 @@ $aiHTML = array(
 	'askit/screens/viewAnswer/viewAnswer_question_view.html',
 	'askit/screens/viewAnswer/viewAnswer_answer_view.html',
 	
+	// Your Answer views
+	'askit/screens/yourAnswer/yourAnswer_view.html',
+	'askit/screens/yourAnswer/yourAnswer_question_view.html',
+	'askit/screens/yourAnswer/yourAnswer_answer_view.html',
+	'askit/screens/yourAnswer/yourAnswer_stats_view.html',
+
 	// Profile views
 	'askit/screens/profile/profile_view.html',
 

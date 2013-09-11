@@ -1,0 +1,10 @@
+#yaContainer{border:3px solid #4617B4;border-radius:0px;}
+.yaLoading{font-size:17px;margin-left:48%;margin-top:5%;margin-bottom:5%;}.yaLoading img{width:35px;margin-left:15px;}
+.yaTitle{background-color:#4617B4;font-size:18px;color:#FFFFFF;padding:5px 8px;}
+.yaContent{font-size:16px;}
+#yaAnsContent{min-height:200px;position:relative;padding:8px;}
+#yaStatsContent{padding:8px;min-height:150px;}
+.yaAnsApprovalContainer div{margin-top:10px;text-align:center;vertical-align:middle;}
+.yaAnsApprovalContainer .yaRating{font-size:20px;}
+.yaAnsApprovalContainer .yaApproval:hover{color:#27AE60;font-weight:bold;}
+.yaAnsApprovalContainer .yaDisapproval:hover{color:#E74C3C;font-weight:bold;}

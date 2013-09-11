@@ -152,13 +152,48 @@ $.Model("QuestionModel",
 		return dfdResult;
 	},
 
+	findQuestionByAnsId: function(params) {
+		console.log("findQuestionByAnsId. Params is ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve(response.data);
+			}
+			else {
+				return onError(response);
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject(response);
+		};
+
+		$.ajax({
+				url 		: "server/findQuestionByAnsId.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
+
 	findQuestionById: function(params) {
 		console.log("findQuestionById. Params is ", params);
 
 		var dfdResult = $.Deferred();
 
 		var onSuccess = function( response ) {
-			return dfdResult.resolve(response);
+			if( response.result === "success" ) {
+				return dfdResult.resolve(response);
+			}
+			else {
+				return onError( response );
+			}
 		};
 
 		var onError = function( response ) {

@@ -77,9 +77,41 @@ body {
 		width 				: 850px;
 	}
 
+	.modal-content {
+		border-radius: 0px;
+	}
+
+	.modal-header {
+		background-color: #16A085;
+		color: #FFFFFF;
+	}
+
 	.modal-body {
 		height 				: 300px;
 		font-size 			: 17px;
+		input {
+			border-radius: 0px;
+
+			&:focus {
+				box-shadow: none;
+				border-color: #16A085;
+			}
+		}
+
+	}
+
+	#newUserSubmit {
+		background-color: #1ABC9C;
+		border-radius: 0px;
+		border: 1px solid #16A085;
+		color: #FFFFFF;
+		font-size: 18px;
+
+		&:hover {
+			background-color: #EBEBEB;
+			border-color: #ADADAD;
+			color: #333;
+		}
 	}
 
 	#newUserSpinner {
@@ -88,9 +120,40 @@ body {
 	}
 
 	#newUserErrorMsg {
-		padding 			: 10px 0px;
+		padding 			: 50px 0px 0px 0px;
 		color 				: #FF0000;
 		font-style 			: italic;
+	}
+
+	#newUserFbSignIn {
+		background-color: #3B5998;
+		color: #2C3E50;
+		font-size: 17px;
+		font-weight: bold;
+
+		span {
+			padding-top: 4px;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	#newUserGoogleSignIn {
+		margin-top: 15px;
+		background-color: #FF0000;
+		color: #FFFFFF;
+		font-size: 17px;
+		font-weight: bold;
+
+		span {
+			padding-top: 4px;
+		}
+
+		&:hover {
+			opacity: 0.8;
+		}
 	}
 }
 
