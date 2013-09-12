@@ -32,31 +32,31 @@
 		</div>
 	</nav>
 
-	<div id="imgCarousel" class="carousel slide" data-interval="false">
+	<div id="imgCarousel" class="carousel slide col-sm-12" data-interval="false">
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="img/bg_0.jpg">
+				<img src="img/bg_1.jpg">
 			</div>
 			<div class="item">
-				<img src="img/bg_0.jpg">
+				<img src="img/bg_1.jpg">
 			</div>
 			<div class="item">
-				<img src="img/bg_0.jpg">
+				<img src="img/bg_1.jpg">
 			</div>
 			<div class="item">
-				<img src="img/bg_0.jpg">
+				<img src="img/bg_1.jpg">
 			</div>
 		</div>
 	</div>
 
-	<div id="captionsCarousel" class="carousel slide" data-interval="false">
+	<div id="captionsCarousel" class="carousel slide col-sm-12" data-interval="false">
 		<div class="carousel-inner">
 			<div class="item active">
 				<div class="captionOverlay">
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-sm-6">
+					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Get help quickly when you
@@ -65,7 +65,7 @@
 								ASK
 							</div>
 						</div>
-						<button type="button" class="joinBtn">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -77,7 +77,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-sm-6">
+					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Earn rewards and learn when you
@@ -86,7 +86,7 @@
 								ANSWER
 							</div>
 						</div>
-						<button type="button" class="joinBtn">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -98,7 +98,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-sm-6">
+					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Hire tutors based on
@@ -107,7 +107,7 @@
 								CREDIBILITY
 							</div>
 						</div>
-						<button type="button" class="joinBtn">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -119,7 +119,7 @@
 					<span class="carouselNav carouselPrev">
 						<i class="icon-chevron-left"></i>
 					</span>
-					<span class="captionContainer col-sm-6">
+					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
 							<div class="captionSection1">
 								Prove yourself through
@@ -128,7 +128,7 @@
 								RESULTS
 							</div>
 						</div>
-						<button type="button" class="joinBtn">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
