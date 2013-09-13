@@ -133,7 +133,12 @@ $.Model("QuestionModel",
 		var dfdResult = $.Deferred();
 
 		var onSuccess = function( response ) {
-			return dfdResult.resolve(response);
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
 		};
 
 		var onError = function( response ) {

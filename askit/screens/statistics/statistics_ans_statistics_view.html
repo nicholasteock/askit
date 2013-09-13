@@ -1,0 +1,42 @@
+<%
+	console.log("ANSWERSSSSS", this);
+
+	var approvalCount 		= 0,
+		disapprovalCount 	= 0;
+
+	for( var i=0, iLen=this.length; i<iLen; i++ ) {
+		approvalCount 		+= Number(this[i].approval);
+		disapprovalCount 	+= Number(this[i].disapproval);
+	}
+%>
+
+<div id="stAnsTotal" class="col-lg-12">
+	Total answers submitted by you : <%=this.length%>
+</div>
+<div id="stAnsRatings" class="col-lg-12">
+	<div>
+		From these answers, you got a total of
+	</div>
+	<div id="stAnsApprovalContainer" class="col-lg-12">
+		<span class="col-lg-6 stApproval">
+			<div>
+				<i class="icon-thumbs-up icon-2x"></i>
+			</div>
+			<div class="stRating">
+				<%=approvalCount%>
+				<br>
+				Approvals
+			</div>
+		</span>
+		<span class="col-lg-6 stDisapproval">
+			<div>
+				<i class="icon-thumbs-down icon-2x"></i>
+			</div>
+			<div class="stRating">
+				<%=disapprovalCount%>
+				<br>
+				Disapprovals
+			</div>
+		</span>
+	</div>
+</div>

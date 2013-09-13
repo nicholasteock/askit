@@ -26,11 +26,11 @@ Screen.extend("QuestionGallery",
 	onLoadUserQuestionsDone: function(response) {
 		console.log("In onLoadUserQuestionsDone. Response : ", response);
 	
-		if(response.data.length === 0) {
+		if(response.length === 0) {
 			$("#qgQnEmpty").removeClass("hidden");
 		}
 		else {
-			$("#qgQnContainer tbody").html("askit_screens_qnGallery_qnGallery_question_item_view", response.data);
+			$("#qgQnContainer tbody").html("askit_screens_qnGallery_qnGallery_question_item_view", response);
 			$("#qgQnContainer table").removeClass("hidden");
 		}
 
@@ -41,4 +41,4 @@ Screen.extend("QuestionGallery",
 		console.error("In onLoadUserQuestionsFail. Response : ", response);
 	},
 });
-window.routes["/questionGallery"] = QuestionGallery;
+window.routes["/yourQuestions"] = QuestionGallery;

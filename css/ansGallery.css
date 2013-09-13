@@ -1,0 +1,6 @@
+#agAnsContainer{border:1px solid #4617b4;border-radius:0px;font-size:17px;margin-top:15px;}#agAnsContainer #agAnsContainerHeader{height:40px;padding:10px;font-weight:bold;color:#FFF;background-color:#4617b4;}
+#agAnsContainer table{background-color:#FFF;margin-bottom:0px;}#agAnsContainer table tr.positiveHover{background-color:#2ECC71;color:#FFFFFF;}
+#agAnsContainer table tr.negativeHover{background-color:#E74C3C;color:#FFFFFF;}
+#agAnsContainer table .agAnsContent{line-height:1.3;max-height:40px;overflow:hidden;}
+#agAnsLoadingContainer{margin-left:48%;margin-top:5%;margin-bottom:5%;}#agAnsLoadingContainer img{width:35px;margin-left:15px;}
+#agAnsLoadingContainer div{text-align:left;margin-top:5px;color:#999;}

@@ -24,9 +24,11 @@ $aiCss = array(
 	'css/answer.css',
 	'css/dashboard.css',
 	'css/qnGallery.css',
+	'css/ansGallery.css',
 	'css/profile.css',
 	'css/viewAnswer.css',
 	'css/yourAnswer.css',
+	'css/statistics.css',
 );
 
 echo formatCss("ai", $aiCss)."\n";
@@ -78,9 +80,9 @@ echo formatCss("ai", $aiCss)."\n";
 					</a>
 					<ul class="dropdown-menu pull-right">
 						<li><a href="#/profile"><i class="icon-user"> </i> Profile</a></li>
-						<li><a ><i class="icon-user"> </i> Your Questions</a></li>
-						<li><a ><i class="icon-user"> </i> Your Answers</a></li>
-						<li><a ><i class="icon-user"> </i> Statistics</a></li>
+						<li><a href="#/yourQuestions"><i class="icon-user"> </i> Your Questions</a></li>
+						<li><a href="#/yourAnswers"><i class="icon-user"> </i> Your Answers</a></li>
+						<li><a href="#/yourStatistics"><i class="icon-user"> </i> Statistics</a></li>
 						<li class="divider"></li>
 						<li><a href="javascript:" onclick="app.signout();"><i class="icon-user"> </i> Sign Out</a></li>
 					</ul>
@@ -106,8 +108,6 @@ $libJs = array(
 	//Latest jQuery not compatible. Strange.
 	//'components/jquery-1.9.1.min.js',
 
-	// Bootstrap 2.3.2 js
-	//'components/bootstrap/js/bootstrap.js',
 	'components/jquery-1.7.2.min.js',
 
 	// Bootstrap 3 js
@@ -139,9 +139,11 @@ $appJs = array(
 	'askit/screens/practice/practice.js',
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/qnGallery.js',
+	'askit/screens/ansGallery/ansGallery.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
 	'askit/screens/yourAnswer/yourAnswer.js',
 	'askit/screens/profile/profile.js',
+	'askit/screens/statistics/statistics.js',
 	'askit/screens/lfkeong/lfkeong.js',
 	
 	//Modals
@@ -176,6 +178,10 @@ $aiHTML = array(
 	'askit/screens/qnGallery/qnGallery_view.html',
 	'askit/screens/qnGallery/qnGallery_question_item_view.html',
 	
+	// Answer Gallery Views
+	'askit/screens/ansGallery/ansGallery_view.html',
+	'askit/screens/ansGallery/ansGallery_answer_item_view.html',
+
 	// Ask views
 	'askit/screens/ask/ask_view.html',
 	'askit/screens/ask/level_list_view.html',
@@ -205,6 +211,11 @@ $aiHTML = array(
 
 	// Profile views
 	'askit/screens/profile/profile_view.html',
+
+	// Statistics views
+	'askit/screens/statistics/statistics_view.html',
+	'askit/screens/statistics/statistics_qn_statistics_view.html',
+	'askit/screens/statistics/statistics_ans_statistics_view.html',
 
 	// LFKEONG PRACTICE VIEWS
 	'askit/screens/lfkeong/lfkeong_view.html',

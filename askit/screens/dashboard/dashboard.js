@@ -27,11 +27,11 @@ Screen.extend("Dashboard",
 	onLoadUserQuestionsDone: function( response ) {
 		console.log("In onLoadUserQuestionsDone. Response is: ", response.data);
 
-		if(response.data.length === 0) {
+		if(response === undefined || response.length === 0) {
 			$("#dbQnEmpty").removeClass("hidden");
 		}
 		else {
-			$("#dbQnContainer tbody").html("askit_screens_dashboard_dashboard_question_item_view", response.data);
+			$("#dbQnContainer tbody").html("askit_screens_dashboard_dashboard_question_item_view", response);
 			$("#dbQnContainer table").removeClass("hidden");
 		}
 	
@@ -39,7 +39,7 @@ Screen.extend("Dashboard",
 	},
 
 	onLoadUserQuestionsFail: function(response) {
-		console.error("In onLoadUserQuestionsFail. Response is: ", response.data);
+		console.error("In onLoadUserQuestionsFail. Response is: ", response);
 	},
 
 	loadUserAnswers: function() {
@@ -56,13 +56,13 @@ Screen.extend("Dashboard",
 	},
 
 	onLoadUserAnswersDone: function(response) {
-		console.log("In onLoadUserAnswersDone. Response is: ", response.data);
+		console.log("In onLoadUserAnswersDone. Response is: ", response);
 	
-		if(response.data.length === 0) {
+		if(response === undefined || response.length === 0) {
 			$("#dbAnsEmpty").removeClass("hidden");
 		}
 		else {
-			$("#dbAnsContainer tbody").html("askit_screens_dashboard_dashboard_answer_item_view", response.data);
+			$("#dbAnsContainer tbody").html("askit_screens_dashboard_dashboard_answer_item_view", response);
 			$("#dbAnsContainer table").removeClass("hidden");
 		}
 
