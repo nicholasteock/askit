@@ -27,7 +27,7 @@ Screen.extend("AnsGallery",
 		console.log("In onLoadUserAnswersDone. Response : ", response );
 
 		if( response.length === 0 ) {
-			$("agAnsEmpty").removeClass("hidden");
+			$("#agAnsEmpty").removeClass("hidden");
 		}
 		else {
 			$("#agAnsContainer tbody").html("askit_screens_ansGallery_ansGallery_answer_item_view", response);
