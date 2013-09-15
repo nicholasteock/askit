@@ -184,13 +184,13 @@ $aiHTML = array(
 
 	// Ask views
 	'askit/screens/ask/ask_view.html',
-	'askit/screens/ask/level_list_view.html',
-	'askit/screens/ask/subject_list_view.html',
-	'askit/screens/ask/topic_list_view.html',
+	'askit/screens/ask/ask_filter_dropdown_view.html',
 	
 	// Answer views
+	'askit/screens/answer/answer_view.html',
 	'askit/screens/answer/answer_qn_item_view.html',
 	'askit/screens/answer/no_qn_view.html',
+	'askit/screens/answer/answer_filter_dropdown_view.html',
 	
 	// Practice views
 	'askit/screens/practice/practice_view.html',

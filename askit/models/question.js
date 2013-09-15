@@ -127,6 +127,66 @@ $.Model("QuestionModel",
 		return dfdResult;
 	},
 
+	findAllFilters: function( params ) {
+		console.log("findFilters");
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject( response );
+		};
+
+		$.ajax({
+				url 		: "server/findFilters.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
+
+	findAllByFilters: function(params) {
+		console.log("findAllByFilters. Params is ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject( response );
+		};
+
+		$.ajax({
+				url 		: "server/findQuestionsByFilters.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
+
 	findAllByUserId: function(params) {
 		console.log("findQuestionsByUser. Params is ", params);
 

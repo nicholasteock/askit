@@ -25,7 +25,7 @@ Screen.extend("Ask",
 	},
 
 	onLoadLevelsDone: function( response ) {
-		this.levelContainer.find("#levelDropdown").html( "askit_screens_ask_level_list_view", response );
+		this.levelContainer.find("#levelDropdown").html( "askit_screens_ask_ask_filter_dropdown_view", response );
 		return;
 	},
 
@@ -46,7 +46,7 @@ Screen.extend("Ask",
 	},
 
 	onLoadSubjectsDone: function( response ) {
-		this.subjectContainer.find("#subjectDropdown").html( "askit_screens_ask_subject_list_view", response );
+		this.subjectContainer.find("#subjectDropdown").html( "askit_screens_ask_ask_filter_dropdown_view", response );
 		return;
 	},
 
@@ -71,7 +71,7 @@ Screen.extend("Ask",
 	},
 
 	onLoadTopicsDone: function( response ) {
-		this.topicContainer.find("#topicDropdown").html( "askit_screens_ask_topic_list_view", response );
+		this.topicContainer.find("#topicDropdown").html( "askit_screens_ask_ask_filter_dropdown_view", response );
 		return;
 	},
 

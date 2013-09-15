@@ -1,17 +1,21 @@
-.qnItem{border:3px solid #4617b4;border-radius:0px;margin-bottom:30px;}.qnItem .qnItemBody{min-height:150px;padding:10px;background-color:#FFFFFF;}.qnItem .qnItemBody .qnItemBodyDetails{padding:0px 0px 0px 7px;border-left:1px solid #999999;}
-.qnItem .qnItemFooter{height:30px;background-color:#4617b4;border-top:3px solid #4617b4;color:#FFFFFF;opacity:0.7;font-size:14px;padding:5px 0px 26px 0px;}.qnItem .qnItemFooter .qnFooterNav:hover{cursor:pointer;font-weight:bold;}
+#qnFiltersContainer{display:block;min-height:70px;padding:0px;}
+.ansGroupBtn button{background-color:#E74C3C;border-radius:0px;border:1px solid #C0392B;color:#FFFFFF;font-size:16px;}.ansGroupBtn button.disabled{background-color:#E74C3C;border-radius:0px;border:1px solid #C0392B;color:#FFFFFF;font-size:19px;opacity:0.7;}
+.ansGroupBtn button.selectionMade{background-color:#1ABC9C;border:1px solid #16A085;}
+.ansDropdown{margin-right:15px;font-size:18px;border:1px solid #ADADAD;padding-top:0px;padding-bottom:0px;}.ansDropdown li a:hover{cursor:pointer;background-color:#EBEBEB;color:#000;}
+.qnItem{border:1px solid #4617b4;border-radius:0px;margin-bottom:30px;padding:0px;}.qnItem .qnItemBody{min-height:150px;padding:10px;background-color:#FFFFFF;}.qnItem .qnItemBody .qnItemBodyDetails{padding:0px 0px 0px 7px;border-left:1px solid #999999;}
+.qnItem .qnItemFooter{height:30px;background-color:#4617b4;border-top:1px solid #4617b4;color:#FFFFFF;opacity:0.7;font-size:14px;padding:5px 0px 26px 0px;}.qnItem .qnItemFooter .qnFooterNav:hover{cursor:pointer;font-weight:bold;}
 .qnItem .qnItemFooter:hover{opacity:1;}
 #modalAnswerQuestionModal .modal-dialog{margin-top:10%;}
 #modalAnswerQuestionModal .modal-content{border-radius:0px;border:3px solid #4617b4;font-size:20px;}
 #modalAnswerQuestionModal .modal-header{border-radius:0px;background-color:#4617b4;color:#FFFFFF;}
 #modalAnswerQuestionModal .modal-footer span{font-size:20px;font-weight:bold;text-align:left;}
-#modalAnswerQuestionModal .modal-footer .btn-success{background-color:#F39C12;border:3px solid #E67E22;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalAnswerQuestionModal .modal-footer .btn-success:hover{background-color:#2ECC71;border:3px solid #27AE60;color:#333333;}
-#modalAnswerQuestionModal .modal-footer .btn-default{background-color:#95A5A6;border:3px solid #7F8C8D;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalAnswerQuestionModal .modal-footer .btn-default:hover{background-color:#95A5A6;border:3px solid #7F8C8D;color:#333333;}
+#modalAnswerQuestionModal .modal-footer .btn-success{background-color:#F39C12;border:1px solid #E67E22;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalAnswerQuestionModal .modal-footer .btn-success:hover{background-color:#2ECC71;border:1px solid #27AE60;color:#333333;}
+#modalAnswerQuestionModal .modal-footer .btn-default{background-color:#95A5A6;border:1px solid #7F8C8D;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalAnswerQuestionModal .modal-footer .btn-default:hover{background-color:#95A5A6;border:1px solid #7F8C8D;color:#333333;}
 #modalAnswerQuestionModal #modalAnsContent{padding:10px;min-width:200px;font-size:20px;}
 #modalReportQuestionModal .modal-dialog{margin-top:10%;}
 #modalReportQuestionModal .modal-content{border-radius:0px;border:3px solid #4617b4;font-size:20px;}
 #modalReportQuestionModal .modal-header{border-radius:0px;background-color:#4617b4;color:#FFFFFF;}
 #modalReportQuestionModal .modal-footer span{font-size:20px;font-weight:bold;text-align:left;}
-#modalReportQuestionModal .modal-footer .btn-success{background-color:#F39C12;border:3px solid #E67E22;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalReportQuestionModal .modal-footer .btn-success:hover{background-color:#E74C3C;border:3px solid #C0392B;color:#333333;}
-#modalReportQuestionModal .modal-footer .btn-default{background-color:#95A5A6;border:3px solid #7F8C8D;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalReportQuestionModal .modal-footer .btn-default:hover{background-color:#95A5A6;border:3px solid #7F8C8D;color:#333;}
+#modalReportQuestionModal .modal-footer .btn-success{background-color:#F39C12;border:1px solid #E67E22;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalReportQuestionModal .modal-footer .btn-success:hover{background-color:#E74C3C;border:1px solid #C0392B;color:#333333;}
+#modalReportQuestionModal .modal-footer .btn-default{background-color:#95A5A6;border:1px solid #7F8C8D;border-radius:0px;font-size:16px;color:#FFFFFF;}#modalReportQuestionModal .modal-footer .btn-default:hover{background-color:#95A5A6;border:1px solid #7F8C8D;color:#333;}
 #modalReportQuestionModal #modalAnsContent{padding:10px;min-width:200px;font-size:20px;}

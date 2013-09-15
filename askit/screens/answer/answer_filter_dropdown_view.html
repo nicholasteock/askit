@@ -1,0 +1,33 @@
+<span id="levelFilterContainer">
+		<div class="btn-group ansGroupBtn col-lg-4">
+			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">All Levels</button>
+			<ul id="levelFilterDropdown" class="dropdown-menu ansDropdown pull-right" role="menu">
+				<li><a tabindex='-1'>All Levels</a></li>
+				<%for( var i=0, iLen=this.level.length; i<iLen; i++ ) {%>
+					<li><a tabindex='-1'><%=this.level[i] %></a></li>
+				<%}%>
+			</ul>
+		</div>
+	</span>
+	<span id="subjectFilterContainer">
+		<div class="btn-group ansGroupBtn col-lg-4">
+			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">All Subjects</button>
+			<ul id="subjectFilterDropdown" class="dropdown-menu ansDropdown pull-right" role="menu">
+				<li><a tabindex='-1'>All Subjects</a></li>
+				<%for( var i=0, iLen=this.subject.length; i<iLen; i++ ) {%>
+					<li><a tabindex='-1'><%=this.subject[i] %></a></li>
+				<%}%>
+			</ul>
+		</div>
+	</span>
+	<span id="topicFilterContainer">
+		<div class="btn-group ansGroupBtn col-lg-4">
+			<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">All Topics</button>
+			<ul id="topicFilterDropdown" class="dropdown-menu ansDropdown pull-right" role="menu">
+				<li><a tabindex='-1'>All Topics</a></li>
+				<%for( var i=0, iLen=this.topic.length; i<iLen; i++ ) {%>
+					<li><a tabindex='-1'><%=this.topic[i] %></a></li>
+				<%}%>
+			</ul>
+		</div>
+	</span>

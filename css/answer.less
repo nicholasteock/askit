@@ -1,12 +1,58 @@
 //***** Variable declarations *****************************************************************************************************************************
 
-@answerThemeColor 					: #4617B4;
+@backgroundColor 					: #4617B4;
 
 //*********************************************************************************************************************************************************
+#qnFiltersContainer {
+	display: block;
+	min-height: 70px;
+	padding: 0px;
+}
+
+.ansGroupBtn {
+	button {
+		background-color: #E74C3C;
+		border-radius: 0px;
+		border: 1px solid #C0392B;
+		color: #FFFFFF;
+		font-size: 16px;
+
+		&.disabled {
+			background-color: #E74C3C;
+			border-radius: 0px;
+			border: 1px solid #C0392B;
+			color: #FFFFFF;
+			font-size: 19px;
+			opacity: 0.7;
+		}
+
+		&.selectionMade {
+			background-color: #1ABC9C;
+			border: 1px solid #16A085;
+		}
+	}
+}
+
+.ansDropdown {
+	margin-right: 15px;
+	font-size: 18px;
+	border: 1px solid #ADADAD;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	li {
+		a:hover {
+			cursor: pointer;
+			background-color: #EBEBEB;
+			color: #000;
+		}
+	}
+}
+
 .qnItem {
-	border							: 3px solid @answerThemeColor;
+	border							: 1px solid @backgroundColor;
 	border-radius					: 0px;
 	margin-bottom					: 30px;
+	padding 						: 0px;
 	
 	.qnItemBody {
 		min-height					: 150px;
@@ -21,8 +67,8 @@
 	
 	.qnItemFooter {
 		height						: 30px;
-		background-color			: @answerThemeColor;
-		border-top					: 3px solid @answerThemeColor;
+		background-color			: @backgroundColor;
+		border-top					: 1px solid @backgroundColor;
 		color 						: #FFFFFF;
 		opacity						: 0.7;
 		font-size					: 14px;
@@ -47,13 +93,13 @@
 
 	.modal-content {
 		border-radius 				: 0px;
-		border 						: 3px solid @answerThemeColor;
+		border 						: 3px solid @backgroundColor;
 		font-size 					: 20px;
 	}
 
 	.modal-header {
 		border-radius 				: 0px;
-		background-color 			: @answerThemeColor;
+		background-color 			: @backgroundColor;
 		color 						: #FFFFFF;
 	}
 
@@ -66,28 +112,28 @@
 
 		.btn-success {
 			background-color 		: #F39C12;
-			border 					: 3px solid #E67E22;
+			border 					: 1px solid #E67E22;
 			border-radius 			: 0px;
 			font-size 				: 16px;
 			color 					: #FFFFFF;
 
 			&:hover {
 				background-color 	: #2ECC71;
-				border 				: 3px solid #27AE60;
+				border 				: 1px solid #27AE60;
 				color 				: #333333;
 			}
 		}
 
 		.btn-default {
 			background-color 		: #95A5A6;
-			border 					: 3px solid #7F8C8D;
+			border 					: 1px solid #7F8C8D;
 			border-radius 			: 0px;
 			font-size 				: 16px;
 			color 					: #FFFFFF;
 
 			&:hover {
 				background-color 	: #95A5A6;
-				border 				: 3px solid #7F8C8D;
+				border 				: 1px solid #7F8C8D;
 				color 				: #333333;
 			}
 		}
@@ -107,13 +153,13 @@
 
 	.modal-content {
 		border-radius 				: 0px;
-		border 						: 3px solid @answerThemeColor;
+		border 						: 3px solid @backgroundColor;
 		font-size 					: 20px;
 	}
 
 	.modal-header {
 		border-radius 				: 0px;
-		background-color 			: @answerThemeColor;
+		background-color 			: @backgroundColor;
 		color 						: #FFFFFF;
 	}
 
@@ -126,28 +172,28 @@
 
 		.btn-success {
 			background-color 		: #F39C12;
-			border 					: 3px solid #E67E22;
+			border 					: 1px solid #E67E22;
 			border-radius 			: 0px;
 			font-size 				: 16px;
 			color 					: #FFFFFF;
 
 			&:hover {
 				background-color 	: #E74C3C;
-				border 				: 3px solid #C0392B;
+				border 				: 1px solid #C0392B;
 				color 				: #333333;
 			}
 		}
 
 		.btn-default {
 			background-color 		: #95A5A6;
-			border 					: 3px solid #7F8C8D;
+			border 					: 1px solid #7F8C8D;
 			border-radius 			: 0px;
 			font-size 				: 16px;
 			color 					: #FFFFFF;
 
 			&:hover {
 				background-color 	: #95A5A6;
-				border 				: 3px solid #7F8C8D;
+				border 				: 1px solid #7F8C8D;
 				color 				: #333;
 			}
 		}

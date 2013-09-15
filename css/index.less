@@ -4,35 +4,37 @@ html, body, table, tr, td, th, h1, h2, h3, h4, h5, p, div, img, form, dl, dt, dd
 table {}
 td,
 th { font-weight:normal; text-align:left; }
-var {font-style:normal;}
+var { font-style:normal; }
 
 // 1. Begin custom styling ********************************************************************************************************************************
 
 //***** Variable declarations *****************************************************************************************************************************
 
-@themeColor			: #1234EF;
-@navFontColor		: #BFBFBF;
-@gradientTop		: #2F2727;
-@gradientBottom		: #7F7F7F;
-@gradientSelTop		: #4099FF;
-@gradientSelBottom	: #4099FF;
-@backgroundColor 	: #34495E;
-.navGradient	{
-					background-color: @gradientBottom; 
-					background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@gradientTop), to(@gradientBottom));
-					background-image: -webkit-linear-gradient(top, @gradientTop, @gradientBottom); 
-					background-image:    -moz-linear-gradient(top, @gradientTop, @gradientBottom);
-					background-image:     -ms-linear-gradient(top, @gradientTop, @gradientBottom);
-					background-image:      -o-linear-gradient(top, @gradientTop, @gradientBottom);
-				}
-.navSelGradient	{
-					background-color: @gradientSelBottom; 
-					background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@gradientSelTop), to(@gradientSelBottom));
-					background-image: -webkit-linear-gradient(top, @gradientSelTop, @gradientSelBottom); 
-					background-image:    -moz-linear-gradient(top, @gradientSelTop, @gradientSelBottom);
-					background-image:     -ms-linear-gradient(top, @gradientSelTop, @gradientSelBottom);
-					background-image:      -o-linear-gradient(top, @gradientSelTop, @gradientSelBottom);
-				}
+// Unused styles from previous design implementation. Kept them for reference only.
+// @gradientTop			: #2F2727;
+// @gradientBottom		: #7F7F7F;
+// @gradientSelTop		: #4099FF;
+// @gradientSelBottom	: #4099FF;
+// .navGradient	{
+// 					background-color: @gradientBottom; 
+// 					background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@gradientTop), to(@gradientBottom));
+// 					background-image: -webkit-linear-gradient(top, @gradientTop, @gradientBottom); 
+// 					background-image:    -moz-linear-gradient(top, @gradientTop, @gradientBottom);
+// 					background-image:     -ms-linear-gradient(top, @gradientTop, @gradientBottom);
+// 					background-image:      -o-linear-gradient(top, @gradientTop, @gradientBottom);
+// 				}
+// .navSelGradient	{
+// 					background-color: @gradientSelBottom; 
+// 					background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@gradientSelTop), to(@gradientSelBottom));
+// 					background-image: -webkit-linear-gradient(top, @gradientSelTop, @gradientSelBottom); 
+// 					background-image:    -moz-linear-gradient(top, @gradientSelTop, @gradientSelBottom);
+// 					background-image:     -ms-linear-gradient(top, @gradientSelTop, @gradientSelBottom);
+// 					background-image:      -o-linear-gradient(top, @gradientSelTop, @gradientSelBottom);
+// 				}
+
+@backgroundColor 				: #34495E;
+@themeColor 					: #4617B4;
+@navFontColor					: #BFBFBF;
 
 //*********************************************************************************************************************************************************
 body {
@@ -41,13 +43,8 @@ body {
 	padding-top 				: 47px;
 }
 
-#ai-header {
-	min-width 					: 870px;
-	box-shadow 					: 0px 3px 5px #888888;
-}
-
 .navbar-fixed-top {
-	background-color 			: #4617B4;
+	background-color 			: @themeColor;
 }
 
 #logo {
@@ -58,8 +55,13 @@ body {
 	}
 }
 
+#ai-header {
+	nav {
+		border 					: none;
+	}
+}
+
 #menu-main-nav {
-	padding-top 				: 2px;
 
 	li {
 		a {
@@ -79,29 +81,22 @@ body {
 			}
 			
 			&.selected {
-				background-color: #34495E;
-				border-radius	: 3px;
+				padding-top 	: 17px; 
+				padding-bottom 	: 16px;
+				background-color: @backgroundColor;
+				border-radius	: 0px;
 				color			: #FFFFFF;
 			}
 		}
 
-
-		
 		&:hover {
-			border-radius		: 5px;
+			border-radius		: 0px;
 
 			i, span {
-				color 			: #FFF;
+				color 			: #FFFFFF;
 			}
 		}
-		
-		&.divider-vertical {
-			height				: 30px;
-			border-right		: 1px solid #888888;
-		}
 	}
-	
-	
 }
 
 #ai-user-info-nav {
@@ -113,7 +108,7 @@ body {
 	.dropdown-menu {
 		padding-top 			: 0px;
 		margin-top				: 3px;
-		border					: 3px solid #4617B4;
+		border					: 3px solid @themeColor;
 		border-radius			: 0px;
 		background				: #FFFFFF;
 		vertical-align			: text-top;
@@ -126,17 +121,14 @@ body {
 		
 		li {
 			a {
-				color 			: #000;
-				padding 		: 0;
+				color 			: #000000;
+				padding 		: 0px;
 
 				&:hover {
-					background 	: #CCC;
-					// color: #FFFFFF;
+					background 	: #CCCCCC;
 				}
 			}
-
 		}
-
 	}
 }
 
@@ -162,16 +154,33 @@ body {
 
 .pageDetailsContainer {
 	border-radius 				: 0px;
-	border 						: 3px solid #4617B4;
+	border 						: 3px solid @themeColor;
 	padding 					: 20px 43px;
-	background-color 			: #ecf0f1;
+	background-color 			: #ECF0F1;
 }
 
 #aiSidebar {
 	border-radius 				: 0px;
-	border 						: 3px solid #4617B4;
-	background-color 			: #ecf0f1;
+	border 						: 3px solid @themeColor;
+	background-color 			: #ECF0F1;
 	min-height 					: 555px;
+}
+
+.commonLoadingContainer {
+	margin-left 				: 48%;
+	margin-top 					: 5%;
+	margin-bottom 				: 5%;
+
+	img {
+		width 					: 35px;
+		margin-left 			: 15px;
+	}
+
+	div {
+		text-align 				: left;
+		margin-top 				: 5px;
+		color 					: #999999;
+	}
 }
 
 // 2. Begin Modal styling ********************************************************************************************************************************
