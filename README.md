@@ -1,28 +1,42 @@
 askit
 =====
 
-Task List:
+*******************************************************************************
+TASK LIST
+*******************************************************************************
 
 High Priority
 
-1. Hook up question links from dashboard to question gallery.
-
-2. Hook up answer links from dashboard to answer gallery.
-
-3. Implement answer approval system.
-
-4. Implement answer viewing carousel 
+1. Dynamic question answer feed. Way overdue!!! 
 
 Medium Priority
 
-1. Sanity check for question / answer ids. Prevent user GET id not belonging to him.
 
 Low Priority
 
-1. Slowly shift to NodeJs api.
+1. Slowly shift to NodeJs api. Or Play! framework?
 
-2. User profile screen, with user aggregatde data.
+2. User profile screen, with user aggregated data.
 
 3. User settings page.
+
+4. User should not be able to rate the same answer twice.
+
+*******************************************************************************
+API CALLS SHAPE
+*******************************************************************************
+=> Successful Response
+
+{
+	"result" 	: "success",
+	"data" 		: {},
+}
+
+=> Erroneous Response
+
+{
+	"result" 	: "failure",
+	"error" 	: "",
+}
 
 askit

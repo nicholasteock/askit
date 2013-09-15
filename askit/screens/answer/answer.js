@@ -131,21 +131,25 @@ Screen.extend("Answer",
 	},
 
 	".ansDropdown li click": function( el, ev ) {
-		var ddElement 	= $(el).parent(),
-			ddContainer = ddElement.parent(),
-			ddName 		= ddElement.attr("id"),
-			ddOption 	= el.text(); 
+		var ddElement 	= 	$(el).parent(),
+			ddContainer = 	ddElement.parent(),
+			ddName 		= 	ddElement.attr("id"),
+			ddOption 	= 	el.text(),
+			level 		= 	$("#levelFilterContainer").find("button").text(),
+			subject		= 	$("#subjectFilterContainer").find("button").text(),
+			topic		= 	$("#topicFilterContainer").find("button").text(),
+			params 		= 	{
+								level 	: level === "All Levels" ? "All" : level,
+								subject : subject === "All Subjects" ? "All" : subject,
+								topic 	: topic === "All Topics" ? "All" : topic
+							};
 
-		ddContainer.find("button").html(ddOption);
-
-		var level 	= $("#levelFilterContainer").find("button").text(),
-			subject	= $("#subjectFilterContainer").find("button").text(),
-			topic	= $("#topicFilterContainer").find("button").text(),
-			params 	= {
-						level 	: level === "All Levels" ? "All" : level,
-						subject : subject === "All Subjects" ? "All" : subject,
-						topic 	: topic === "All Topics" ? "All" : topic
-			};
+		if( ddOption.indexOf("All ") === -1 ) {
+			ddContainer.find("button").html(ddOption).addClass("filterSelected");
+		}
+		else {
+			ddContainer.find("button").html(ddOption).removeClass("filterSelected");
+		}
 
 		this.filterQuestions( params );
 		return;
