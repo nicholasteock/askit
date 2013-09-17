@@ -26,7 +26,7 @@
 	else {
 		$queryFilters = implode( " AND ", $tmp );
 	}
-
+echo $queryFilters;
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
 	$queryResult = $mysqli->query( "SELECT * FROM question WHERE " . $queryFilters );
 

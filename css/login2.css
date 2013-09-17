@@ -21,9 +21,11 @@ body{font-size:14px;padding-top:50px;}
 #newUserModal #newUserGoogleSignIn{margin-top:15px;background-color:#FF0000;color:#FFFFFF;font-size:17px;font-weight:bold;}#newUserModal #newUserGoogleSignIn span{padding-top:4px;}
 #newUserModal #newUserGoogleSignIn:hover{opacity:0.8;}
 .carousel-control{padding-top:20%;color:#FFCC00;}.carousel-control:hover{color:#000;}
-#imgCarousel{position:static;max-height:90%;padding:0px;}#imgCarousel img{max-height:90%;width:100%;}
+#imgCarousel{position:static;max-height:90%;padding:0px;}#imgCarousel img{max-height:90%;width:100%;opacity:0.8;}
 #captionsCarousel{height:200px;position:absolute;top:40%;}#captionsCarousel .carouselNav{font-size:30px;color:#FFF;margin-top:60px;}#captionsCarousel .carouselNav.carouselPrev{z-index:100;position:absolute;left:30px;margin-left:30px;}
 #captionsCarousel .carouselNav.carouselNext{z-index:100;position:absolute;right:30px;margin-right:30px;}
-#captionsCarousel .captionContainer{z-index:90;font-weight:bold;color:#FFF;text-align:center;}#captionsCarousel .captionContainer .captionSection1{font-size:50px;font-weight:400;font-family:'Chronicle SSm A','Chronicle SSm B',Georgia,serif;font-style:italic;opacity:0.7;}
-#captionsCarousel .captionContainer .captionSection2{font-size:100px;font-weight:500;font-family:'Gotham A','Gotham B',sans-serif;}
+#captionsCarousel .carouselNav.inverse{color:#222;}
+#captionsCarousel .captionContainer{z-index:90;font-weight:bold;color:#FFF;text-align:center;}#captionsCarousel .captionContainer .captionSection1{font-size:50px;font-weight:400;font-family:'Chronicle SSm A','Chronicle SSm B',Georgia,serif;font-style:italic;opacity:0.7;}#captionsCarousel .captionContainer .captionSection1.inverse{color:#222;}
+#captionsCarousel .captionContainer .captionSection2{font-size:100px;font-weight:500;font-family:'Gotham A','Gotham B',sans-serif;}#captionsCarousel .captionContainer .captionSection2.inverse{color:#222;}
 #captionsCarousel .joinBtn{background:#FFF;opacity:1;font-size:14px;font-family:'Gotham SSm A','Gotham SSm B',sans-serif;padding:9px 45px 9px 42px;white-space:nowrap;border-radius:50px;color:#222;font-weight:bold;}#captionsCarousel .joinBtn:hover{opacity:0.75;}
+#captionsCarousel .joinBtn.inverse{border-color:#333;background:#333;color:#FFF;}

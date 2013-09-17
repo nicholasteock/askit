@@ -35,16 +35,16 @@
 	<div id="imgCarousel" class="carousel slide col-sm-12" data-interval="false">
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="img/bg_1.jpg">
+				<img src="img/pic1.jpg">
 			</div>
 			<div class="item">
-				<img src="img/bg_1.jpg">
+				<img src="img/pic2.jpg">
 			</div>
 			<div class="item">
-				<img src="img/bg_1.jpg">
+				<img src="img/pic3.jpg">
 			</div>
 			<div class="item">
-				<img src="img/bg_1.jpg">
+				<img src="img/pic4.jpg">
 			</div>
 		</div>
 	</div>
@@ -53,63 +53,63 @@
 		<div class="carousel-inner">
 			<div class="item active">
 				<div class="captionOverlay">
-					<span class="carouselNav carouselPrev">
+					<span class="carouselNav carouselPrev inverse">
 						<i class="icon-chevron-left"></i>
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1">
+							<div class="captionSection1 inverse">
 								Get help quickly when you
 							</div>
-							<div class="captionSection2">
+							<div class="captionSection2 inverse">
 								ASK
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2 inverse">Join Now</button>
 					</span>
-					<span class="carouselNav carouselNext">
+					<span class="carouselNav carouselNext inverse">
 						<i class="icon-chevron-right"></i>
 					</span>
 				</div>
 			</div>
 			<div class="item">
 				<div class="captionOverlay">
-					<span class="carouselNav carouselPrev">
+					<span class="carouselNav carouselPrev inverse">
 						<i class="icon-chevron-left"></i>
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1">
+							<div class="captionSection1 inverse">
 								Earn rewards and learn when you
 							</div>
-							<div class="captionSection2">
+							<div class="captionSection2 inverse">
 								ANSWER
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2 inverse">Join Now</button>
 					</span>
-					<span class="carouselNav carouselNext">
+					<span class="carouselNav carouselNext inverse">
 						<i class="icon-chevron-right"></i>
 					</span>
 				</div>
 			</div>
 			<div class="item">
 				<div class="captionOverlay">
-					<span class="carouselNav carouselPrev">
+					<span class="carouselNav carouselPrev inverse">
 						<i class="icon-chevron-left"></i>
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1">
+							<div class="captionSection1 inverse">
 								Hire tutors based on
 							</div>
-							<div class="captionSection2">
+							<div class="captionSection2 inverse">
 								CREDIBILITY
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
+						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2 inverse">Join Now</button>
 					</span>
-					<span class="carouselNav carouselNext">
+					<span class="carouselNav carouselNext inverse">
 						<i class="icon-chevron-right"></i>
 					</span>
 				</div>
