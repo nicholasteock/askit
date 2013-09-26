@@ -1,31 +1,32 @@
 html,body,table,tr,td,th,h1,h2,h3,h4,h5,p,div,img,form,dl,dt,dd{margin:0;padding:0;border:0;}
 td,th{font-weight:normal;text-align:left;}
 var{font-style:normal;}
-body{font-size:14px;padding-top:50px;}
-.navbar-fixed-top{background-color:#FEF3F3;}
-#loginNavMsg{display:none;border:1px solid #D35400;background-color:#F1C40F;padding:5px 11px;font-size:18px;color:#34495E;margin-right:30px;}
-#loginBtn{font-size:23px;color:#34495E;margin-right:15px;}#loginBtn:hover{cursor:pointer;}
+body{font-size:14px;}
+.navbar-fixed-top{background-color:transparent;border-bottom:none;padding-right:5%;padding-top:2%;}
+#loginNavMsg{display:none;border:1px solid #D35400;background-color:#F1C40F;padding:5px 11px;font-size:18px;color:#34495E;margin-right:1%;}
 .popover{width:400px;max-width:400px !important;top:50px !important;left:auto !important;right:20px;border-radius:0px;padding:0px;}.popover .popover-title{background-color:#16a085;border-radius:0px;color:#FFFFFF;}
 .popover .arrow{display:none;}
 .popover input{border-radius:0px;}.popover input:focus{box-shadow:none;border-color:#16a085;}
 .popover button{border-radius:0px;background-color:#1abc9c;border:1px solid #16a085;color:#FFFFFF;font-size:14px;}
-#newUserModal .modal-dialog{width:850px;}
-#newUserModal .modal-content{border-radius:0px;}
-#newUserModal .modal-header{background-color:#16A085;color:#FFFFFF;}
-#newUserModal .modal-body{height:300px;font-size:17px;}#newUserModal .modal-body input{border-radius:0px;}#newUserModal .modal-body input:focus{box-shadow:none;border-color:#16A085;}
-#newUserModal #newUserSubmit{background-color:#1ABC9C;border-radius:0px;border:1px solid #16A085;color:#FFFFFF;font-size:18px;}#newUserModal #newUserSubmit:hover{background-color:#EBEBEB;border-color:#ADADAD;color:#333;}
-#newUserModal #newUserSpinner{margin-left:15px;font-size:20px;}
-#newUserModal #newUserErrorMsg{padding:50px 0px 0px 0px;color:#FF0000;font-style:italic;}
-#newUserModal #newUserFbSignIn{background-color:#3B5998;color:#2C3E50;font-size:17px;font-weight:bold;}#newUserModal #newUserFbSignIn span{padding-top:4px;}
-#newUserModal #newUserFbSignIn:hover{opacity:0.8;}
-#newUserModal #newUserGoogleSignIn{margin-top:15px;background-color:#FF0000;color:#FFFFFF;font-size:17px;font-weight:bold;}#newUserModal #newUserGoogleSignIn span{padding-top:4px;}
-#newUserModal #newUserGoogleSignIn:hover{opacity:0.8;}
+.loginPageModal .modal-dialog{width:63%;}
+.loginPageModal .modal-content{border-radius:0px;}
+.loginPageModal .modal-header{background-color:#16A085;color:#FFFFFF;}
+.loginPageModal .modal-body{height:300px;font-size:17px;}.loginPageModal .modal-body input{border-radius:0px;}.loginPageModal .modal-body input:focus{box-shadow:none;border-color:#16A085;}
+.loginPageModal button{background-color:#1ABC9C;border-radius:0px;border:1px solid #16A085;color:#FFFFFF;font-size:18px;}.loginPageModal button:hover{background-color:#EBEBEB;border-color:#ADADAD;color:#333;}
+.loginPageModal #newUserSpinner{margin-left:15px;font-size:20px;}
+.loginPageModal #newUserErrorMsg{padding:50px 0px 0px 0px;color:#FF0000;font-style:italic;}
+.loginPageModal #newUserFbSignIn{background-color:#3B5998;color:#2C3E50;border-radius:5px;border:none;font-size:17px;font-weight:bold;}.loginPageModal #newUserFbSignIn span{padding-top:4px;}
+.loginPageModal #newUserFbSignIn:hover{opacity:0.8;}
+.loginPageModal #newUserGoogleSignIn{margin-top:15px;background-color:#FF0000;color:#FFFFFF;border-radius:5px;border:none;font-size:17px;font-weight:bold;}.loginPageModal #newUserGoogleSignIn span{padding-top:4px;}
+.loginPageModal #newUserGoogleSignIn:hover{opacity:0.8;}
 .carousel-control{padding-top:20%;color:#FFCC00;}.carousel-control:hover{color:#000;}
-#imgCarousel{position:static;max-height:90%;padding:0px;}#imgCarousel img{max-height:90%;width:100%;opacity:0.8;}
-#captionsCarousel{height:200px;position:absolute;top:40%;}#captionsCarousel .carouselNav{font-size:30px;color:#FFF;margin-top:60px;}#captionsCarousel .carouselNav.carouselPrev{z-index:100;position:absolute;left:30px;margin-left:30px;}
+#imgCarousel{height:100%;width:100%;padding:0px;}#imgCarousel .item{height:100%;}
+#imgCarousel img{height:100%;width:100%;opacity:0.8;}
+#captionsCarousel{height:15%;width:100%;position:absolute;top:30%;}#captionsCarousel .carouselNav{font-size:30px;margin-top:60px;}#captionsCarousel .carouselNav.carouselPrev{z-index:100;position:absolute;left:30px;margin-left:30px;}
 #captionsCarousel .carouselNav.carouselNext{z-index:100;position:absolute;right:30px;margin-right:30px;}
-#captionsCarousel .carouselNav.inverse{color:#222;}
-#captionsCarousel .captionContainer{z-index:90;font-weight:bold;color:#FFF;text-align:center;}#captionsCarousel .captionContainer .captionSection1{font-size:50px;font-weight:400;font-family:'Chronicle SSm A','Chronicle SSm B',Georgia,serif;font-style:italic;opacity:0.7;}#captionsCarousel .captionContainer .captionSection1.inverse{color:#222;}
-#captionsCarousel .captionContainer .captionSection2{font-size:100px;font-weight:500;font-family:'Gotham A','Gotham B',sans-serif;}#captionsCarousel .captionContainer .captionSection2.inverse{color:#222;}
-#captionsCarousel .joinBtn{background:#FFF;opacity:1;font-size:14px;font-family:'Gotham SSm A','Gotham SSm B',sans-serif;padding:9px 45px 9px 42px;white-space:nowrap;border-radius:50px;color:#222;font-weight:bold;}#captionsCarousel .joinBtn:hover{opacity:0.75;}
-#captionsCarousel .joinBtn.inverse{border-color:#333;background:#333;color:#FFF;}
+#captionsCarousel .captionContainer{z-index:90;font-weight:700;text-align:center;}#captionsCarousel .captionContainer .captionSection1{font-size:50px;font-weight:400;font-family:'Chronicle SSm A','Chronicle SSm B',Georgia,serif;font-style:italic;opacity:0.7;}
+#captionsCarousel .captionContainer .captionSection2{font-size:100px;font-weight:500;font-family:'Gotham A','Gotham B',sans-serif;}
+#captionsCarousel button{background:#FFF;opacity:1;font-size:14px;font-family:'Gotham SSm A','Gotham SSm B',sans-serif;padding-top:9px;padding-bottom:9px;white-space:nowrap;border-radius:50px;color:#222;font-weight:bold;width:16.67%;text-align:center;}#captionsCarousel button:hover{opacity:0.75;}
+#captionsCarousel button.inverseBtn{border-color:#333;background:#333;color:#FFF;}
+#captionsCarousel button.loginBtn{margin-left:3%;}
+.loginFont{color:#FFF;}.loginFont.inverseFont{color:#222;}

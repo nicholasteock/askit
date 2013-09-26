@@ -8,11 +8,14 @@ var {font-style:normal;}
 body {
 	// background-color: #FEF3F3;
 	font-size 				: 14px;
-	padding-top 			: 50px;
+	// padding-top 			: 50px;
 }
 
 .navbar-fixed-top {
-	background-color 		: #FEF3F3;
+	background-color 		: transparent;
+	border-bottom 			: none;
+	padding-right 			: 5%;
+	padding-top 			: 2%;
 }
 
 #loginNavMsg {
@@ -22,18 +25,23 @@ body {
 	padding 				: 5px 11px;
 	font-size 				: 18px;
 	color 					: #34495E;
-	margin-right 			: 30px;
+	margin-right 			: 1%;
 }
 
-#loginBtn {
-	font-size 				: 23px;
-	color 					: #34495E;
-	margin-right 			: 15px;
+// #loginBtn {
+// 	font-size 				: 18px;
+// 	font-weight 			: 700;
+// 	letter-spacing 			: 1px;
+// 	line-height 			: 21px;
+// 	font-family 			: 'Gotham A','Gotham B',sans-serif;
+// 	// color 					: #222;
+// 	// margin-right 			: 3%;
+// 	width 					: 10%;
 
-	&:hover {
-		cursor 				: pointer;
-	}
-}
+// 	&:hover {
+// 		cursor 				: pointer;
+// 	}
+// }
 
 .popover {
 	width 					: 400px;
@@ -72,35 +80,34 @@ body {
 	}
 }
 
-#newUserModal {
+.loginPageModal {
 	.modal-dialog {
-		width 				: 850px;
+		width 				: 63%;
 	}
 
 	.modal-content {
-		border-radius: 0px;
+		border-radius 		: 0px;
 	}
 
 	.modal-header {
-		background-color: #16A085;
-		color: #FFFFFF;
+		background-color 	: #16A085;
+		color 				: #FFFFFF;
 	}
 
 	.modal-body {
 		height 				: 300px;
 		font-size 			: 17px;
 		input {
-			border-radius: 0px;
+			border-radius 	: 0px;
 
 			&:focus {
-				box-shadow: none;
+				box-shadow 	: none;
 				border-color: #16A085;
 			}
 		}
-
 	}
 
-	#newUserSubmit {
+	button {
 		background-color: #1ABC9C;
 		border-radius: 0px;
 		border: 1px solid #16A085;
@@ -128,6 +135,8 @@ body {
 	#newUserFbSignIn {
 		background-color: #3B5998;
 		color: #2C3E50;
+		border-radius: 5px;
+		border: none;
 		font-size: 17px;
 		font-weight: bold;
 
@@ -144,6 +153,8 @@ body {
 		margin-top: 15px;
 		background-color: #FF0000;
 		color: #FFFFFF;
+		border-radius: 5px;
+		border: none;
 		font-size: 17px;
 		font-weight: bold;
 
@@ -167,25 +178,30 @@ body {
 }
 
 #imgCarousel {
-	position 				: static;
-	max-height 				: 90%;
-	padding: 0px;
+	//position 				: static;
+	height 					: 100%;
+	width 					: 100%;
+	padding 				: 0px;
+
+	.item {
+		height 				: 100%;
+	}
+
 	img {
-		max-height 			: 90%;
+		height 				: 100%;
 		width 				: 100%;
-		opacity: 0.8;
+		opacity 			: 0.8;
 	}
 }
 
 #captionsCarousel {
-	height 					: 200px;
-	//width 					: 100%;
+	height 					: 15%;
+	width 					: 100%;
 	position 				: absolute;
-	top 					: 40%;
+	top 					: 30%;
 
 	.carouselNav {
 		font-size 			: 30px;
-		color 				: #FFF;
 		margin-top 			: 60px;
 
 		&.carouselPrev {
@@ -202,15 +218,15 @@ body {
 			margin-right 	: 30px;
 		}
 
-		&.inverse {
-			color 				: #222;
-		}
+		// &.inverse {
+		// 	color 				: #222;
+		// }
 	}
 
 	.captionContainer {
 		z-index 			: 90;
-		font-weight 		: bold;
-		color 				: #FFF;
+		font-weight 		: 700;
+		// color 				: #FFF;
 		//width 				: 100%;
 		text-align 			: center;
 
@@ -221,9 +237,9 @@ body {
 			font-style 		: italic;
 			opacity 		: 0.7;
 
-			&.inverse {
-				color: #222;
-			}
+			// &.inverse {
+			// 	color: #222;
+			// }
 		}
 
 		.captionSection2 {
@@ -231,32 +247,47 @@ body {
 			font-weight 	: 500;
 			font-family 	: 'Gotham A', 'Gotham B', sans-serif;
 
-			&.inverse {
-				color: #222;
-			}
+			// &.inverse {
+			// 	color: #222;
+			// }
 		}
 
 	}
 
-	.joinBtn {
+	button {
 		background 			: #FFF;
 		opacity 			: 1;
 		font-size 			: 14px;
 		font-family 		: 'Gotham SSm A', 'Gotham SSm B', sans-serif;
-		padding 			: 9px 45px 9px 42px;
+		padding-top			: 9px;
+		padding-bottom		: 9px;
 		white-space 		: nowrap;
 		border-radius 		: 50px;
 		color 				: #222;
 		font-weight 		: bold;
+		width 				: 16.67%;
+		text-align 			:center;
 
 		&:hover {
 			opacity 		: 0.75;
 		}
 
-		&.inverse {
-			border-color 		: #333;
-			background 			: #333;
-			color 				: #FFF;
+		&.inverseBtn {
+			border-color 	: #333;
+			background 		: #333;
+			color 			: #FFF;
 		}
+
+		&.loginBtn {
+			margin-left 	: 3%;
+		}
+	}
+}
+
+.loginFont {
+	color: #FFF;
+
+	&.inverseFont {
+		color: #222;
 	}
 }

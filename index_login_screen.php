@@ -23,14 +23,14 @@
 <body>
 <div style="height: 100%; position: relative;">
 
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!-- 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="collapse navbar-collapse">
 			<p class="navbar-text navbar-right">
 				<span id="loginNavMsg"></span>
-				<span id="loginBtn">Log In</span>
+				<span id="loginBtn" class="loginFont inverseFont">Log In</span>
 			</p>
 		</div>
-	</nav>
+	</nav> -->
 
 	<div id="imgCarousel" class="carousel slide col-sm-12" data-interval="false">
 		<div class="carousel-inner">
@@ -51,63 +51,66 @@
 
 	<div id="captionsCarousel" class="carousel slide col-sm-12" data-interval="false">
 		<div class="carousel-inner">
-			<div class="item active">
+			<div class="item active inverseFont">
 				<div class="captionOverlay">
 					<span class="carouselNav carouselPrev inverse">
 						<i class="icon-chevron-left"></i>
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1 inverse">
+							<div class="captionSection1 loginFont inverseFont">
 								Get help quickly when you
 							</div>
-							<div class="captionSection2 inverse">
+							<div class="captionSection2 loginFont inverseFont">
 								ASK
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2 inverse">Join Now</button>
+						<button type="button" class="joinBtn inverseBtn">Join Now</button>
+						<button type="button" class="loginBtn inverseBtn">Sign In</button>
 					</span>
 					<span class="carouselNav carouselNext inverse">
 						<i class="icon-chevron-right"></i>
 					</span>
 				</div>
 			</div>
-			<div class="item">
+			<div class="item inverseFont">
 				<div class="captionOverlay">
 					<span class="carouselNav carouselPrev inverse">
 						<i class="icon-chevron-left"></i>
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1 inverse">
+							<div class="captionSection1 loginFont inverseFont">
 								Earn rewards and learn when you
 							</div>
-							<div class="captionSection2 inverse">
+							<div class="captionSection2 loginFont inverseFont">
 								ANSWER
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2 inverse">Join Now</button>
+						<button type="button" class="joinBtn inverseBtn">Join Now</button>
+						<button type="button" class="loginBtn inverseBtn">Sign In</button>
 					</span>
 					<span class="carouselNav carouselNext inverse">
 						<i class="icon-chevron-right"></i>
 					</span>
 				</div>
 			</div>
-			<div class="item">
+			<div class="item inverseFont">
 				<div class="captionOverlay">
 					<span class="carouselNav carouselPrev inverse">
 						<i class="icon-chevron-left"></i>
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1 inverse">
+							<div class="captionSection1 loginFont inverseFont">
 								Hire tutors based on
 							</div>
-							<div class="captionSection2 inverse">
+							<div class="captionSection2 loginFont inverseFont">
 								CREDIBILITY
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2 inverse">Join Now</button>
+						<button type="button" class="joinBtn inverseBtn">Join Now</button>
+						<button type="button" class="loginBtn inverseBtn">Sign In</button>
 					</span>
 					<span class="carouselNav carouselNext inverse">
 						<i class="icon-chevron-right"></i>
@@ -121,14 +124,15 @@
 					</span>
 					<span class="captionContainer col-sm-offset-2 col-sm-8">
 						<div class="captionContent">
-							<div class="captionSection1">
+							<div class="captionSection1 loginFont">
 								Prove yourself through
 							</div>
-							<div class="captionSection2">
+							<div class="captionSection2 loginFont">
 								RESULTS
 							</div>
 						</div>
-						<button type="button" class="joinBtn col-sm-offset-5 col-sm-2">Join Now</button>
+						<button type="button" class="joinBtn">Join Now</button>
+						<button type="button" class="loginBtn">Sign In</button>
 					</span>
 					<span class="carouselNav carouselNext">
 						<i class="icon-chevron-right"></i>
@@ -140,7 +144,7 @@
 </div>
 
 <!-- New User Registration Modal -->
-<div class="modal fade" id="newUserModal" tabIndex="-1" role="dialog">
+<div class="modal fade loginPageModal" id="newUserModal" tabIndex="-1" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -198,10 +202,48 @@
 	</div>
 </div>
 
+<div class="modal fade loginPageModal" id="loginModal" tabIndex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+				<h4 class="modal-title">Login</h4>
+			</div>
+			<div class="modal-body">
+				<form id="loginForm" class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/">
+					<div class="form-group">
+						<label for="email" class="col-sm-4 control-label">
+							Email : 
+						</label>
+						<div class="col-sm-8">
+							<input type="email" class="form-control" id="email" name="email">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-sm-4 control-label">
+							Password : 
+						</label>
+						<div class="col-sm-8">
+							<input type="password" class="form-control" id="password" name="password">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-8">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+</div>
+
 <script src="components/modernizr/jquery-1.9.1.min.js"></script>
 <script src="components/bootstrap3/js/bootstrap.min.js"></script>
 <script src="components/base64/base64.js"></script>
-<script id="jqcookieplugin" >
+<script id="jqcookieplugin">
 /*
  * Cookie plugin
  *
@@ -215,16 +257,6 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#loginBtn").popover({
-			animation 	: false,
-			html 		: true,
-			placement 	: "bottom",
-			trigger 	: "click",
-			title 		: '<h4>Sign In</h4>',
-			content 	: '<form id="loginForm" class="form-horizontal" role="form" method="post" onsubmit="doLogin();" action="/"><div class="form-group"><label for="email" class="col-sm-4 control-label">Email : </label><div class="col-sm-8"><input type="email" class="form-control" id="email" name="email"></div></div><div class="form-group"><label for="password" class="col-sm-4 control-label">Password : </label><div class="col-sm-8"><input type="password" class="form-control" id="password" name="password"></div></div><div class="form-group"><div class="col-sm-offset-4 col-sm-8"><button type="submit" class="btn btn-default">Submit</button></div></div></form>'
-		});
-
-		showLoginMsg();
 	});
 
 	var showLoginMsg = function() {
@@ -326,11 +358,11 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 		$(".captionOverlay").fadeIn(1300);
 	});
 
-	$("#newUserModal").on("show.bs.modal", function() {
+	$(".loginPageModal").on("show.bs.modal", function() {
 		clearTimeout(autoSlide);
 	});
 
-	$("#newUserModal").on("hide.bs.modal", function() {
+	$(".loginPageModal").on("hide.bs.modal", function() {
 		autoSlide 	= setTimeout( function() { clickNext(); }, slideDelay );
 	});
 
@@ -341,6 +373,10 @@ jQuery.cookie=function(name,value,options){if(typeof value!='undefined'){options
 
 	$(".joinBtn").click( function() {
 		$("#newUserModal").modal();
+	});
+
+	$(".loginBtn").click( function() {
+		$("#loginModal").modal();
 	});
 </script>
 </body>
