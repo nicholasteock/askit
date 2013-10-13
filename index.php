@@ -7,13 +7,13 @@
 
 
 $tokenExpiryTime 	= 24;
-$loginFile 			= "index_login_screen.php";
+$loginFile 			= "index_login_screen_v3.php";
 $postloginFile 		= "index_askit_screen.php";
 $is_httppost 		= $_SERVER["REQUEST_METHOD"] == 'POST';
 $hasAccessToken		= isset( $_COOKIE['accessToken']);
 $accessToken 		= $hasAccessToken ? $_COOKIE['accessToken'] : "";
-$hasLoginFormValue 	= isset( $_POST["email"] ) && isset( $_POST["password"] );
-$newUserLogin 		= isset( $_POST["newUserEmail"] ) && isset( $_POST["newUserPassword"]);
+$hasLoginFormValue 	= isset( $_POST["signin-email"] ) && isset( $_POST["signin-password"] );
+$newUserLogin 		= isset( $_POST["signup-email"] ) && isset( $_POST["signup-email"]);
 
 
 
@@ -81,10 +81,10 @@ function whoAmI( $accessToken ) {
 }
 
 if( $is_httppost && $hasLoginFormValue ) {
-	$accessToken = doLogin( $_POST["email"], $_POST["password"] );
+	$accessToken = doLogin( $_POST["signin-email"], $_POST["signin-password"] );
 }
 else if( $is_httppost && $newUserLogin ) {
-	$accessToken = doLogin( $_POST["newUserEmail"], $_POST["newUserPassword"] );
+	$accessToken = doLogin( $_POST["signup-email"], $_POST["signup-password"] );
 	//echo '<script type="text/javascript">alert("Access token is :' . $accessToken . '");</script>';
 }
 
