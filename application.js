@@ -124,7 +124,6 @@ $.Class("Askit.Application", {
 		
 		var routeInfo = Askit.RouteHelper.getRouteObjectFromUrlHash( location.hash ),
 			controller = this.routes[routeInfo.routeName];
-			
 		if(controller) {
 			this.createController( controller, { route: routeInfo } );
 		}
@@ -132,7 +131,19 @@ $.Class("Askit.Application", {
 			console.error("app.showScreen No screen found for " + location + ", redirecting to / " );
 		}
 	},
-	
+
+	showLoader: function() {
+		$("#loader").removeClass("hide");
+		$(".pageDetailsContainer").addClass("hide");
+		return;
+	},
+
+	hideLoader: function() {
+		$("#loader").addClass("hide");
+		$(".pageDetailsContainer").removeClass("hide");
+		return;
+	},
+
 	registerRoute: function(address, controller) {
 		//~ console.log("In registerRoute:   ", address, controller);
 		address = this._normalizeHash(address);

@@ -6,9 +6,9 @@
 // require_once( "ASKITAPI.php" );
 
 
-$tokenExpiryTime 	= 24;
+$tokenExpiryTime 	= 24; 
 $loginFile 			= "index_login_screen_v3.php";
-$postloginFile 		= "index_askit_screen.php";
+$postloginFile 		= "index_askit_screen_v3.php";
 $is_httppost 		= $_SERVER["REQUEST_METHOD"] == 'POST';
 $hasAccessToken		= isset( $_COOKIE['accessToken']);
 $accessToken 		= $hasAccessToken ? $_COOKIE['accessToken'] : "";

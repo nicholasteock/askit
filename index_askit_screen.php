@@ -17,7 +17,6 @@ $aiCss = array(
 	// Bootstrap 3 css
 	'components/bootstrap3/css/bootstrap.min.css',
 	'components/font-awesome/css/font-awesome.css',
-	'components/mathquill/mathquill.css',
 	
 	'css/index.css',
 	'css/ask.css',

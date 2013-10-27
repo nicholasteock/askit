@@ -8,11 +8,11 @@
 	<link href="img/favicon.png" rel="icon">
 	<link rel="stylesheet" type="text/css" href="components/bootstrap3/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="css/login_v3.css">
+	<link rel="stylesheet" type="text/css" href="css/askit_app.css">
 	<style type="text/css"></style>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<h1 class="center">
 		<span class="brand">
 			ASK <i class="icon-lightbulb"></i> IT!
