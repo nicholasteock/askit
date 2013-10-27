@@ -1,0 +1,11 @@
+TODO LIST
+
+1. Complete askitapi.js
+2. Change api calls to basic server calls for the time being i suppose.
+3. Complete login screen, meaning a 'User' state must be maintained.
+
+//Really slow process I know, but learning a lot in the process and that is rather important IMO.
+
+Give nup on doing backend api for now. Gonna be doing simple user login and access token exchange. That is pretty complex in itself.
+
+CHANGE DB CONNECTION IP TO SERVER IP
