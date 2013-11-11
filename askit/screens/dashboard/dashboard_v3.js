@@ -14,6 +14,10 @@ Screen.extend("Dashboard",
     app.setLocation( '/ask' );
   },
 
+  "#db_view_button click": function( el, ev ) {
+    app.setLocation( '/answer' );
+  }
+
 });
 window.routes["/"] = Dashboard;
 window.routes["/dashboard"] = Dashboard;

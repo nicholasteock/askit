@@ -99,7 +99,7 @@ $appJs = array(
 	'askit/screens/ask/ask_v3.js',
 	'askit/screens/ask/ask_classify_v3.js',
 	'askit/screens/ask/ask_submit_v3.js',
-	'askit/screens/answer/answer.js',
+	'askit/screens/answer/answer_v3.js',
 	'askit/screens/practice/practice.js',
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/qnGallery.js',
@@ -157,7 +157,10 @@ $aiHTML = array(
 	'askit/screens/ask/classify_dropdown_template_v3.html',
 
 	// Answer views
-	'askit/screens/answer/answer_view.html',
+	'askit/screens/answer/answer_view_v3.html',
+	'askit/screens/answer/answer_qn_view_v3.html',
+	'askit/screens/answer/answer_submit_success_view_v3.html',
+	'askit/screens/answer/answer_submit_fail_view_v3.html',
 	'askit/screens/answer/answer_qn_item_view.html',
 	'askit/screens/answer/no_qn_view.html',
 	'askit/screens/answer/answer_filter_dropdown_view.html',
