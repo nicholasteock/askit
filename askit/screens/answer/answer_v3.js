@@ -30,7 +30,7 @@ Screen.extend("Answer",
   },
 
   onLoadSingleQuestionDone: function( response ) {
-    console.log("In onLoadSingleQuestionDone. Reponse is : ", response);
+    console.log("In onLoadSingleQuestionDone. Response is : ", response);
     $(".stageContent").html("askit_screens_answer_answer_qn_view_v3", response.data);
     app.hideLoader();
     return;

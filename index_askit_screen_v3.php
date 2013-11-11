@@ -39,7 +39,10 @@ echo formatCss("ai", $aiCss)."\n";
 			<ul class="nav navbar-nav">
 				<li class="active"><a id="menu-dashboard" href="#/"><i class="fa fa-home"> </i> Home</a></li>
 				<li><a id="menu-ask" href="#/ask"><i class="fa fa-quote-left"> </i> Ask!</a></li>
-				<li><a id="menu-answer" href="#/answer"><i class="fa fa-star"> </i> Answer</a></li>
+				<li><a id="menu-answer" href="#/answer"><i class="fa fa-bullhorn"> </i> Answer</a></li>
+				<li><a id="menu-answer" href="#/yourQuestions"><i class="fa fa-folder"> </i> Your Questions</a></li>
+				<li><a id="menu-answer" href="#/yourAnswers"><i class="fa fa-folder"> </i> Your Answers</a></li>
+				<li><a id="menu-answer" href="#/settings"><i class="fa fa-cog"> </i> Settings</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 	    	<li><a href="javascript:" onclick="app.signout();"><i class="fa fa-times-circle"></i> Logout</a></li>
@@ -102,7 +105,7 @@ $appJs = array(
 	'askit/screens/answer/answer_v3.js',
 	'askit/screens/practice/practice.js',
 	'askit/screens/hire/hire.js',
-	'askit/screens/qnGallery/qnGallery.js',
+	'askit/screens/qnGallery/question_gallery_v3.js',
 	'askit/screens/ansGallery/ansGallery.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
 	'askit/screens/yourAnswer/yourAnswer.js',
@@ -143,6 +146,8 @@ $aiHTML = array(
 	// Question Gallery views
 	'askit/screens/qnGallery/qnGallery_view.html',
 	'askit/screens/qnGallery/qnGallery_question_item_view.html',
+	'askit/screens/qnGallery/question_gallery_view_v3.html',
+	'askit/screens/qnGallery/question_answers_view_v3.html',
 	
 	// Answer Gallery Views
 	'askit/screens/ansGallery/ansGallery_view.html',

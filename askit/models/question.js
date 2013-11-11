@@ -217,6 +217,36 @@ $.Model("QuestionModel",
 		return dfdResult;
 	},
 
+	findQuestionsByUserId: function(params) {
+		console.log("findQuestionsByUserId. Params is ", params);
+
+		var dfdResult = $.Deferred();
+
+		var onSuccess = function( response ) {
+			if( response.result === "success" ) {
+				return dfdResult.resolve( response.data );
+			}
+			else {
+				return onError( response );
+			}
+		};
+
+		var onError = function( response ) {
+			return dfdResult.reject(response);
+		};
+
+		$.ajax({
+				url 		: "server/findQuestionsByUserId.php",
+				type 		: "POST",
+				data 		: params,
+				dataType 	: "json",
+				success 	: onSuccess,
+				error 		: onError
+		});
+
+		return dfdResult;
+	},
+
 	findQuestionByAnsId: function(params) {
 		console.log("findQuestionByAnsId. Params is ", params);
 

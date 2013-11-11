@@ -1,0 +1,64 @@
+<section id="your-qn-container">
+  <div class="full center">
+    <div class="row">
+      <button class="toggle-qn btn btn-primary no-top-bottom top-gap">Show Question</button>
+      <button class="toggle-qn btn btn-primary no-top-bottom top-gap hide">Hide Question</button>
+    </div>
+    <div id="your-qn-content" class="row blank top-gap hide">
+      <div class="center">
+        <h4>Question</h4>
+        <img class="img-standard" src="http://placehold.it/500x250"/>
+      </div>
+      <div class="top-gap">
+        <p><%= this.question.content %></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="your-qn-answers-container">
+  <div class="full center">
+    <% if( this.answers.length == 0 ) { %>
+      <h3>There are no answers to this question yet!</h3>
+      <h3>Do check back soon!</h3>
+      <p><button class="go_home btn btn-primary full all-caps">Home</button></p>
+    <% } else { %>
+      <div id="your-qn-answer-0" class="row blank top-gap">
+        <div class="center">
+          <img class="img-standard" src="http://placehold.it/500x250"/>
+        </div>
+        <div class="top-gap">
+          <p><%=this.answers[0].content%></p>
+        </div>
+      </div>
+      <div id="your-qn-answer-approval-container-0" class="row blank top-gap">
+        <div id="your-qn-answer-approval-0" class="center">
+          <h2>Was This Helpful?</h2>
+          <button class="approve-button btn btn-primary half all-caps"><i class="fa fa-thumbs-up"></i> Yes!</button>
+          <button class="disapprove-button btn btn-primary half all-caps"><i class="fa fa-thumbs-down"></i> Nope.</button>
+        </div>
+      </div>
+    <% for( var i=1, iLen=this.answers.length; i<iLen; i++ ) { %>
+      <div id="your-qn-answer-<%=i%>" class="row blank top-gap hide">
+        <div class="center">
+          <img class="img-standard" src="http://placehold.it/500x250"/>
+        </div>
+        <div class="top-gap">
+          <p><%=this.answers[i].content%></p>
+        </div>
+      </div>
+      <div id="your-qn-answer-approval-container-<%=i%>" class="row blank top-gap hide">
+        <div id="your-qn-answer-approval-<%=i%>" class="center">
+          <h2>Was This Helpful?</h2>
+          <button class="approve-button btn btn-primary half all-caps"><i class="fa fa-thumbs-up"></i> Yes!</button>
+          <button class="disapprove-button btn btn-primary half all-caps"><i class="fa fa-thumbs-down"></i> Nope.</button>
+        </div>
+      </div>
+    <% }} %>
+    <div class="no-more-questions-container full center hide">
+      <h3>There are no more answers!</h3>
+      <p><button class="your-qn-back-button btn btn-primary full all-caps top-gap">View Another Question</button></p>
+      <p><button class="go_home btn btn-primary full all-caps">Home</button></p>
+    </div>
+  </div>
+</section>

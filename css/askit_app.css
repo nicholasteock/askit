@@ -4,6 +4,7 @@ textarea{width:100%;line-height:1.5em;padding:0.375em 0.375em;}
 .strong{font-weight:bold;}
 .blank{background-color:white;}
 .full{width:100%;}
+button.half{display:inline;width:49%;}
 .center{text-align:center;}
 .left{float:left;}
 .right{float:right;}
@@ -33,5 +34,5 @@ textarea{width:100%;line-height:1.5em;padding:0.375em 0.375em;}
 .size1of10{width:10%;}
 .lastUnit{float:none;width:auto;_position:relative;_left:-3px;_margin-right:-3px;}
 #loader{position:relative;top:33%;}
+.img-standard{width:100%;height:auto;max-height:300px;}
 #dashboard_container img{width:100%;height:auto;}
-#ask_menu_container img{width:100%;height:auto;max-height:300px;}
