@@ -1,0 +1,28 @@
+<section id="ask_menu_container">
+  <div class="full">
+    <% if( this.count == 0 ) { %>
+      <h3>There are no questions at the moment.</h3>
+      <p><button class="answer_go_home btn btn-primary full all-caps">Home</button></p>
+    <% } else { %>
+    <% for( var i=0, iLen=this.count; i<iLen; i++ ) { %>
+      <div class="row blank top-gap">
+        <div class="center">
+          <img src="http://placehold.it/500x250"/>
+        </div>
+        <div class="top-gap">
+          <p><%=this.questions[i].content%></p>
+        </div>
+        <div class="top-gap">
+          <div class="unit size1of2 strong">
+            <p>Level: <%=this.questions[i].level%></p>
+            <p>Subject: <%=this.questions[i].subject%></p>
+            <p>Topic: <%=this.questions[i].topic%></p>
+          </div>
+          <div class="unit size1of2">
+            <button id="answer-button-<%=this.questions[i].id%>" class="answer-button btn btn-primary full all-caps">Answer</button>
+          </div>
+        </div>
+      </div>
+    <% }} %>
+  </div>
+</section>
