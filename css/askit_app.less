@@ -1,13 +1,96 @@
-body { 
-	background-color 	: #ECF0F1;
-	line-height 		: 1.625em;
-	padding-top 		: 6em;
+html, body, div, span, object, iframe, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header,
+hgroup, menu, nav, section, menu,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
 }
 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
+}
+
+body { 
+  background-color  : #ECF0F1;
+  line-height     : 1.625em;
+  padding-top     : 6em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
 textarea {
+  font-family: "HelveticaNeue", Helvetica, Arial, sans-serif;
   width: 100%;
   line-height: 1.5em;
   padding: 0.375em 0.375em;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+input.error {
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 1em;
+  color: #666;
+}
+
+input.error {
+  background-color: #ffe0e0;
+}
+
+label.error {
+  // position: absolute;
+  top: 3em;
+  font-size: .75em;
+  margin-bottom: 0;
+}
+
+label.error,
+.blank label.error,
+.inset label.error {
+  color: #fe6465;
+  text-align: left;
+}
+
+label.error,
+.inset label.error {
+  width: 100%;
 }
 
 .navbar { 
@@ -99,4 +182,10 @@ button.half { display: inline; width: 49%; }
 #dashboard_container img {
   width: 100%;
   height: auto;
+}
+
+.error,
+.error figure,
+.grid .unit.error a figure {
+  border-color: #fe6465;
 }

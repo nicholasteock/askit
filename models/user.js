@@ -46,8 +46,6 @@ $.Model("User",
 	},
 
 	updateProfile: function( params ) {
-		console.log("User.updateProfile", params);
-
 		var dfdResult = $.Deferred();
 
 		var onSuccess = function( response ) {
@@ -76,8 +74,6 @@ $.Model("User",
 	},
 
 	updatePassword: function( params ) {
-		console.log("User.updatePassword");
-
 		var dfdResult = $.Deferred();
 
 		var onSuccess = function( response ) {

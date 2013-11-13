@@ -41,8 +41,8 @@ echo formatCss("ai", $aiCss)."\n";
 				<li><a id="menu-ask" href="#/ask"><i class="fa fa-quote-left"> </i> Ask!</a></li>
 				<li><a id="menu-answer" href="#/answer"><i class="fa fa-bullhorn"> </i> Answer</a></li>
 				<li><a id="menu-answer" href="#/yourQuestions"><i class="fa fa-folder"> </i> Your Questions</a></li>
-				<li><a id="menu-answer" href="#/yourAnswers"><i class="fa fa-folder"> </i> Your Answers</a></li>
-				<li><a id="menu-answer" href="#/settings"><i class="fa fa-cog"> </i> Settings</a></li>
+				<li><a id="menu-answer" href="#/yourAnswers"><i class="fa fa-star"> </i> Your Answers</a></li>
+				<li><a id="menu-answer" href="#/profile"><i class="fa fa-user"> </i> Profile</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 	    	<li><a href="javascript:" onclick="app.signout();"><i class="fa fa-times-circle"></i> Logout</a></li>
@@ -109,7 +109,7 @@ $appJs = array(
 	'askit/screens/ansGallery/ansGallery.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
 	'askit/screens/yourAnswer/yourAnswer.js',
-	'askit/screens/profile/profile.js',
+	'askit/screens/profile/profile_v3.js',
 	'askit/screens/statistics/statistics.js',
 	'askit/screens/lfkeong/lfkeong.js',
 	'askit/screens/sandbox/sandbox.js',
@@ -188,7 +188,7 @@ $aiHTML = array(
 	'askit/screens/yourAnswer/yourAnswer_stats_view.html',
 
 	// Profile views
-	'askit/screens/profile/profile_view.html',
+	'askit/screens/profile/profile_view_v3.html',
 
 	// Statistics views
 	'askit/screens/statistics/statistics_view.html',

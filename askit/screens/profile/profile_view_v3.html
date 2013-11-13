@@ -1,0 +1,51 @@
+<section>
+  <div class="row blank top-gap">
+    <h3 class="center">Edit Information</h3>
+    <h4 id="update-msg" class="center"></h4>
+    <form>
+      <fieldset>
+        <label for="username">Email</label>
+        <input type="text" id="username" name="username" value="<%=this.email%>" disabled>
+      </fieldset>
+      <fieldset>
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" value="<%=this.firstName%>">
+        <label for="firstname" id="firstname-error" class="error"></label>
+      </fieldset>
+      <fieldset>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" value="<%=this.lastName%>">
+        <label for="lastname" id="lastname-error" class="error"></label>
+      </fieldset>
+      <fieldset>
+        <button class="update-name-button btn btn-primary fulll all-caps top-gap">Update Profile</button>
+      </fieldset>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="row blank top-gap">
+    <h3 class="center">Change Password</h3>
+    <form>
+      <fieldset>
+        <label for="current-password">Current Password</label>
+        <input type="password" id="current-password" name="current-password">
+        <label for="current-password" id="current-password-error" class="error"></label>
+      </fieldset>
+      <fieldset>
+        <label for="new-password">New Password</label>
+        <input type="password" id="new-password" name="new-password">
+        <label for="new-password" id="new-password-error" class="error"></label>
+      </fieldset>
+      <fieldset>
+        <label for="rnew-password">Repeat New Password</label>
+        <input type="password" id="rnew-password" name="rnew-password">
+        <label for="rnew-password" id="rnew-password-error" class="error"></label>
+      </fieldset>
+      <fieldset>
+        <button class="change-password-button btn btn-primary fulll all-caps top-gap">Change Password</button>
+      </fieldset>
+    </form>
+  </div>
+</section>
