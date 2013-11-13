@@ -91,18 +91,21 @@ Screen.extend("Profile",
   onUpdateProfileDone: function( response ) {
     console.log( "In onUpdateProfileDone" );
     $("#update-msg").html("Profile updated successfully.");
+    $(window).scrollTop(1);
     return;
   },
 
   onUpdateProfileFail: function( response ) {
     console.error( "In onUpdateProfileFail. Response : ", response );
     $("#update-msg").html("Profile update failed. Please try again.");
+    $(window).scrollTop(1);
     return;
   },
 
   onUpdatePasswordDone: function( response ) {
     console.log( "In onUpdatePasswordDone." );
     $("#update-msg").html("Password updated successfully");
+    $(window).scrollTop(1);
     return;
   },
 
@@ -114,6 +117,7 @@ Screen.extend("Profile",
     else {
       $("#update-msg").html("Password update failed. Please try again.");
     }
+    $(window).scrollTop(1);
     return;
   },
 
