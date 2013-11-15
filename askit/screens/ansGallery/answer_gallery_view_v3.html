@@ -1,0 +1,27 @@
+<section>
+  <div class="full">
+    <% if( this.length == 0 ) { %>
+      <h3>You have not answered any questions.</h3>
+      <p><button class="go_home btn btn-primary full all-caps">Home</button></p>
+    <% } else { %>
+    <% for( var i=0, iLen=this.length; i<iLen; i++ ) { %>
+      <div class="row blank top-gap">
+        <div class="center">
+          <img class="img-standard" src="http://placehold.it/500x250"/>
+        </div>
+        <div class="top-gap">
+          <p><%=this[i].content%></p>
+        </div>
+        <div class="top-gap">
+          <div class="unit size1of2 strong">
+            <p>Approvals: <%=this[i].approval%></p>
+            <p>Disapprovals: <%=this[i].disapproval%></p>
+          </div>
+          <div class="unit size1of2">
+            <button id="view-details-button-<%=this[i].id%>" class="view-details-button btn btn-primary full all-caps">View Details</button>
+          </div>
+        </div>
+      </div>
+    <% }} %>
+  </div>
+</section>

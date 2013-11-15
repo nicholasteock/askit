@@ -97,17 +97,16 @@ Screen.extend("QuestionGallery",
   },
 
   onLoadUserQuestionsFail: function( response ) {
-    console.log("In onLoadUserQuestionsFail. Response: ", response );
+    console.error("In onLoadUserQuestionsFail. Response: ", response );
     return;
   },
 
   renderQuestionAnswerView: function() {
     if ( viewAnswerFlow.qnLoaded && viewAnswerFlow.ansLoaded ) {
       if( viewAnswerFlow.qnError || viewAnswerFlow.ansError ) {
-        console.log("Error in rendering question.");
+        console.error("Error in rendering question.");
         return;
       }
-      console.log("Ready to render question");
       $(".stageContent").html("askit_screens_qnGallery_question_answers_view_v3", viewAnswerFlow);
       app.hideLoader();
     }

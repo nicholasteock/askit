@@ -106,7 +106,7 @@ $appJs = array(
 	'askit/screens/practice/practice.js',
 	'askit/screens/hire/hire.js',
 	'askit/screens/qnGallery/question_gallery_v3.js',
-	'askit/screens/ansGallery/ansGallery.js',
+	'askit/screens/ansGallery/answer_gallery_v3.js',
 	'askit/screens/viewAnswer/viewAnswer.js',
 	'askit/screens/yourAnswer/yourAnswer.js',
 	'askit/screens/profile/profile_v3.js',
@@ -144,14 +144,12 @@ $aiHTML = array(
 	'askit/screens/dashboard/dashboard_answer_item_view.html',
 	
 	// Question Gallery views
-	'askit/screens/qnGallery/qnGallery_view.html',
-	'askit/screens/qnGallery/qnGallery_question_item_view.html',
 	'askit/screens/qnGallery/question_gallery_view_v3.html',
 	'askit/screens/qnGallery/question_answers_view_v3.html',
 	
 	// Answer Gallery Views
-	'askit/screens/ansGallery/ansGallery_view.html',
-	'askit/screens/ansGallery/ansGallery_answer_item_view.html',
+	'askit/screens/ansGallery/answer_gallery_view_v3.html',
+	'askit/screens/ansGallery/answer_details_view_v3.html',
 
 	// Ask views
 	'askit/screens/ask/ask_menu_v3.html',
