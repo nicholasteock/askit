@@ -19,7 +19,6 @@ $aiCss = array(
 	'components/font-awesome-4.0/css/font-awesome.min.css',
 
 	'css/askit_app.css',
-	'components/image-upload/style.css'
 );
 
 echo formatCss("ai", $aiCss)."\n";
@@ -81,12 +80,6 @@ $libJs = array(
 
 	// Lodash Utility
 	'components/lodash/lodash.min.js',
-
-	// Image Upload Utility
-	// 'components/image-upload/upload.js',
-	
-	// Mathquill plugin
-	// 'components/mathquill/mathquill.min.js',
 );
 
 $appJs = array(
