@@ -19,6 +19,7 @@ $aiCss = array(
 	'components/font-awesome-4.0/css/font-awesome.min.css',
 
 	'css/askit_app.css',
+	'components/image-upload/style.css'
 );
 
 echo formatCss("ai", $aiCss)."\n";
@@ -81,8 +82,8 @@ $libJs = array(
 	// Lodash Utility
 	'components/lodash/lodash.min.js',
 
-	// File Upload Utility
-	// 'components/jquery-file-upload/js/jquery.fileupload.js',
+	// Image Upload Utility
+	// 'components/image-upload/upload.js',
 	
 	// Mathquill plugin
 	// 'components/mathquill/mathquill.min.js',
@@ -154,6 +155,7 @@ $aiHTML = array(
 	// Ask views
 	'askit/screens/ask/ask_menu_v3.html',
 	'askit/screens/ask/ask_text_v3.html',
+	'askit/screens/ask/ask_image_v3.html',
 	'askit/screens/ask/ask_classify_view_v3.html',
 	'askit/screens/ask/ask_submit_success_view_v3.html',
 	'askit/screens/ask/ask_submit_fail_view_v3.html',

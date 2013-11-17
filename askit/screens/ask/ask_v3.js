@@ -20,7 +20,7 @@ Screen.extend("Ask",
 		if( options.route.params.method ) {
 			this.askMethod = options.route.params.method;
 			if( this.askMethod == "image" ) {
-				$(".stageContent").html( "askit_screens_ask_ask_image_v3", {} );
+				$(".stageContent").html( "askit_screens_ask_ask_image_v3", qnWorkflow );
 			}
 			if( this.askMethod == "text" ) {
 				$(".stageContent").html( "askit_screens_ask_ask_text_v3", {} );
@@ -44,8 +44,8 @@ Screen.extend("Ask",
 	},
 
 	"#ask_upload_existing_image click": function() {
-		qnWorkflow.method = "text";
-		app.setLocation( "/ask?method=" + qnWorkflow.method );
+		$("#uploadImage").click();
+		// app.setLocation( "/ask?method=" + qnWorkflow.method );
 	},
 
 	"#ask_take_new_image click": function() {
@@ -72,5 +72,67 @@ Screen.extend("Ask",
 			app.setLocation( "/ask/classify" );
 		}
 	},
+
+	"#uploadImage change": function( el, ev ) {
+		// Read files
+		var files = ev.target.files,
+				file 	= files[0];
+
+		// Ensure file is an image
+		if( file.type.match(/image.*/)) {
+			// Load image
+			var reader = new FileReader();
+			reader.onload = function( readerEvent ) {
+				var image = new Image();
+				image.onload = function( imageEvent ) {
+					// Resize image
+					var canvas 	= document.createElement('canvas'),
+							maxSize = 1200,
+							width 	= image.width,
+							height  = image.height;
+
+					if( width > height && width > maxSize ) {
+						height 	*= 	maxSize / width;
+						width 	= 	maxSize;
+					}
+					else {
+						width 	*= 	maxSize / height;
+						height 	= 	maxSize;
+					}
+					canvas.width 	= width;
+					canvas.height = height;
+					canvas.getContext('2d').drawImage( image, 0, 0, width, height );
+
+					// Upload image
+					var xhr = new XMLHttpRequest();
+					if( xhr.upload ) {
+						// File uploaded / failed
+						xhr.onreadystatechange = function( event ) {
+							if( xhr.readyState == 4 ) {
+								if( xhr.status == 200 ) {
+									// Assign image location to workflow
+									qnWorkflow.method = "image";
+									qnWorkflow.imageSrc = xhr.responseText;
+									console.log( "Image uploaded: " + xhr.responseText );
+									ev.target.value = "";
+									app.setLocation( "/ask?method=" + qnWorkflow.method );
+								}
+								else {
+									console.error( "Image failed." );
+								}
+							}
+						}
+
+						// Commence upload
+						xhr.open( 'post', 'server/process-upload.php', true );
+						xhr.send( canvas.toDataURL('image/jpeg') );
+					}
+				}
+				image.src = readerEvent.target.result;
+			}
+			reader.readAsDataURL(file);
+		}
+	},
+
 });
 window.routes["/ask"] = Ask;

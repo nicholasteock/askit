@@ -7,7 +7,7 @@ Screen.extend("Sandbox",
     this.element.html( "askit_screens_common_common_stage_v3", { title: "Sandbox" } );
     $(".stageContent").html( "askit_screens_sandbox_sandbox_view", {} );
     $(".mainMenu").collapse('hide'); // Hides dropdown nav
-    this.initFileUpload();
+    app.hideLoader();
   },
 
   initFileUpload: function() {
