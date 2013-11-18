@@ -11,7 +11,7 @@
 /*****************************************************************************************************/
 $.Class("Askit.Application", {
 
-	defaultPageTitle: "AskIt!",
+	defaultPageTitle: "AskIt!"
 
 },
 {
@@ -27,6 +27,8 @@ $.Class("Askit.Application", {
 		this._window		= $(window);
 
 		this._changeTemplateExtension("html");
+
+		this.defaultImagePath = "/server/image-store/";
 	},
 
 	authenticateUser: function() {

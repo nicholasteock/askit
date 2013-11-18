@@ -20,7 +20,8 @@ Screen.extend("Ask",
 		if( options.route.params.method ) {
 			this.askMethod = options.route.params.method;
 			if( this.askMethod == "image" ) {
-				$(".stageContent").html( "askit_screens_ask_ask_image_v3", qnWorkflow );
+				data = { imageSrc: app.defaultImagePath + qnWorkflow.imageSrc };
+				$(".stageContent").html( "askit_screens_ask_ask_image_v3", data );
 			}
 			if( this.askMethod == "text" ) {
 				$(".stageContent").html( "askit_screens_ask_ask_text_v3", {} );
@@ -28,6 +29,7 @@ Screen.extend("Ask",
 		}
 		// Show default menu
 		else {
+			qnWorkflow = {}; // Resets qnWorkflow
 			$(".stageContent").html( "askit_screens_ask_ask_menu_v3", {} );
 		}
 
@@ -40,17 +42,10 @@ Screen.extend("Ask",
 		}
 
 		app.hideLoader();
-		qnWorkflow = {}; // Resets qnWorkflow
 	},
 
-	"#ask_upload_existing_image click": function() {
-		$("#uploadImage").click();
-		// app.setLocation( "/ask?method=" + qnWorkflow.method );
-	},
-
-	"#ask_take_new_image click": function() {
-		qnWorkflow.method = "text";
-		app.setLocation( "/ask?method=" + qnWorkflow.method );
+	"#ask_upload_image click": function() {
+		$("#uploadQnImage").click();
 	},
 
 	"#ask_type_new click": function() {
@@ -73,7 +68,7 @@ Screen.extend("Ask",
 		}
 	},
 
-	"#uploadImage change": function( el, ev ) {
+	"#uploadQnImage change": function( el, ev ) {
 		// Read files
 		var files = ev.target.files,
 				file 	= files[0];
@@ -113,7 +108,6 @@ Screen.extend("Ask",
 									// Assign image location to workflow
 									qnWorkflow.method = "image";
 									qnWorkflow.imageSrc = xhr.responseText;
-									console.log( "Image uploaded: " + xhr.responseText );
 									ev.target.value = "";
 									app.setLocation( "/ask?method=" + qnWorkflow.method );
 								}

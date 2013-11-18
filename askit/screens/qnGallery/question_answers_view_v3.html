@@ -7,7 +7,11 @@
     <div id="your-qn-content" class="row blank top-gap hide">
       <div class="center">
         <h4>Question</h4>
-        <img class="img-standard" src="http://placehold.it/500x250"/>
+        <% if( this.question.type == "image" ) { %>
+          <div class="center">
+            <img class="img-standard" src="<%= this.imagePath %><%= this.question.image %>" alt="Image not found." />
+          </div>
+        <% } %>
       </div>
       <div class="top-gap">
         <p><%= this.question.content %></p>
@@ -25,7 +29,9 @@
     <% } else { %>
       <div id="your-qn-answer-0" class="row blank top-gap">
         <div class="center">
-          <img class="img-standard" src="http://placehold.it/500x250"/>
+          <% if( this.answers[0].image != "" ) { %>
+            <img class="img-standard" src="<%= this.imagePath %><%= this.answers[0].image %>"/>
+          <% } %>
         </div>
         <div class="top-gap">
           <p><%=this.answers[0].content%></p>
@@ -41,7 +47,9 @@
     <% for( var i=1, iLen=this.answers.length; i<iLen; i++ ) { %>
       <div id="your-qn-answer-<%=i%>" class="row blank top-gap hide">
         <div class="center">
-          <img class="img-standard" src="http://placehold.it/500x250"/>
+          <% if( this.answers[i].image != "" ) { %>
+            <img class="img-standard" src="<%= this.imagePath %><%= this.answers[i].image %>"/>
+          <% } %>
         </div>
         <div class="top-gap">
           <p><%=this.answers[i].content%></p>

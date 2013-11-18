@@ -7,7 +7,11 @@
     <div id="answer-qn-content" class="row blank top-gap hide">
       <div class="center">
         <h4>Question</h4>
-        <img class="img-standard" src="http://placehold.it/500x250"/>
+        <% if( this[0].type == "image" ) { %>
+          <div class="center">
+            <img class="img-standard" src="<%=this.imagePath%><%= this[0].image %>" alt="Image not found." />
+          </div>
+        <% } %>
       </div>
       <div class="top-gap">
         <p><%= this[0].content %></p>
@@ -18,12 +22,18 @@
 
 <section id="answer_container">
   <div class="full center">
+    <h4>Your Answer</h4>
+    <div class="row">
+      <div id="ansImagePreviewContainer" class="center">
+      </div>
+    </div>
     <div class="row">
       <p><textarea id="answer_text_content" rows="9" cols="35" placeholder="Type Your Answer Here."></textarea></p>
     </div>
     <div class="row">
+      <input type="file" id="uploadAnsImage" class="hide" />
       <p><button id="answer-msg" class="btn btn-info full all-caps hide" disabled></button></p>
-      <p><button id="answer-upload" class="btn btn-primary full all-caps">Upload Image</button></p>
+      <p><button id="ans_upload_image" class="btn btn-primary full all-caps top-gap">Upload Image</button></p>
       <p><button id="answer-submit-<%= this[0].id %>" class="answer-submit btn btn-primary full all-caps">GO!</button></p>
     </div>
   </div>

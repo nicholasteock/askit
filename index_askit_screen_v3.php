@@ -50,12 +50,12 @@ echo formatCss("ai", $aiCss)."\n";
 		</div>
 	</nav>
 </div>
-	
+
 <div id="ai-body">
 	<div id="ai-stage" class="col-lg-offset-1 col-lg-10">
 	</div>
 </div>
-	
+
 <!-- <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation"> -->
 <!-- </nav> -->
 <!-- TODO: Footer does not flow with scrolling

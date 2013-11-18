@@ -94,6 +94,7 @@ Screen.extend("AnswerGallery",
 
   onLoadUserAnswersDone: function( response ) {
     console.log("In onLoadUserAnswersDone. Response is : ", response );
+    response.imagePath = app.defaultImagePath;
     $(".stageContent").html("askit_screens_ansGallery_answer_gallery_view_v3", response);
     app.hideLoader();
     return;
@@ -110,6 +111,7 @@ Screen.extend("AnswerGallery",
         console.error("Error in rendering question.");
         return;
       }
+      viewQuestionFlow.imagePath = app.defaultImagePath;
       $(".stageContent").html("askit_screens_ansGallery_answer_details_view_v3", viewQuestionFlow);
       app.hideLoader();
     }

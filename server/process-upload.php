@@ -20,4 +20,4 @@ unset($data);
 unset($image);
 
 // Return file URL
-echo '/server/image-store/'.$filename;
+echo $filename;

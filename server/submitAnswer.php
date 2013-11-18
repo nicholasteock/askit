@@ -1,10 +1,11 @@
 <?php
-	$id 		= $_REQUEST["id"];
+	$id 			= $_REQUEST["id"];
 	$content 	= $_REQUEST["content"];
 	$author 	= $_REQUEST["author"];
+	$image 		=	isset($_REQUEST['imageSrc']) ? $_REQUEST["imageSrc"] : "";
 	
 	$mysqli = new mysqli('askitdb.cvumcgqvkpk0.us-west-2.rds.amazonaws.com', 'nicholasteo', 'nicholasteo', 'askitdb');
-	$queryResult = $mysqli->query( "INSERT INTO answer (`id`, `qnId`, `content`, `author`, `timestamp`) VALUES ( NULL, '" . $id . "', '" . $content . "', '" . $author . "', CURRENT_TIMESTAMP);" );
+	$queryResult = $mysqli->query( "INSERT INTO answer (`id`, `qnId`, `content`, `image`, `author`, `timestamp`) VALUES ( NULL, '" . $id . "', '" . $content . "', '" . $image . "', '" . $author . "', CURRENT_TIMESTAMP);" );
 	
 	if( $queryResult ) {
 		$result = array( "result" => "success" );
