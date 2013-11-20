@@ -79,8 +79,8 @@
 	</form>
 </div>
 
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-</nav>
+<!-- <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+</nav> -->
 
 <script src="components/modernizr/jquery-1.9.1.min.js"></script>
 <script src="components/bootstrap3/js/bootstrap.min.js"></script>
