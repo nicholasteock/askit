@@ -5,7 +5,7 @@ Screen.extend("Dashboard",
     this.stageCssClass = "aiscreen-" + this.Class.shortName;
     this.__base__setupDefaultStage();   //screens.js
     this.element.html( "askit_screens_common_common_stage_v3", { title: ""} );
-    $(".stageContent").html( "askit_screens_dashboard_dashboard_view_v3", {} );
+    $(".stageContent").html( "askit_screens_dashboard_dashboard_view_v3", { name: app.currentUser.firstLastName() } );
     $(".mainMenu").collapse('hide'); // Hides dropdown nav
     app.hideLoader();
   },

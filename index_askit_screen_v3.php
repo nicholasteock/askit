@@ -45,6 +45,7 @@ echo formatCss("ai", $aiCss)."\n";
 				<li><a id="menu-answer" href="#/profile"><i class="fa fa-user"> </i> Profile</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+	    	<li><a id="menu-rewards" href="#/rewards"><i class="fa fa-shopping-cart"></i> Rewards</a></li>
 	    	<li><a href="javascript:" onclick="app.signout();"><i class="fa fa-times-circle"></i> Logout</a></li>
 	    </ul>
 		</div>
@@ -105,6 +106,7 @@ $appJs = array(
 	'askit/screens/yourAnswer/yourAnswer.js',
 	'askit/screens/profile/profile_v3.js',
 	'askit/screens/statistics/statistics.js',
+	'askit/screens/rewards/rewards_v3.js',
 	'askit/screens/lfkeong/lfkeong.js',
 	'askit/screens/sandbox/sandbox.js',
 	
@@ -187,6 +189,9 @@ $aiHTML = array(
 	'askit/screens/statistics/statistics_view.html',
 	'askit/screens/statistics/statistics_qn_statistics_view.html',
 	'askit/screens/statistics/statistics_ans_statistics_view.html',
+
+	// Rewards views
+	'askit/screens/rewards/rewards_view_v3.html',
 
 	// LFKEONG PRACTICE VIEWS
 	'askit/screens/lfkeong/lfkeong_view.html',
