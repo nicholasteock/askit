@@ -4,7 +4,7 @@
       <h3>You have not asked any questions.</h3>
       <p><button class="go_home btn btn-primary full all-caps">Home</button></p>
     <% } else { %>
-    <% for( var i=0, iLen=this.length; i<iLen; i++ ) { %>
+    <% for( var i=this.length-1; i>=0; i-- ) { %>
       <div class="row blank top-gap">
         <div class="center">
           <% if( this[i].type == "image" ) { %>
